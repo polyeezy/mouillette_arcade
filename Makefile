@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ## 
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Mon Mar  7 18:15:39 2016 Valerian Polizzi
+## Last update Mon Mar  7 18:38:16 2016 Loïc Weinhard
 ##
 
 NAME		=		arcade
@@ -31,7 +31,7 @@ clean		:
 				$(MR_CLEAN)
 				rm -f $(OBJ)
 
-fclean		:
+fclean		:		clean
 				rm -f $(NAME)
 
 re		:		clean all
