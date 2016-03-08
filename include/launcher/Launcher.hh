@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:04:44 2016 Valerian Polizzi
-// Last update Tue Mar  8 11:43:18 2016 Valerian Polizzi
+// Last update Tue Mar  8 15:23:40 2016 Valerian Polizzi
 //
 
 #ifndef _LAUNCHER_HH_
@@ -23,6 +23,7 @@ class Launcher : public AEntity
 private:
   Menu			_menu;
   GraphicManager	_gm;
+  std::string		_name;
 public:
   Launcher();
   ~Launcher();

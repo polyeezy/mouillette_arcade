@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar  8 14:36:14 2016 Valerian Polizzi
+// Last update Tue Mar  8 15:01:38 2016 Valerian Polizzi
 //
 
 #include <GraphicManager.hh>
@@ -37,7 +37,7 @@ void		GraphicManager::refresh()
 void		GraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
 {
   _surfaces[name] = caca_get_canvas((caca_display_t*)_Window);
-  //  caca_set_canvas_size((caca_canvas_t*)_surfaces[name], x, y);
+  caca_set_canvas_size((caca_canvas_t*)_surfaces[name], x, y);
 }
 
 void		GraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
@@ -45,6 +45,8 @@ void		GraphicManager::addTextToSurface(const std::string &surface, const int x, 
   caca_free_canvas((caca_canvas_t*)_surfaces[surface]);
   this->createSurface(x, y, x, x, surface);
   caca_set_color_ansi((caca_canvas_t*)_surfaces[surface], CACA_RED, CACA_WHITE);
+  caca_put_str((caca_canvas_t*)_surfaces[surface], x, y, "                    ");
+  this->refresh();
   caca_put_str((caca_canvas_t*)_surfaces[surface], x, y, text.c_str());
 
 }
