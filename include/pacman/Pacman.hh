@@ -5,13 +5,13 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:54:19 2016 Loïc Weinhard
-// Last update Tue Mar  8 17:02:16 2016 Loïc Weinhard
+// Last update Tue Mar  8 17:48:48 2016 Loïc Weinhard
 //
 
 #ifndef PACMAN_HH_
 # define PACMAN_HH_
 
-# include <Protocol.hh>
+# include <Protocol.hpp>
 # include "AEntity.hh"
 
 class	Pacman : public AEntity
