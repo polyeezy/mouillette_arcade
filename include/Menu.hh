@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:23:33 2016 Valerian Polizzi
-// Last update Mon Mar  7 18:04:03 2016 Valerian Polizzi
+// Last update Tue Mar  8 09:59:22 2016 Valerian Polizzi
 //
 
 #ifndef _MENU_HH_
@@ -21,11 +21,19 @@ class Menu : public AEntity
 private:
   std::vector<MenuItem*>	_games;
   std::vector<MenuItem*>	_libs;
+  size_t			gm_active;
+  size_t			lm_active;
 public:
   Menu();
   ~Menu();
   void		addGame(const std::string &);
   void		addLib(const std::string &);
+  MenuItem	*getCurrentGame();
+  MenuItem	*getCurrentLib();
+  size_t	getGameIndex() const;
+  size_t	getLibIndex() const;
+  void		nextGame();
+  void		nextLib();
   void		print();
 };
 

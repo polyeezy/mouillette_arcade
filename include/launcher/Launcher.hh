@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:04:44 2016 Valerian Polizzi
-// Last update Mon Mar  7 18:04:10 2016 Valerian Polizzi
+// Last update Tue Mar  8 10:05:09 2016 Valerian Polizzi
 //
 
 #ifndef _LAUNCHER_HH_
@@ -26,6 +26,9 @@ public:
   ~Launcher();
   void		print();
   void		feedFromRepo(const std::string &repo);
+  void		getKeys();
+  void		nextGame();
+  void		nextLib();
 };
 
 #endif

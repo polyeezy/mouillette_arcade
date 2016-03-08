@@ -5,13 +5,15 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Mon Mar  7 18:05:11 2016 Valerian Polizzi
+// Last update Tue Mar  8 10:06:38 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
 
 Launcher::Launcher()
 {
+  _menu.addGame("Select a game");
+  _menu.addLib("Select a lib");
   this->feedFromRepo("games");
   this->feedFromRepo("lib");
 }
@@ -42,6 +44,23 @@ void		Launcher::feedFromRepo(const std::string &repo)
     std::cout << "repo " << repo << "not found" << std::endl;
 }
 
+void		Launcher::getKeys()
+{
+
+}
+
+void		Launcher::nextGame()
+{
+  _menu.nextGame();
+}
+
+void		Launcher::nextLib()
+{
+  _menu.nextLib();
+}
+
 void		Launcher::print()
 {
+  std::cout << _menu.getCurrentGame()->getValue() << std::endl;
+  std::cout << _menu.getCurrentLib()->getValue() << std::endl;
 }

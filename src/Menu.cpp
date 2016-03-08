@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:33:28 2016 Valerian Polizzi
-// Last update Mon Mar  7 18:00:29 2016 Valerian Polizzi
+// Last update Tue Mar  8 10:07:55 2016 Valerian Polizzi
 //
 
 #include <Menu.hh>
@@ -13,6 +13,8 @@
 
 Menu::Menu()
 {
+  this->gm_active = 0;
+  this->lm_active = 0;
 }
 
 Menu::~Menu()
@@ -24,12 +26,47 @@ void		Menu::addGame(const std::string &game)
   _games.push_back(new MenuItem(game));
 }
 
+void		Menu::nextGame()
+{
+  if (gm_active + 1 == _games.size())
+    gm_active = 1;
+  else
+    gm_active++;
+}
+
+size_t		Menu::getGameIndex() const
+{
+  return (this->gm_active);
+}
+
+size_t		Menu::getLibIndex() const
+{
+  return (this->lm_active);
+}
+
+void		Menu::nextLib()
+{
+    if (lm_active + 1 == _games.size())
+    lm_active = 1;
+  else
+    lm_active++;
+}
+
 void		Menu::addLib(const std::string &game)
 {
-  std::cout << _libs.size() << std::endl;
   MenuItem	*item = new MenuItem(game);
 
   _libs.push_back(item);
+}
+
+MenuItem	*Menu::getCurrentGame()
+{
+  return (_games[this->getGameIndex()]);
+}
+
+MenuItem	*Menu::getCurrentLib()
+{
+    return (_libs[this->getLibIndex()]);
 }
 
 void		Menu::print()
