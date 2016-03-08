@@ -9,6 +9,7 @@
 #ifndef			__ARCADE_PROTOCOL_HPP__
 # define		__ARCADE_PROTOCOL_HPP__
 # include		<stdint.h>
+# include		<stdlib.h>
 
 namespace		arcade
 {
@@ -55,6 +56,11 @@ namespace		arcade
     CommandType		type;
     uint16_t		lenght;
     Position		position[0];
+  } __attribute__((packed));
+  struct		Size
+  {
+    size_t		height;
+    size_t		width;
   } __attribute__((packed));
 }
 
