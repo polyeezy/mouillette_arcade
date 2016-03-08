@@ -1,11 +1,11 @@
 ##
 ## Makefile for Arcade in /home/polyeezy/rendu/CPP/mouillette_arcade
-## 
+##
 ## Made by Valerian Polizzi
 ## Login   <polyeezy@epitech.net>
-## 
+##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Tue Mar  8 11:36:37 2016 Valerian Polizzi
+## Last update Tue Mar  8 23:14:57 2016 Alexis Miele
 ##
 
 NAME		=		arcade
@@ -16,6 +16,7 @@ SRC		=		src/main.cpp		\
 				src/Menu.cpp		\
 				src/launcher/Launcher.cpp	\
 				src/GraphicManager.cpp		\
+				src/ScoreManager.cpp		\
 
 OBJ		=		$(SRC:.cpp=.o)
 
