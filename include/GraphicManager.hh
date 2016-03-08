@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:18:53 2016 Valerian Polizzi
-// Last update Tue Mar  8 12:43:19 2016 Valerian Polizzi
+// Last update Tue Mar  8 16:49:53 2016 Valerian Polizzi
 //
 
 #ifndef _GRAPHICMANAGER_HH_
@@ -22,6 +22,7 @@ private:
   void		*_Window;
   void		*_Content;
   std::map<const std::string, void *>	_surfaces;
+  size_t	_focus;
   public:
   GraphicManager();
   ~GraphicManager();
@@ -30,6 +31,7 @@ private:
   void		refresh();
   void		createSurface(const int x, const int y, const int h, const int w, const std::string &name);
   void		addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text);
+  void		moveCursorUp();
   int		getKey() const;
 };
 

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:33:28 2016 Valerian Polizzi
-// Last update Tue Mar  8 14:30:19 2016 Valerian Polizzi
+// Last update Tue Mar  8 16:36:29 2016 Valerian Polizzi
 //
 
 #include <Menu.hh>
@@ -29,7 +29,7 @@ void		Menu::addGame(const std::string &game)
 void		Menu::nextGame()
 {
   if (gm_active + 1 >= _games.size())
-    gm_active = 1;
+    gm_active = 0;
   else
     gm_active++;
 }
@@ -47,7 +47,7 @@ size_t		Menu::getLibIndex() const
 void		Menu::nextLib()
 {
   if (lm_active + 1 >= _libs.size())
-    lm_active = 1;
+    lm_active = 0;
   else
     lm_active++;
 }
