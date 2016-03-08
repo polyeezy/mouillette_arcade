@@ -5,11 +5,10 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Tue Mar  8 15:06:08 2016 Loïc Weinhard
+// Last update Tue Mar  8 15:37:10 2016 Loïc Weinhard
 //
 
 #include <algorithm>
-#include <sstream>
 #include <fstream>
 #include "map.hh"
 
@@ -38,33 +37,33 @@ Map::Map(const std::string &file)
       _gums += std::count(_map[i].begin(), _map[i].end(), '0');
       if (_map[i].find("P") != std::string::npos)
 	{
-	  _doorY = i;
-	  _doorX = _map[i].find("P");
+	  _door.y = i;
+	  _door.x = _map[i].find("P");
 	}
       i += 1;
     }
 }
 
-char	Map::getPos(int y, int x) const
+char	Map::getPos(const arcade::Position pos) const
 {
-  return (_map[y][x]);
+  return (_map[pos.y][pos.x]);
 }
 
-void	Map::deleteObj(int y, int x)
+void	Map::deleteObj(const arcade::Position pos)
 {
-  if (_map[y][x] == '0')
+  if (_map[pos.y][pos.x] == '0')
     _gums -= 1;
-  _map[y][x] = 'x';
+  _map[pos.y][pos.x] = 'x';
 }
 
 void	Map::openCage()
 {
-  _map[_doorY][_doorX] = 'x';
+  _map[_door.y][_door.x] = 'x';
 }
 
 void	Map::closeCage()
 {
-  _map[_doorY][_doorX] = 'P';
+  _map[_door.y][_door.x] = 'P';
 }
 
 bool	Map::hasGums()
