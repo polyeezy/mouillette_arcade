@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ## 
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Mon Mar  7 18:38:16 2016 Loïc Weinhard
+## Last update Tue Mar  8 11:36:37 2016 Valerian Polizzi
 ##
 
 NAME		=		arcade
@@ -15,8 +15,12 @@ SRC		=		src/main.cpp		\
 				src/MenuItem.cpp	\
 				src/Menu.cpp		\
 				src/launcher/Launcher.cpp	\
+				src/GraphicManager.cpp		\
 
 OBJ		=		$(SRC:.cpp=.o)
+
+
+LDFLAGS		+=		-lcaca
 
 CPPFLAGS	+=		-W -Werror -Wextra -I./include -I./include/launcher -std=c++11
 
@@ -25,7 +29,7 @@ MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delet
 all		:		$(NAME)
 
 $(NAME)		:		$(OBJ)
-				g++ $(OBJ) -o $(NAME) $(CPPFLAGS)
+				g++ $(OBJ) -o $(NAME) $(CPPFLAGS) $(LDFLAGS)
 
 clean		:
 				$(MR_CLEAN)
