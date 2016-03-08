@@ -5,28 +5,29 @@
 ## Login   <weinha_l@epitech.net>
 ## 
 ## Started on  Mon Mar  7 17:52:15 2016 Loïc Weinhard
-## Last update Mon Mar  7 17:55:35 2016 Loïc Weinhard
+## Last update Tue Mar  8 12:21:10 2016 Loïc Weinhard
 ##
 
-SRC	=	main.cpp
+SRC		=	main.cpp	\
+			map.cpp		\
 
-OBJ	=	$(SRC:.c=.o)
+OBJ		=	$(SRC:.cpp=.o)
 
-NAME	=	pacman_nographics
+NAME		=	pacman_nographics
 
-CFLAGS	+=	-Wall -Werror -Wextra
+CPPFLAGS	+=	-Wall -Werror -Wextra -I../../include/pacman
 
-$(NAME)	:	$(OBJ)
+all		:	$(NAME)
 
-all	:	$(NAME)
-		g++ $(OBJ) -o $(NAME)
+$(NAME)		:	$(OBJ)
+			g++ $(OBJ) -o $(NAME)
 
-clean	:
-		rm -f $(OBJ)
+clean		:
+			rm -f $(OBJ)
 
-fclean	:	clean
-		rm -f $(NAME)
+fclean		:	clean
+			rm -f $(NAME)
 
-re	:	fclean all
+re		:	fclean all
 
-.PHONY	:	all re clean fclean
+.PHONY		:	all re clean fclean
