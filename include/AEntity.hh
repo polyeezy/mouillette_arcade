@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:16:58 2016 Valerian Polizzi
-// Last update Tue Mar  8 17:03:46 2016 Loïc Weinhard
+// Last update Wed Mar  9 11:31:08 2016 Valerian Polizzi
 //
 
 #ifndef _AENTITY_HH_
@@ -21,6 +21,7 @@ private:
   arcade::Position	_pos;
   float			_speed;
 public:
+  AEntity();
   AEntity(const arcade::Size, const arcade::Position, const float);
   virtual ~AEntity();
   arcade::Size	getSize() const;
