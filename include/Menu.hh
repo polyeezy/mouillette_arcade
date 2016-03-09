@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:23:33 2016 Valerian Polizzi
-// Last update Tue Mar  8 16:36:24 2016 Valerian Polizzi
+// Last update Wed Mar  9 11:34:03 2016 Valerian Polizzi
 //
 
 #ifndef _MENU_HH_
@@ -21,6 +21,7 @@ class Menu : public AEntity
 private:
   std::vector<MenuItem*>	_games;
   std::vector<MenuItem*>	_libs;
+  size_t			nb_items;
   size_t			gm_active;
   size_t			lm_active;
 public:

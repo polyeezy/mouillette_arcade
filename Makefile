@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Tue Mar  8 23:14:57 2016 Alexis Miele
+## Last update Wed Mar  9 11:36:07 2016 Valerian Polizzi
 ##
 
 NAME		=		arcade
@@ -17,6 +17,7 @@ SRC		=		src/main.cpp		\
 				src/launcher/Launcher.cpp	\
 				src/GraphicManager.cpp		\
 				src/ScoreManager.cpp		\
+				src/ControllerManager.cpp	\
 
 OBJ		=		$(SRC:.cpp=.o)
 
