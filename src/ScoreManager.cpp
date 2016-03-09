@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Tue Mar  8 15:48:16 2016 Alexis Miele
-// Last update Tue Mar  8 23:10:09 2016 Alexis Miele
+// Last update Wed Mar  9 11:32:34 2016 Alexis Miele
 //
 
 #include "ScoreManager.hh"
@@ -105,7 +105,7 @@ void ScoreManager::exportHighscore()
     file.open(_path.c_str(), std::ofstream::out | std::ofstream::trunc);
     if (file.is_open())
     {
-        for (int i = 0; i < _highscore.size(); i++)
+        for (size_t i = 0; i < _highscore.size(); i++)
         {
             file << _highscore[i] << "\n";
         }
@@ -116,7 +116,7 @@ void ScoreManager::exportHighscore()
 void ScoreManager::printHighscore() const
 {
     std::cout << "--- SCORE : ---" << std::endl;
-    for (int i = 0; i < _highscore.size(); i++)
+    for (size_t i = 0; i < _highscore.size(); i++)
     {
         std::cout << "\t" << _highscore[i].substr(0, _highscore[i].find(":")) << "\t" << _highscore[i].substr(_highscore[i].find(":")) << std::endl;
     }
