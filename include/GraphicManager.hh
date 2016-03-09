@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:18:53 2016 Valerian Polizzi
-// Last update Tue Mar  8 16:49:53 2016 Valerian Polizzi
+// Last update Wed Mar  9 10:48:44 2016 Valerian Polizzi
 //
 
 #ifndef _GRAPHICMANAGER_HH_
@@ -15,6 +15,9 @@
 
 # include <string>
 # include <map>
+# include <stdint.h>
+# include <Protocol.hpp>
+
 
 class GraphicManager
 {
@@ -32,7 +35,8 @@ private:
   void		createSurface(const int x, const int y, const int h, const int w, const std::string &name);
   void		addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text);
   void		moveCursorUp();
-  int		getKey() const;
+  arcade::CommandType getKey() const;
+  void		*getWindow();
 };
 
 #endif

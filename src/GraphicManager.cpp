@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar  8 16:53:18 2016 Valerian Polizzi
+// Last update Wed Mar  9 10:48:21 2016 Valerian Polizzi
 //
 
 #include <GraphicManager.hh>
@@ -59,12 +59,35 @@ void		GraphicManager::addTextToSurface(const std::string &surface, const int x, 
 
 }
 
-int		GraphicManager::getKey() const
+void		*GraphicManager::getWindow()
+{
+  return (_Window);
+}
+
+arcade::CommandType		GraphicManager::getKey() const
 {
   caca_event_t	ev;
-  char		c;
+  int		c;
 
   caca_get_event((caca_display_t*)_Window, CACA_EVENT_KEY_PRESS, &ev, -1);
   c = caca_get_event_key_ch(&ev);
-  return (c);
+  switch (c)
+    {
+    case CACA_KEY_UP:
+      return (arcade::CommandType::GO_UP);
+      break;
+    case CACA_KEY_DOWN:
+      return (arcade::CommandType::GO_DOWN);
+      break;
+        case CACA_KEY_LEFT:
+      return (arcade::CommandType::GO_LEFT);
+      break;
+    case CACA_KEY_RIGHT:
+      return (arcade::CommandType::GO_RIGHT);
+      break;
+    default:
+      return (arcade::CommandType::GO_UP);
+      break;
+    }
+  return (arcade::CommandType::GO_UP);
 }

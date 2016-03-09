@@ -5,13 +5,14 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:04:44 2016 Valerian Polizzi
-// Last update Tue Mar  8 15:23:40 2016 Valerian Polizzi
+// Last update Wed Mar  9 10:30:28 2016 Valerian Polizzi
 //
 
 #ifndef _LAUNCHER_HH_
 # define _LAUNCHER_HH_
 
 # include <GraphicManager.hh>
+# include <ControllerManager.hh>
 # include <AEntity.hh>
 # include <Menu.hh>
 # include <iostream>
@@ -22,6 +23,7 @@ class Launcher : public AEntity
 {
 private:
   Menu			_menu;
+  ControllerManager	_cm;
   GraphicManager	_gm;
   std::string		_name;
 public:

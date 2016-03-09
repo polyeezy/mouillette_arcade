@@ -5,14 +5,17 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Tue Mar  8 16:54:40 2016 Valerian Polizzi
+// Last update Wed Mar  9 11:10:57 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
 
 Launcher::Launcher()
 {
-  this->feedFromRepo("games");
+  this->_cm.setConfPath(CM_CONF_PATH);
+  //this->_cm.mapKey(ControllerManager::ESCAPE, 27);
+  this->_cm.importConf();
+this->feedFromRepo("games");
   this->feedFromRepo("lib");
   _gm.createWindow("Arcade");
 
@@ -66,18 +69,18 @@ void		Launcher::feedFromRepo(const std::string &repo)
 
 int		Launcher::getKeys()
 {
-  char		c = 0;
+  int		c = 0;
 
   _gm.refresh();
-  while (c != 27)
+  while (c != ControllerManager::ESCAPE)
     {
-      c = _gm.getKey();
+      c = _cm.getKey(_gm.getWindow());
       switch(c)
 	{
-	case '5':
+	case ControllerManager::RIGHT:
 	  this->nextGame();
 	  break;
-	case '3':
+	case ControllerManager::UP:
 	  this->nextLib();
 	  break;
 	case 8:
@@ -88,6 +91,7 @@ int		Launcher::getKeys()
 	  {
 	    _name += c;
 	  }
+	  std::cout << c << std::endl;
 	  _gm.addTextToSurface("Name", 33, 15, _name);
 	}
       _gm.refresh();
