@@ -5,28 +5,25 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:21:24 2016 Valerian Polizzi
-// Last update Mon Mar  7 15:55:50 2016 Valerian Polizzi
+// Last update Wed Mar  9 11:17:09 2016 Valerian Polizzi
 //
 
 #include <AEntity.hh>
 
-AEntity::AEntity()
+AEntity::AEntity(const arcade::Size size, const arcade::Position pos, const float speed)
 {
+  _size = size;
+  _pos = pos;
+  _speed = speed;
 }
 
 AEntity::~AEntity()
 {
 }
 
-size_t		AEntity::getHeight() const
+arcade::Size	AEntity::getSize() const
 {
-  return (_h);
-}
-
-
-size_t		AEntity::getWidth() const
-{
-  return (_w);
+  return _size;
 }
 
 void		AEntity::setPos(const arcade::Position &pos)

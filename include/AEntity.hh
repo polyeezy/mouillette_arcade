@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:16:58 2016 Valerian Polizzi
-// Last update Mon Mar  7 15:41:15 2016 Valerian Polizzi
+// Last update Tue Mar  8 17:03:46 2016 Loïc Weinhard
 //
 
 #ifndef _AENTITY_HH_
@@ -17,18 +17,13 @@
 class AEntity
 {
 private:
-  size_t		_h;
-  size_t		_w;
+  arcade::Size		_size;
   arcade::Position	_pos;
+  float			_speed;
 public:
-  //  AEntity(const size_t height, const size_t width);
-  //AEntity(const AEntity&);
-  AEntity();
+  AEntity(const arcade::Size, const arcade::Position, const float);
   virtual ~AEntity();
-  void		setHeight(const size_t);
-  void		setWidth(const size_t);
-  size_t	getHeight() const;
-  size_t	getWidth() const;
+  arcade::Size	getSize() const;
   virtual void	print()  = 0;
   void		setPos(const arcade::Position&);
   arcade::Position	getPos() const;
