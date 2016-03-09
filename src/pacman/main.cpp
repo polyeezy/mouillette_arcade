@@ -5,14 +5,15 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Mon Mar  7 17:47:11 2016 Loïc Weinhard
-// Last update Tue Mar  8 14:40:58 2016 Loïc Weinhard
+// Last update Wed Mar  9 14:18:35 2016 Loïc Weinhard
 //
 
+#include "PGame.hh"
 #include "map.hh"
 
 int	main()
 {
-  Map	map("level_1.pacman");
+  PGame	game("level_1.pacman");
 
   return (0);
 }

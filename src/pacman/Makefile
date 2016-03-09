@@ -5,13 +5,14 @@
 ## Login   <weinha_l@epitech.net>
 ## 
 ## Started on  Mon Mar  7 17:52:15 2016 Loïc Weinhard
-## Last update Wed Mar  9 12:17:34 2016 Loïc Weinhard
+## Last update Wed Mar  9 14:16:24 2016 Loïc Weinhard
 ##
 
 SRC		=	main.cpp	\
 			map.cpp		\
 			PEntity.cpp	\
 			../AEntity.cpp	\
+			PGame.cpp	\
 
 OBJ		=	$(SRC:.cpp=.o)
 

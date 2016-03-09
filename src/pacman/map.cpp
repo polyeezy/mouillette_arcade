@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Tue Mar  8 15:37:10 2016 Loïc Weinhard
+// Last update Wed Mar  9 14:50:37 2016 Loïc Weinhard
 //
 
 #include <algorithm>
@@ -42,6 +42,8 @@ Map::Map(const std::string &file)
 	}
       i += 1;
     }
+  _last_gspawn.x = 0;
+  _last_gspawn.y = 0;
 }
 
 char	Map::getPos(const arcade::Position pos) const
@@ -71,4 +73,31 @@ bool	Map::hasGums()
   if (_gums <= 0)
     return (false);
   return (true);
+}
+
+arcade::Position	Map::getPacmanSpawn()
+{
+  arcade::Position	pos;
+
+  pos.x = _door.x;
+  pos.y = _door.y + 1;
+  return (pos);
+}
+
+arcade::Position	Map::getNextGhostSpawn()
+{
+  if (_map[_last_gspawn.y].find("G", _last_gspawn.x + 1) != std::string::npos)
+    {
+      _last_gspawn.x = _map[_last_gspawn.y].find("G", _last_gspawn.x + 1);
+      return (_last_gspawn);
+    }
+  _last_gspawn.y += 1;
+  while (_map[_last_gspawn.y].find("G") == std::string::npos)
+    {
+      _last_gspawn.y += 1;
+      if (_last_gspawn.y >= _map.size())
+	_last_gspawn.y = 0;
+    }
+  _last_gspawn.x = _map[_last_gspawn.y].find("G");
+  return (_last_gspawn);
 }
