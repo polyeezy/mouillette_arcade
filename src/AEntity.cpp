@@ -5,10 +5,14 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:21:24 2016 Valerian Polizzi
-// Last update Wed Mar  9 11:17:09 2016 Valerian Polizzi
+// Last update Wed Mar  9 11:31:23 2016 Valerian Polizzi
 //
 
 #include <AEntity.hh>
+
+AEntity::AEntity()
+{
+}
 
 AEntity::AEntity(const arcade::Size size, const arcade::Position pos, const float speed)
 {

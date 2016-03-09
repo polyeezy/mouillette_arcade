@@ -5,12 +5,12 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:12:39 2016 Valerian Polizzi
-// Last update Mon Mar  7 17:13:09 2016 Valerian Polizzi
+// Last update Wed Mar  9 11:30:55 2016 Valerian Polizzi
 //
 
 #include <MenuItem.hh>
 
-MenuItem::MenuItem(const std::string &name) : _name(name)
+MenuItem::MenuItem(const std::string &name) :  _name(name)
 {
 }
 
