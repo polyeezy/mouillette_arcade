@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Wed Mar  9 13:56:17 2016 Loïc Weinhard
-// Last update Wed Mar  9 14:21:48 2016 Loïc Weinhard
+// Last update Thu Mar 10 09:56:32 2016 Loïc Weinhard
 //
 
 #ifndef PGAME_HH_
@@ -30,7 +30,6 @@ private:
 public:
   PGame(const std::string &);
   ~PGame() {};
-  void		Play();
 };
 
 #endif

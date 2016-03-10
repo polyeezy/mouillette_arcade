@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Wed Mar  9 14:58:05 2016 Loïc Weinhard
+// Last update Thu Mar 10 09:56:47 2016 Loïc Weinhard
 //
 
 #include "Protocol.hpp"
@@ -20,8 +20,7 @@ PGame::PGame(const std::string &file)
   _map = new Map(file);
   size.width = PENTITY_WIDTH;
   size.height = PENTITY_HEIGHT;
-  pos.x = 0;
-  pos.y = 0;
+  pos = _map->getPacmanSpawn();
   _pacman = new PEntity(size, pos, PENTITY_SPEED);
   i = 0;
   while (i < GHOSTS)
@@ -30,9 +29,4 @@ PGame::PGame(const std::string &file)
       _ghosts.push_back(new PEntity(size, pos, PENTITY_SPEED));
       i += 1;
     }
-}
-
-void	PGame::Play()
-{
-
 }
