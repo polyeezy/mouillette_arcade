@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 11:35:18 2016 Loïc Weinhard
-// Last update Tue Mar  8 15:32:54 2016 Loïc Weinhard
+// Last update Wed Mar  9 14:41:51 2016 Loïc Weinhard
 //
 
 #ifndef MAP_HH_
@@ -23,6 +23,7 @@ private:
   std::vector<std::string>	_map;
   arcade::Position		_door;
   size_t			_gums;
+  arcade::Position		_last_gspawn;
 
 public:
   Map(const std::string &);
@@ -34,6 +35,8 @@ public:
   void				openCage();
   void				closeCage();
   bool				hasGums();
+  arcade::Position		getPacmanSpawn();
+  arcade::Position		getNextGhostSpawn();
 };
 
 #endif

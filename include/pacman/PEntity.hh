@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:54:19 2016 Loïc Weinhard
-// Last update Wed Mar  9 12:15:50 2016 Loïc Weinhard
+// Last update Wed Mar  9 14:17:17 2016 Loïc Weinhard
 //
 
 #ifndef PENTITY_HH_
@@ -24,6 +24,7 @@ public:
   virtual ~PEntity();
   bool		getGod() const;
   void		setGod(const bool);
+  virtual void	print();
 };
 
 #endif

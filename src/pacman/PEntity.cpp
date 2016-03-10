@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Wed Mar  9 12:17:57 2016 Loïc Weinhard
+// Last update Wed Mar  9 14:17:46 2016 Loïc Weinhard
 //
 
 #include "PEntity.hh"
@@ -27,4 +27,9 @@ bool	PEntity::getGod() const
 void	PEntity::setGod(const bool god)
 {
   _god = god;
+}
+
+void	PEntity::print()
+{
+
 }
