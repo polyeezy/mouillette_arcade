@@ -5,49 +5,52 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Tue Mar  8 15:48:16 2016 Alexis Miele
-// Last update Wed Mar  9 11:32:34 2016 Alexis Miele
+// Last update Thu Mar 10 14:07:02 2016 Alexis Miele
 //
 
 #include "ScoreManager.hh"
 
-ScoreManager::ScoreManager(std::string name, std::string path)
+ScoreManager::ScoreManager(const std::string &name, const std::string &path)
 {
     _name = name;
     _score = 0;
     _path = path;
-    this->importHighscore(path);
-    if (_highscore.size() < 10)
-        {
-            _currentPos = _highscore.size();
-            std::stringstream ss;
-            ss << _score;
-            _highscore.push_back(name + ":" + ss.str());
-        }
-    else
-        _currentPos = 10;
+    if (!_path.empty())
+    {
+        this->importHighscore();
+        if (_highscore.size() < HIGHSCORE_SIZE)
+            {
+                _currentPos = _highscore.size();
+                std::stringstream ss;
+                ss << _score;
+                _highscore.push_back(name + ":" + ss.str());
+            }
+        else
+            _currentPos = HIGHSCORE_SIZE;
+    }
 }
 
 ScoreManager::~ScoreManager()
 {
 }
 
-void ScoreManager::setScore(size_t score)
+void ScoreManager::setScore(const size_t &score)
 {
     _score = score;
     this->updatePos();
 }
 
-void ScoreManager::addScore(size_t score)
+void ScoreManager::addScore(const size_t &score)
 {
     _score += score;
     this->updatePos();
 }
 
-size_t ScoreManager::getScore(size_t i) const
+size_t ScoreManager::getScore(const size_t &i) const
 {
     size_t tmp;
 
-    if (i > 9)
+    if (i >= HIGHSCORE_SIZE)
         return 0;
     std::stringstream sstream(_highscore[i].substr(_highscore[i].find(":") + 1));
     sstream >> tmp;
@@ -61,55 +64,71 @@ void ScoreManager::updatePos()
     i = _currentPos;
     while (i > 0 && _score > this->getScore(i - 1))
         i--;
-    if (i < 10)
+    if (i < HIGHSCORE_SIZE)
     {
-        if (_currentPos < 10)
+        if (_currentPos < HIGHSCORE_SIZE)
             _highscore.erase(_highscore.begin() + _currentPos);
         _currentPos = i;
         std::stringstream ss;
         ss << _score;
         _highscore.insert(_highscore.begin() + i, _name + ":" + ss.str());
-        while (_highscore.size() > 10)
-            _highscore.erase(_highscore.begin() + 10);
+        while (_highscore.size() > HIGHSCORE_SIZE)
+            _highscore.erase(_highscore.begin() + HIGHSCORE_SIZE);
     }
 }
 
-void ScoreManager::setName(std::string name)
+void ScoreManager::setName(const std::string &name)
 {
     _name = name;
 }
 
-std::string ScoreManager::getName() const
+const std::string &ScoreManager::getName() const
 {
     return _name;
 }
 
-void ScoreManager::importHighscore(std::string path)
+void ScoreManager::setPath(const std::string &path)
 {
-    std::ifstream file;
-    file.open(path.c_str(), std::ifstream::in);
-    if (file.is_open())
-    {
-        std::string line;
-        while (std::getline(file, line))
-            _highscore.push_back(line);
-        file.close();
-    }
-    while (_highscore.size() > 10)
-        _highscore.erase(_highscore.begin() + 10);
+    _path = path;
 }
 
-void ScoreManager::exportHighscore()
+const std::string &ScoreManager::getPath() const
 {
-    std::ofstream file;
-    file.open(_path.c_str(), std::ofstream::out | std::ofstream::trunc);
-    if (file.is_open())
+    return _path;
+}
+
+void ScoreManager::importHighscore()
+{
+    if (!_path.empty())
     {
-        for (size_t i = 0; i < _highscore.size(); i++)
+        std::ifstream file;
+        file.open(_path.c_str(), std::ifstream::in);
+        if (file.is_open())
         {
-            file << _highscore[i] << "\n";
+            std::string line;
+            while (std::getline(file, line))
+                _highscore.push_back(line);
+            file.close();
         }
-        file.close();
+        while (_highscore.size() > HIGHSCORE_SIZE)
+            _highscore.erase(_highscore.begin() + HIGHSCORE_SIZE);
+    }
+}
+
+void ScoreManager::exportHighscore() const
+{
+    if (!_path.empty())
+    {
+        std::ofstream file;
+        file.open(_path.c_str(), std::ofstream::out | std::ofstream::trunc);
+        if (file.is_open())
+        {
+            for (size_t i = 0; i < _highscore.size(); i++)
+            {
+                file << _highscore[i] << "\n";
+            }
+            file.close();
+        }
     }
 }
 
@@ -117,7 +136,5 @@ void ScoreManager::printHighscore() const
 {
     std::cout << "--- SCORE : ---" << std::endl;
     for (size_t i = 0; i < _highscore.size(); i++)
-    {
         std::cout << "\t" << _highscore[i].substr(0, _highscore[i].find(":")) << "\t" << _highscore[i].substr(_highscore[i].find(":")) << std::endl;
-    }
 }

@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Tue Mar  8 15:31:59 2016 Alexis Miele
-// Last update Tue Mar  8 23:04:56 2016 Alexis Miele
+// Last update Thu Mar 10 14:07:10 2016 Alexis Miele
 //
 
 #ifndef                         SCOREMANAGER_HH_
@@ -17,6 +17,8 @@
 # include                       <sstream>
 # include                       <fstream>
 
+# define                        HIGHSCORE_SIZE 10
+
 class                           ScoreManager {
 private:
     std::vector<std::string>    _highscore;
@@ -26,16 +28,18 @@ private:
     size_t                      _currentPos;
 
 public:
-    ScoreManager(std::string name, std::string path);
+    ScoreManager(const std::string &name = "", const std::string &path = "");
     ~ScoreManager();
-    void                        setScore(size_t score);
-    void                        addScore(size_t score);
-    size_t                      getScore(size_t i) const;
+    void                        setScore(const size_t &score);
+    void                        addScore(const size_t &score);
+    size_t                getScore(const size_t &i) const;
     void                        updatePos();
-    void                        setName(std::string name);
-    std::string                 getName() const;
-    void                        importHighscore(std::string path);
-    void                        exportHighscore();
+    void                        setName(const std::string &name);
+    const std::string           &getName() const;
+    void                        setPath(const std::string &path);
+    const std::string           &getPath() const;
+    void                        importHighscore();
+    void                        exportHighscore() const;
     void                        printHighscore() const;
 };
 
