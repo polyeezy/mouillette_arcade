@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:16:58 2016 Valerian Polizzi
-// Last update Sat Mar 12 09:55:45 2016 Loïc Weinhard
+// Last update Sat Mar 12 10:49:07 2016 Loïc Weinhard
 //
 
 #ifndef _AENTITY_HH_
@@ -27,13 +27,17 @@ public:
   AEntity(const float, const float, const float, const float, const float);
   float		getWidth() const;
   float		getHeight() const;
+  t_size	getSize() const;
   float		getX() const;
   float		getY() const;
+  t_pos		getPos() const;
   float		getSpeed() const;
   void		setWidth(const float);
   void		setHeight(const float);
+  void		setSize(const t_size);
   void		setX(const float);
   void		setY(const float);
+  void		setPos(const t_pos);
   void		setSpeed(const float);
   ~AEntity() {};
 };

@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:54:19 2016 Loïc Weinhard
-// Last update Sat Mar 12 09:54:43 2016 Loïc Weinhard
+// Last update Sat Mar 12 10:49:47 2016 Loïc Weinhard
 //
 
 #ifndef PENTITY_HH_
@@ -15,10 +15,16 @@
 # include "AEntity.hh"
 # include "Position.hh"
 
+enum e_dir
+  {
+    UP, DOWN, LEFT, RIGHT
+  };
+
 class	PEntity : public AEntity
 {
 private:
   bool			_god;
+  e_dir			_dir;
 
 public:
   PEntity(const float, const float, const float, const float, const float);
@@ -26,6 +32,7 @@ public:
   virtual ~PEntity();
   bool			getGod() const;
   void			setGod(const bool);
+  t_pos			move(const e_dir);
   virtual void		print();
 };
 
