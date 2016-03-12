@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Sat Mar 12 12:53:20 2016 Loïc Weinhard
+// Last update Sat Mar 12 13:34:54 2016 Loïc Weinhard
 //
 
 #include "PEntity.hh"
@@ -40,27 +40,60 @@ void	PEntity::print()
 
 }
 
-t_pos	PEntity::move(const e_dir new_dir)
+void	PEntity::move(const Map *map, const e_dir new_dir)
 {
-  t_pos	new_pos;
-
   _dir = new_dir;
-  new_pos = this->getPos();
   switch (new_dir)
     {
     case UP:
-      new_pos.y -= this->getSpeed();
+      this->setPos(this->checkVerticalMove(map, -1));
       break;
     case DOWN:
-      new_pos.y += this->getSpeed();
+      this->setPos(this->checkVerticalMove(map, 1));
       break;
     case LEFT:
-      new_pos.x -= this->getSpeed();
+      this->setPos(this->checkHorizontalMove(map, -1));
       break;
     case RIGHT:
-      new_pos.x += this->getSpeed();
+      this->setPos(this->checkHorizontalMove(map, 1));
       break;
     };
-  this->setPos(new_pos);
-  return (new_pos);
+}
+
+t_pos	PEntity::checkVerticalMove(const Map *map, const int asc_desc)
+{
+  float	speed;
+  t_pos	new_pos;
+
+  new_pos = this->getPos();
+  speed = this->getSpeed();
+  while (speed > 0)
+    {
+      new_pos.y = new_pos.y + (asc_desc * 0.10);
+      if (new_pos.y == (int)new_pos.y && map->getPos(new_pos) != '1')
+	this->setY(new_pos.y);
+      else
+	return (this->getPos());
+      speed -= 0.10;
+    }
+  return (this->getPos());
+}
+
+t_pos	PEntity::checkHorizontalMove(const Map *map, const int left_right)
+{
+  float	speed;
+  t_pos	new_pos;
+
+  new_pos = this->getPos();
+  speed = this->getSpeed();
+  while (speed > 0)
+    {
+      new_pos.x = new_pos.x + (left_right * 0.10);
+      if (new_pos.x == (int)new_pos.x && map->getPos(new_pos) != '1')
+	this->setX(new_pos.x);
+      else
+	return (this->getPos());
+      speed -= 0.10;
+    }
+  return (this->getPos());
 }
