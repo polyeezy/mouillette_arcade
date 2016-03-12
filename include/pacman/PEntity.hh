@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:54:19 2016 Loïc Weinhard
-// Last update Wed Mar  9 14:17:17 2016 Loïc Weinhard
+// Last update Sat Mar 12 09:54:43 2016 Loïc Weinhard
 //
 
 #ifndef PENTITY_HH_
@@ -13,18 +13,20 @@
 
 # include <Protocol.hpp>
 # include "AEntity.hh"
+# include "Position.hh"
 
 class	PEntity : public AEntity
 {
 private:
-  bool	_god;
+  bool			_god;
 
 public:
-  PEntity(const arcade::Size, const arcade::Position, const float);
+  PEntity(const float, const float, const float, const float, const float);
+  PEntity(const float, const float, const t_pos, const float);
   virtual ~PEntity();
-  bool		getGod() const;
-  void		setGod(const bool);
-  virtual void	print();
+  bool			getGod() const;
+  void			setGod(const bool);
+  virtual void		print();
 };
 
 #endif

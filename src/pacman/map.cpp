@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Wed Mar  9 14:50:37 2016 Loïc Weinhard
+// Last update Sat Mar 12 09:37:41 2016 Loïc Weinhard
 //
 
 #include <algorithm>
@@ -37,8 +37,8 @@ Map::Map(const std::string &file)
       _gums += std::count(_map[i].begin(), _map[i].end(), '0');
       if (_map[i].find("P") != std::string::npos)
 	{
-	  _door.y = i;
-	  _door.x = _map[i].find("P");
+	  _door.y = (float)i;
+	  _door.x = (float)_map[i].find("P");
 	}
       i += 1;
     }
@@ -46,12 +46,12 @@ Map::Map(const std::string &file)
   _last_gspawn.y = 0;
 }
 
-char	Map::getPos(const arcade::Position pos) const
+char	Map::getPos(const t_pos new_pos) const
 {
-  return (_map[pos.y][pos.x]);
+  return (_map[new_pos.y][new_pos.x]);
 }
 
-void	Map::deleteObj(const arcade::Position pos)
+void	Map::deleteObj(const t_pos pos)
 {
   if (_map[pos.y][pos.x] == '0')
     _gums -= 1;
@@ -75,16 +75,16 @@ bool	Map::hasGums()
   return (true);
 }
 
-arcade::Position	Map::getPacmanSpawn()
+t_pos	Map::getPacmanSpawn()
 {
-  arcade::Position	pos;
+  t_pos	pos;
 
   pos.x = _door.x;
   pos.y = _door.y + 1;
   return (pos);
 }
 
-arcade::Position	Map::getNextGhostSpawn()
+t_pos	Map::getNextGhostSpawn()
 {
   if (_map[_last_gspawn.y].find("G", _last_gspawn.x + 1) != std::string::npos)
     {

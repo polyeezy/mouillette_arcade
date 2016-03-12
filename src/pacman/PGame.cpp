@@ -5,28 +5,26 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Thu Mar 10 09:56:47 2016 Loïc Weinhard
+// Last update Sat Mar 12 09:52:14 2016 Loïc Weinhard
 //
 
 #include "Protocol.hpp"
 #include "PGame.hh"
+#include "Position.hh"
 
 PGame::PGame(const std::string &file)
 {
-  arcade::Size		size;
-  arcade::Position	pos;
   int			i;
+  t_pos			pos;
 
   _map = new Map(file);
-  size.width = PENTITY_WIDTH;
-  size.height = PENTITY_HEIGHT;
   pos = _map->getPacmanSpawn();
-  _pacman = new PEntity(size, pos, PENTITY_SPEED);
+  _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
   i = 0;
   while (i < GHOSTS)
     {
       pos = _map->getNextGhostSpawn();
-      _ghosts.push_back(new PEntity(size, pos, PENTITY_SPEED));
+      _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
     }
 }

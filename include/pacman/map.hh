@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 11:35:18 2016 Loïc Weinhard
-// Last update Wed Mar  9 14:41:51 2016 Loïc Weinhard
+// Last update Sat Mar 12 09:38:56 2016 Loïc Weinhard
 //
 
 #ifndef MAP_HH_
@@ -14,29 +14,30 @@
 # include <Protocol.hpp>
 # include <vector>
 # include <iostream>
+# include "Position.hh"
 
-# define MAPS_PATH "../../games/maps/"
+# define MAPS_PATH	"../../games/maps/"
 
 class	Map
 {
 private:
   std::vector<std::string>	_map;
-  arcade::Position		_door;
+  t_pos				_door;
   size_t			_gums;
-  arcade::Position		_last_gspawn;
+  t_pos				_last_gspawn;
 
 public:
   Map(const std::string &);
   ~Map() {};
 
 public:
-  char				getPos(const arcade::Position) const;
-  void				deleteObj(const arcade::Position);
+  char				getPos(const t_pos) const;
+  void				deleteObj(const t_pos);
   void				openCage();
   void				closeCage();
   bool				hasGums();
-  arcade::Position		getPacmanSpawn();
-  arcade::Position		getNextGhostSpawn();
+  t_pos				getPacmanSpawn();
+  t_pos				getNextGhostSpawn();
 };
 
 #endif

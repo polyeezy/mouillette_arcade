@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:21:24 2016 Valerian Polizzi
-// Last update Wed Mar  9 11:31:23 2016 Valerian Polizzi
+// Last update Sat Mar 12 09:28:46 2016 Loïc Weinhard
 //
 
 #include <AEntity.hh>
@@ -14,28 +14,61 @@ AEntity::AEntity()
 {
 }
 
-AEntity::AEntity(const arcade::Size size, const arcade::Position pos, const float speed)
+AEntity::AEntity(const float w, const float h, const float x, const float y, const float s)
 {
-  _size = size;
-  _pos = pos;
-  _speed = speed;
+  _size.width = w;
+  _size.height = h;
+  _pos.x = x;
+  _pos.y = y;
+  _speed = s;
 }
 
-AEntity::~AEntity()
+float	AEntity::getWidth() const
 {
+  return (_size.width);
 }
 
-arcade::Size	AEntity::getSize() const
+float	AEntity::getHeight() const
 {
-  return _size;
+  return (_size.height);
 }
 
-void		AEntity::setPos(const arcade::Position &pos)
+float	AEntity::getX() const
 {
-  _pos = pos;
+  return (_pos.x);
 }
 
-arcade::Position	AEntity::getPos() const
+float	AEntity::getY() const
 {
-  return (_pos);
+  return (_pos.y);
+}
+
+float	AEntity::getSpeed() const
+{
+  return (_speed);
+}
+
+void	AEntity::setWidth(const float w)
+{
+  _size.width = w;
+}
+
+void	AEntity::setHeight(const float h)
+{
+  _size.height = h;
+}
+
+void	AEntity::setX(const float x)
+{
+  _pos.x = x;
+}
+
+void	AEntity::setY(const float y)
+{
+  _pos.y = y;
+}
+
+void	AEntity::setSpeed(const float s)
+{
+  _speed = s;
 }

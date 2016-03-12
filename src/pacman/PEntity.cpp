@@ -5,12 +5,17 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Wed Mar  9 14:17:46 2016 Loïc Weinhard
+// Last update Sat Mar 12 09:54:28 2016 Loïc Weinhard
 //
 
 #include "PEntity.hh"
 
-PEntity::PEntity(const arcade::Size s, const arcade::Position p, const float sp) : AEntity(s, p, sp)
+PEntity::PEntity(const float w, const float h, const float x, const float y, const float s) : AEntity(w, h, x, y, s)
+{
+  _god = false;
+}
+
+PEntity::PEntity(const float w, const float h, const t_pos p, const float s) : AEntity(w, h, p.x, p.y, s)
 {
   _god = false;
 }
