@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Sat Mar 12 09:52:14 2016 Loïc Weinhard
+// Last update Sat Mar 12 15:28:57 2016 Loïc Weinhard
 //
 
 #include "Protocol.hpp"
@@ -27,4 +27,15 @@ PGame::PGame(const std::string &file)
       _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
     }
+}
+
+void	PGame::move(const e_dir dir)
+{
+  _pacman->move(_map, dir);
+  _map->deleteObj(_pacman->getPos());
+}
+
+Map&	PGame::getMap() const
+{
+  return (*_map);
 }

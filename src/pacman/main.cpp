@@ -5,9 +5,11 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Mon Mar  7 17:47:11 2016 Loïc Weinhard
-// Last update Sat Mar 12 12:56:05 2016 Loïc Weinhard
+// Last update Sat Mar 12 15:57:23 2016 Loïc Weinhard
 //
 
+#include <unistd.h>
+#include "PEntity.hh"
 #include "PGame.hh"
 #include "map.hh"
 
@@ -17,7 +19,9 @@ int	main()
 
   while (42)
     {
-      
+      game.move(UP);
+      game.getMap().print();
+      sleep(1);
     }
   return (0);
 }

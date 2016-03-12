@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Wed Mar  9 13:56:17 2016 Loïc Weinhard
-// Last update Fri Mar 11 13:00:38 2016 Loïc Weinhard
+// Last update Sat Mar 12 15:28:35 2016 Loïc Weinhard
 //
 
 #ifndef PGAME_HH_
@@ -30,6 +30,8 @@ private:
 public:
   PGame(const std::string &);
   ~PGame() {};
+  void		move(const e_dir dir);
+  Map&		getMap() const;
 };
 
 #endif

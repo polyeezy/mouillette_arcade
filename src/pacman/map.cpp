@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Sat Mar 12 09:37:41 2016 Loïc Weinhard
+// Last update Sat Mar 12 15:30:49 2016 Loïc Weinhard
 //
 
 #include <algorithm>
@@ -100,4 +100,16 @@ t_pos	Map::getNextGhostSpawn()
     }
   _last_gspawn.x = _map[_last_gspawn.y].find("G");
   return (_last_gspawn);
+}
+
+void		Map::print()
+{
+  size_t	i;
+
+  i = 0;
+  std::cout << "-----------------" << std::endl;
+  std::cout << "GUMS LEFT : " << _gums << std::endl;
+  while (i < _map.size())
+    std::cout << _map[i++] << std::endl;
+  std::cout << "-----------------" << std::endl;
 }

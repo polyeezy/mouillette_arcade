@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Sat Mar 12 13:44:51 2016 Loïc Weinhard
+// Last update Sat Mar 12 15:57:00 2016 Loïc Weinhard
 //
 
 #include "PEntity.hh"
@@ -70,10 +70,9 @@ void	PEntity::checkVerticalMove(const Map *map, const int asc_desc)
   while (speed > 0)
     {
       new_pos.y = new_pos.y + (asc_desc * 0.10);
-      if (new_pos.y == (int)new_pos.y && map->getPos(new_pos) != '1')
-	this->setY(new_pos.y);
-      else if (new_pos.y == (int)new_pos.y && map->getPos(new_pos) == '1')
+      if (map->getPos(new_pos) == '1' || map->getPos(new_pos) == 'P')
 	return;
+      this->setY(new_pos.y);
       speed -= 0.10;
     }
 }
@@ -88,10 +87,9 @@ void	PEntity::checkHorizontalMove(const Map *map, const int left_right)
   while (speed > 0)
     {
       new_pos.x = new_pos.x + (left_right * 0.10);
-      if (new_pos.x == (int)new_pos.x && map->getPos(new_pos) != '1')
-	this->setX(new_pos.x);
-      else if (new_pos.x == (int)new_pos.x && map->getPos(new_pos) == '1')
+      if (map->getPos(new_pos) == '1' || map->getPos(new_pos) == 'P')
 	return;
+      this->setX(new_pos.x);
       speed -= 0.10;
     }
 }
