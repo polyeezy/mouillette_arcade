@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:18:53 2016 Valerian Polizzi
-// Last update Wed Mar  9 10:48:44 2016 Valerian Polizzi
+// Last update Tue Mar 15 16:02:20 2016 Loïc Weinhard
 //
 
 #ifndef _GRAPHICMANAGER_HH_
@@ -18,6 +18,11 @@
 # include <stdint.h>
 # include <Protocol.hpp>
 
+# define WIDTH		1920
+# define HEIGHT		1080
+# define GL_RATIO	0.10
+# define GL_TRANS_X	-0.75
+# define GL_TRANS_Y	0.75
 
 class GraphicManager
 {

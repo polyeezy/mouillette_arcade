@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar 15 15:34:43 2016 Valerian Polizzi
+// Last update Tue Mar 15 15:44:02 2016 Loïc Weinhard
 //
 
 #include <GraphicManager.hh>
@@ -21,7 +21,7 @@ extern "C" GraphicManager::~GraphicManager()
 }
 
 void		GraphicManager::createWindow(const std::string &name)
-  {
+{
     caca_event_t  ev;
     (void)name;
 

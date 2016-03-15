@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Tue Mar 15 15:36:53 2016 Loïc Weinhard
+// Last update Tue Mar 15 16:13:55 2016 Loïc Weinhard
 //
 
 #include <unistd.h>
@@ -52,6 +52,10 @@ Map::Map(const std::string &file)
 
 char	Map::getPos(const t_pos new_pos) const
 {
+  if (new_pos.y >= _map.size())
+    return (-1);
+  else if (new_pos.x >= _map[new_pos.y].size())
+    return (-2);
   return (_map[new_pos.y][new_pos.x]);
 }
 
@@ -108,65 +112,4 @@ t_pos	Map::getNextGhostSpawn()
 
 void		Map::print()
 {
-  size_t	i;
-  size_t	x;
-  float		trans_x;
-  float		trans_y;
-  float		ratio;
-
-  ratio = 0.05;
-  i = 0;
-  trans_y = 0.75;
-  while (i < _map.size())
-    {
-      x = 0;
-      trans_x = -0.75;
-      while (x < _map[i].size())
-	{
-	  glPushMatrix();
-	  glTranslated(trans_x, trans_y, 0);
-	  switch (_map[i][x])
-	    {
-	    case '0':
-	    case 'G':
-	    case 'x':
-	      glBegin(GL_QUADS);
-	      glColor3ub(255,255,255);
-	      glVertex2d(-ratio,-ratio);
-	      glVertex2d(-ratio,ratio);
-	      glVertex2d(ratio,ratio);
-	      glVertex2d(ratio,-ratio);
-	      glEnd();
-	      break;
-	    case '1':
-	    case 'P':
-	      glBegin(GL_QUADS);
-	      glColor3ub(0,0,255);
-	      glVertex2d(-ratio,-ratio);
-	      glVertex2d(-ratio,ratio);
-	      glVertex2d(ratio,ratio);
-	      glVertex2d(ratio,-ratio);
-	      glEnd();
-	      break;
-	    case '2':
-	      glBegin(GL_QUADS);
-	      glColor3ub(255,0,0);
-	      glVertex2d(-ratio,-ratio);
-	      glVertex2d(-ratio,ratio);
-	      glVertex2d(ratio,ratio);
-	      glVertex2d(ratio,-ratio);
-	      glEnd();
-	      break;
-	    }
-	  std::cout << _map[i][x] << " ";
-	  glPopMatrix();
-	  x += 1;
-	  trans_x += ratio * 2;
-	}
-      std::cout << std::endl;
-      i += 1;
-      trans_y -= ratio * 2;
-    }
-  glFlush();
-  SDL_GL_SwapBuffers();
 }
