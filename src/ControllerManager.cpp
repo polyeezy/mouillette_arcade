@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar  9 10:05:59 2016 Valerian Polizzi
-// Last update Wed Mar  9 11:11:36 2016 Valerian Polizzi
+// Last update Tue Mar 15 14:50:17 2016 Valerian Polizzi
 //
 
 #include <ControllerManager.hh>
@@ -26,10 +26,12 @@ void		ControllerManager::importConf()
   int		key;
   int		value;
 
+  std::cout << CM_CONF_PATH << std::endl;
   while (std::getline(is, line))
     {
       std::stringstream ss(line);
       ss >> key >> value;
+      std::cout << key << " " << value << std::endl;
       this->mapKey(key, value);
     }
 }
@@ -56,7 +58,9 @@ int		ControllerManager::getKey(void *win)
 
   caca_get_event((caca_display_t*)win, CACA_EVENT_KEY_PRESS, &ev, -1);
   c = caca_get_event_key_ch(&ev);
-  return (_key_map[c]);
+  if (_key_map[c] != 0)
+    return (_key_map[c]);
+  return (c);
 }
 
 void		ControllerManager::mapKey(const int key, const int value)

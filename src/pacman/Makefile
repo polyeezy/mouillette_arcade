@@ -5,7 +5,7 @@
 ## Login   <weinha_l@epitech.net>
 ## 
 ## Started on  Mon Mar  7 17:52:15 2016 Loïc Weinhard
-## Last update Sat Mar 12 18:04:01 2016 Loïc Weinhard
+## Last update Tue Mar 15 16:00:39 2016 Valerian Polizzi
 ##
 
 SRC		=	main.cpp	\
@@ -21,12 +21,12 @@ NAME		=	pacman_nographics
 CPPFLAGS	+=	-Wall -Werror -Wextra -std=c++11
 CPPFLAGS	+=	-I../../include/
 CPPFLAGS	+=	-I../../include/pacman
-LDFLAGS		+=	-lX11 -lGL -lGLU `sdl-config --cflags --libs`
+LDFLAGS		+=	-lX11 -lGL -lGLU -lSDL `sdl-config --cflags --libs`
 
 all		:	$(NAME)
 
 $(NAME)		:	$(OBJ)
-			g++ $(LDFLAGS) $(OBJ) -o $(NAME)
+			g++ $(OBJ) -o $(NAME) $(LDFLAGS)
 
 clean		:
 			rm -f $(OBJ)

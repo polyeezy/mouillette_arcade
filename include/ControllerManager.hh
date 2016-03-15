@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar  9 10:00:10 2016 Valerian Polizzi
-// Last update Wed Mar  9 10:54:37 2016 Valerian Polizzi
+// Last update Tue Mar 15 15:28:06 2016 Valerian Polizzi
 //
 
 #ifndef _CONTROLLERMANAGER_HH_
@@ -27,12 +27,12 @@ private:
 public:
   enum e_control
     {
-      UP = 0,
-      DOWN = 1,
-      LEFT = 2,
-      RIGHT = 3,
-      ACTION = 4,
-      ESCAPE = 5,
+      UP = 1,
+      DOWN = 2,
+      LEFT = 3,
+      RIGHT = 4,
+      ACTION = 5,
+      ESCAPE = 6,
     }	e_control;
   ControllerManager();
   ~ControllerManager();
