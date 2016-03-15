@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar  9 10:00:10 2016 Valerian Polizzi
-// Last update Tue Mar 15 15:28:06 2016 Valerian Polizzi
+// Last update Tue Mar 15 17:42:24 2016 Valerian Polizzi
 //
 
 #ifndef _CONTROLLERMANAGER_HH_
@@ -41,7 +41,7 @@ public:
   void		exportConf();
   void		setConfPath(const std::string &);
   void		mapKey(const int key, const int value);
-  int		getKey(void *);
+  int		getKey(void*);
 };
 
 #endif

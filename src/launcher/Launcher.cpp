@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Tue Mar 15 14:56:44 2016 Valerian Polizzi
+// Last update Tue Mar 15 17:46:25 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
@@ -83,7 +83,7 @@ int		Launcher::getKeys()
   _gm->refresh();
   while (c != ControllerManager::ESCAPE)
     {
-      c = _cm.getKey(_gm->getWindow());
+      c = _gm->getKey();
       switch(c)
 	{
 	case ControllerManager::RIGHT:

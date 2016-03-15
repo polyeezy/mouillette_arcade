@@ -5,10 +5,10 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Tue Mar 15 17:15:54 2016 Loïc Weinhard
+## Last update Tue Mar 15 18:00:21 2016 Valerian Polizzi
 ##
 
-CXX		=		g++
+CXX		=		clang
 
 NAME		=		arcade
 
@@ -19,6 +19,8 @@ SRC		=		src/main.cpp				\
 				src/launcher/Launcher.cpp		\
 				src/Manager/ScoreManager.cpp		\
 				src/Manager/GameManager.cpp		\
+				src/Manager/ControllerManager.cpp	\
+				src/Manager/LibraryManager.cpp		\
 				src/snake/Snake.cpp			\
 
 OBJ		=		$(SRC:.cpp=.o)
@@ -36,7 +38,7 @@ OPENGL_SRC	=		lib/openGL/GraphicManager.cpp		\
 OPENGL_OBJ	=		$(OPENGL_SRC:.cpp=.o)
 
 LDFLAGS		+=		-ldl -L./lib
-LDFLAGS		+=		-lX11 -lGL -lGLU -lSDL `sdl-config --cflags --libs` -l_arcade_opengl
+LDFLAGS		+=		-lX11  -lSDL -lGLU -lGL `sdl-config --cflags --libs`  -l_arcade_opengl
 
 CXXFLAGS	+=		-fPIC -I./include -I./include/launcher -I./include/snake -I./include/pacman -std=c++11
 CXXFLAGS	+=		-I./include/General -I./include/Manager -I./include/Menu -I./include/Libs

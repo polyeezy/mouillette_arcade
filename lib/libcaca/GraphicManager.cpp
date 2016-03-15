@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar 15 15:44:02 2016 Loïc Weinhard
+// Last update Tue Mar 15 17:46:57 2016 Valerian Polizzi
 //
 
 #include <GraphicManager.hh>
@@ -64,35 +64,35 @@ void		*GraphicManager::getWindow()
 }
 
 int		GraphicManager::getKey() const
-  {
-    caca_event_t	ev;
-    int		c;
+{
+  caca_event_t	ev;
+  int		c;
 
-    caca_get_event((caca_display_t*)_Window, CACA_EVENT_KEY_PRESS, &ev, -1);
-    c = caca_get_event_key_ch(&ev);
-    switch (c)
-      {
-      case CACA_KEY_UP:
-	return (ControllerManager::UP);
-	break;
-      case CACA_KEY_DOWN:
-	return (ControllerManager::DOWN);
-	break;
-      case CACA_KEY_LEFT:
-	return (ControllerManager::LEFT);
-	break;
-      case CACA_KEY_RIGHT:
-	return (ControllerManager::RIGHT);
-	break;
-      case CACA_KEY_ESCAPE:
-	return (ControllerManager::ESCAPE);
-	break;
-      default:
-	return (c);
-	break;
-      }
-    return (c);
-  }
+  caca_get_event((caca_display_t*)_Window, CACA_EVENT_KEY_PRESS, &ev, -1);
+  c = caca_get_event_key_ch(&ev);
+  switch (c)
+    {
+    case CACA_KEY_UP:
+      return (ControllerManager::UP);
+      break;
+    case CACA_KEY_DOWN:
+      return (ControllerManager::DOWN);
+      break;
+    case CACA_KEY_LEFT:
+      return (ControllerManager::LEFT);
+      break;
+    case CACA_KEY_RIGHT:
+      return (ControllerManager::RIGHT);
+      break;
+    case CACA_KEY_ESCAPE:
+      return (ControllerManager::ESCAPE);
+      break;
+    default:
+      return (c);
+      break;
+    }
+  return (c);
+}
 
 extern "C" GraphicManager * createGraphicManager()
 {
