@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Tue Mar 15 14:40:52 2016 Valerian Polizzi
+// Last update Tue Mar 15 18:26:03 2016 Loïc Weinhard
 //
 
 #include <caca.h>
@@ -14,8 +14,11 @@
 
 int		main(int ac, char **av)
 {
-    Launcher	L;
-   L.openLibrary(av[1]);
-   L.init();
-   L.run();
+  Launcher	L;
+
+  (void)ac;
+  (void)av;
+  L.openLibrary(av[1]);
+  L.init();
+  L.run();
 }

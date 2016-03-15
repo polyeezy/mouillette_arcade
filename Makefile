@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Tue Mar 15 18:09:44 2016 Loïc Weinhard
+## Last update Tue Mar 15 18:17:32 2016 Loïc Weinhard
 ##
 
 CXX		=		clang
@@ -43,6 +43,7 @@ LDFLAGS		+=		-lX11  -lSDL -lGLU -lGL `sdl-config --cflags --libs`  -l_arcade_ope
 
 CXXFLAGS	+=		-fPIC -I./include -I./include/launcher -I./include/snake -I./include/pacman -std=c++11
 CXXFLAGS	+=		-I./include/General -I./include/Manager -I./include/Menu -I./include/Libs
+CXXFLAGS	+=		-Wall -Wextra -Werror
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 

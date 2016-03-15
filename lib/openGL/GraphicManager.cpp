@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar 15 18:06:51 2016 Loïc Weinhard
+// Last update Tue Mar 15 18:28:16 2016 Loïc Weinhard
 //
 
 #include <GraphicManager.hh>
@@ -84,12 +84,19 @@ void	GraphicManager::print(const Map &map)
 
 void		GraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
 {
-
+  (void)x;
+  (void)y;
+  (void)h;
+  (void)w;
+  (void)name;
 }
 
 extern "C" void		GraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
 {
-
+  (void)surface;
+  (void)x;
+  (void)y;
+  (void)text;
 }
 
 void		*GraphicManager::getWindow()
@@ -99,6 +106,31 @@ void		*GraphicManager::getWindow()
 
 int		GraphicManager::getKey() const
 {
+  SDL_Event	events;
+
+  while (SDL_PollEvent(&events))
+    {
+      switch(events.key.keysym.sym)
+	{
+	case SDLK_LEFT:
+	  return (ControllerManager::LEFT);
+	  break;
+	case SDLK_RIGHT:
+	  return (ControllerManager::RIGHT);
+	  break;
+	case SDLK_UP:
+	  return (ControllerManager::UP);
+	  break;
+	case SDLK_DOWN:
+	  return (ControllerManager::DOWN);
+	  break;
+	case SDLK_ESCAPE:
+	  return (ControllerManager::ESCAPE);
+	default:
+	  return (events.key.keysym.sym);
+	  break;
+	}
+    }
   return (0);
 }
 
