@@ -5,40 +5,48 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Wed Mar  9 11:10:57 2016 Valerian Polizzi
+// Last update Tue Mar 15 14:56:44 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
 
 Launcher::Launcher()
 {
-  this->_cm.setConfPath(CM_CONF_PATH);
-  //this->_cm.mapKey(ControllerManager::ESCAPE, 27);
+
+}
+
+void		Launcher::openLibrary(const std::string &lib)
+{
+  _lm.open(lib);
+  this->_gm = _lm.createGM();
+}
+
+void		Launcher::init()
+{
   this->_cm.importConf();
-this->feedFromRepo("games");
+}
+
+void		Launcher::run()
+{
+
+  _menu.addGame("Snake");
+  _menu.addGame("Pacman");
+
   this->feedFromRepo("lib");
-  _gm.createWindow("Arcade");
 
-  _gm.createSurface(20, 200, 20, 20, "Help");
-  _gm.addTextToSurface("Help", 2, 28, "2: Prev lib  3: Next lib     4: Prev Game ");
-  _gm.addTextToSurface("Help", 2, 30, "5: Next Game 8: Restart Game 9: go back    Esc: exit");
+  _gm->createWindow("Arcade");
 
-  _gm.createSurface(20, 200, 20, 20, "Games");
-  _gm.addTextToSurface("Games", 33, 4, "Select a game below:");
-  _gm.addTextToSurface("Games", 33, 5, _menu.getCurrentGame()->getValue());
+  _gm->createSurface(20, 200, 20, 20, "Games");
+  _gm->addTextToSurface("Games", 30, 5, _menu.getCurrentGame()->getValue());
 
-  _gm.createSurface(20, 200, 40, 40, "Libs");
-  _gm.addTextToSurface("Games", 33, 9, "Select a lib below:");
-  _gm.addTextToSurface("Libs", 33, 10, _menu.getCurrentLib()->getValue());
+  _gm->createSurface(20, 200, 40, 40, "Libs");
+  _gm->addTextToSurface("Libs", 30, 10, _menu.getCurrentLib()->getValue());
 
-  _gm.addTextToSurface("Games", 33, 14, "Enter your name below:");
-  _gm.createSurface(20, 200, 40, 40, "Name");
-  _gm.addTextToSurface("Name", 33, 15, "Type your name:");
-
-  _gm.createSurface(20, 200, 40, 40, "Cursor");
-  _gm.addTextToSurface("Cursor", 3, 5, "----------->");
+  _gm->createSurface(20, 200, 40, 40, "Name");
+  _gm->addTextToSurface("Name", 30, 15, "Type your name:");
 
   this->getKeys();
+
 }
 
 Launcher::~Launcher()
@@ -69,12 +77,13 @@ void		Launcher::feedFromRepo(const std::string &repo)
 
 int		Launcher::getKeys()
 {
+
   int		c = 0;
 
-  _gm.refresh();
+  _gm->refresh();
   while (c != ControllerManager::ESCAPE)
     {
-      c = _cm.getKey(_gm.getWindow());
+      c = _cm.getKey(_gm->getWindow());
       switch(c)
 	{
 	case ControllerManager::RIGHT:
@@ -83,31 +92,43 @@ int		Launcher::getKeys()
 	case ControllerManager::UP:
 	  this->nextLib();
 	  break;
+	case ControllerManager::LEFT:
+	  this->nextGame();
+	  break;
+	case ControllerManager::DOWN:
+	  this->nextLib();
+	  break;
+	case ControllerManager::ACTION:
+	  _lm.close();
+	  // _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
+	  _gamem.play(_menu.getCurrentGame()->getValue());
+	    break;
 	case 8:
 	  _name = _name.substr(0, _name.size() -1);
-	  _gm.addTextToSurface("Name", 33, 15, _name);
+	  _gm->addTextToSurface("Name", 33, 15, _name);
 	  break;
 	default:
 	  {
 	    _name += c;
 	  }
-	  std::cout << c << std::endl;
-	  _gm.addTextToSurface("Name", 33, 15, _name);
+	  _gm->addTextToSurface("Name", 33, 15, _name);
 	}
-      _gm.refresh();
+      std::cout << c << std::endl;
+      _gm->refresh();
     }
+
 }
 
 void		Launcher::nextGame()
 {
-  _menu.nextGame();
-  _gm.addTextToSurface("Games", 33, 5, _menu.getCurrentGame()->getValue());
+    _menu.nextGame();
+   _gm->addTextToSurface("Games", 33, 5, _menu.getCurrentGame()->getValue());
 }
 
 void		Launcher::nextLib()
 {
-  _menu.nextLib();
-  _gm.addTextToSurface("Libs", 33, 10, _menu.getCurrentLib()->getValue());
+   _menu.nextLib();
+  _gm->addTextToSurface("Libs", 33, 10, _menu.getCurrentLib()->getValue());
 }
 
 void		Launcher::print()
