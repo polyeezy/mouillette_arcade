@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar 15 18:28:16 2016 Loïc Weinhard
+// Last update Tue Mar 15 19:44:25 2016 Loïc Weinhard
 //
 
 #include <GraphicManager.hh>
@@ -84,11 +84,22 @@ void	GraphicManager::print(const Map &map)
 
 void		GraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
 {
-  (void)x;
-  (void)y;
   (void)h;
   (void)w;
   (void)name;
+  (void)x;
+  glPushMatrix();
+  glTranslated(0, GL_SURFACE_HRATIO * (y / -10) * 2, 0);
+  glBegin(GL_QUADS);
+  glColor3ub(255, 255, 255);
+  glVertex2d(-GL_SURFACE_WRATIO,-GL_SURFACE_HRATIO);
+  glVertex2d(-GL_SURFACE_WRATIO,GL_SURFACE_HRATIO);
+  glVertex2d(GL_SURFACE_WRATIO,GL_SURFACE_HRATIO);
+  glVertex2d(GL_SURFACE_WRATIO,-GL_SURFACE_HRATIO);
+  glEnd();
+  glPopMatrix();
+  glFlush();
+  SDL_GL_SwapBuffers();
 }
 
 extern "C" void		GraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
@@ -110,7 +121,15 @@ int		GraphicManager::getKey() const
 
   while (SDL_PollEvent(&events))
     {
-      switch(events.key.keysym.sym)
+      switch (events.type)
+	{
+	case SDL_QUIT:
+	  return (ControllerManager::ESCAPE);
+	  break;
+	default:
+	  break;
+	}
+      switch (events.key.keysym.sym)
 	{
 	case SDLK_LEFT:
 	  return (ControllerManager::LEFT);

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:18:53 2016 Valerian Polizzi
-// Last update Tue Mar 15 16:44:53 2016 Loïc Weinhard
+// Last update Tue Mar 15 19:27:16 2016 Loïc Weinhard
 //
 
 #ifndef _GRAPHICMANAGER_HH_
@@ -24,11 +24,13 @@
 # include <GL/glu.h>
 # include "map.hh"
 
-# define WIDTH		1920
-# define HEIGHT		1080
-# define GL_RATIO	0.10
-# define GL_TRANS_X	-0.75
-# define GL_TRANS_Y	0.75
+# define WIDTH			1920
+# define HEIGHT			1080
+# define GL_RATIO		0.10
+# define GL_SURFACE_WRATIO	0.50
+# define GL_SURFACE_HRATIO	0.05
+# define GL_TRANS_X		-0.75
+# define GL_TRANS_Y		0.75
 
 # include <ControllerManager.hh>
 
