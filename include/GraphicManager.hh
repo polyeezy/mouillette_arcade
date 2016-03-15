@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:18:53 2016 Valerian Polizzi
-// Last update Tue Mar 15 16:23:21 2016 Loïc Weinhard
+// Last update Tue Mar 15 16:44:53 2016 Loïc Weinhard
 //
 
 #ifndef _GRAPHICMANAGER_HH_
@@ -19,6 +19,10 @@
 # include <map>
 # include <stdint.h>
 # include <Protocol.hpp>
+# include <SDL/SDL.h>
+# include <GL/gl.h>
+# include <GL/glu.h>
+# include "map.hh"
 
 # define WIDTH		1920
 # define HEIGHT		1080
@@ -42,6 +46,7 @@ public:
   void		setHandle(void *);
   void		createWindow(const std::string &name);
   void		refresh();
+  void		print(const Map &);
   void		openLib(const std::string&);
   void		createSurface(const int x, const int y, const int h, const int w, const std::string &name);
   void		addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text);

@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Tue Mar 15 14:34:41 2016 Valerian Polizzi
+## Last update Tue Mar 15 16:54:47 2016 Loïc Weinhard
 ##
 
 CXX		=		g++
@@ -32,26 +32,40 @@ LCACA_SRC	=		lib/libcaca/GraphicManager.cpp		\
 
 LCACA_OBJ	=		$(LCACA_SRC:.cpp=.o)
 
-LDFLAGS		+=		-ldl -lcaca -L./lib -l_arcade_caca
+OPENGL_NAME	=		./lib/lib_arcade_opengl.so
 
-CXXFLAGS	=		-fPIC -I./include -I./include/launcher -I./include/snake -std=c++11
+OPENGL_SRC	=		lib/openGL/GraphicManager.cpp		\
+
+OPENGL_OBJ	=		$(OPENGL_SRC:.cpp=.o)
+
+LDFLAGS		+=		-ldl -lcaca -L./lib -l_arcade_caca
+LDFLAGS		+=		-lX11 -lGL -lGLU -lSDL `sdl-config --cflags --libs` -l_arcade_opengl
+
+CXXFLAGS	=		-fPIC -I./include -I./include/launcher -I./include/snake -I./include/pacman -std=c++11
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		$(LCACA_NAME) $(NAME)
+all		:		$(OPENGL_NAME) $(LCACA_NAME) $(NAME)
 
 $(LCACA_NAME)	:		$(LCACA_OBJ)
 				$(CXX) -shared -o $(LCACA_NAME) $(LCACA_OBJ)
+
+$(OPENGL_NAME)	:		$(OPENGL_OBJ)
+				$(CXX) -shared -o $(OPENGL_NAME) $(OPENGL_OBJ)
 
 $(NAME)		:		$(OBJ)
 				g++ $(OBJ) -o $(NAME) $(CPPFLAGS) $(LDFLAGS)
 
 clean		:
 				$(MR_CLEAN)
-				rm -f $(OBJ) $(LCACA_NAME)
+				rm -f $(OBJ)
+				rm -f $(LCACA_OBJ)
+				rm -f $(OPENGL_OBJ)
 
 fclean		:		clean
 				rm -f $(NAME)
+				rm -f $(LCACA_NAME)
+				rm -f $(OPENGL_NAME)
 
 re		:		clean all
 

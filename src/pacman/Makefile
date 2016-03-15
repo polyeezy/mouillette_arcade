@@ -5,7 +5,7 @@
 ## Login   <weinha_l@epitech.net>
 ## 
 ## Started on  Mon Mar  7 17:52:15 2016 Loïc Weinhard
-## Last update Tue Mar 15 16:00:39 2016 Valerian Polizzi
+## Last update Tue Mar 15 16:41:50 2016 Loïc Weinhard
 ##
 
 SRC		=	main.cpp	\
