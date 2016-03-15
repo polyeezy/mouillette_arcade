@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Tue Mar 15 17:46:25 2016 Valerian Polizzi
+// Last update Tue Mar 15 18:07:20 2016 Loïc Weinhard
 //
 
 #include <Launcher.hh>
@@ -116,7 +116,7 @@ int		Launcher::getKeys()
       std::cout << c << std::endl;
       _gm->refresh();
     }
-
+  return (0);
 }
 
 void		Launcher::nextGame()

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar 15 16:44:21 2016 Loïc Weinhard
+// Last update Tue Mar 15 18:06:51 2016 Loïc Weinhard
 //
 
 #include <GraphicManager.hh>
@@ -99,6 +99,7 @@ void		*GraphicManager::getWindow()
 
 int		GraphicManager::getKey() const
 {
+  return (0);
 }
 
 extern "C" GraphicManager * createGraphicManager()
