@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Wed Mar 16 13:49:52 2016 Valerian Polizzi
+## Last update Wed Mar 16 14:26:53 2016 Valerian Polizzi
 ##
 
 CXX		=		clang
@@ -39,7 +39,7 @@ OPENGL_SRC	=		lib/openGL/GraphicManager.cpp		\
 OPENGL_OBJ	=		$(OPENGL_SRC:.cpp=.o)
 
 LDFLAGS		+=		-ldl -L./lib -L./lib/libcaca
-LDFLAGS		+=		-lX11  -lSDL -lGLU -lGL -lcaca1 `sdl-config --cflags --libs`  -l_arcade_opengl
+LDFLAGS		+=		-lcaca1  -l_arcade_opengl
 
 CXXFLAGS	+=		-fPIC -I./include -I./include/launcher -I./include/snake -I./include/pacman -std=c++11
 CXXFLAGS	+=		-I./include/General -I./include/Manager -I./include/Menu -I./include/Libs
@@ -53,7 +53,7 @@ $(LCACA_NAME)	:		$(LCACA_OBJ)
 				$(CXX) -shared -o $(LCACA_NAME) $(LCACA_OBJ) -lcaca1 -L./lib/libcaca
 
 $(OPENGL_NAME)	:		$(OPENGL_OBJ)
-				$(CXX) -shared -o $(OPENGL_NAME) $(OPENGL_OBJ)
+				$(CXX) -shared -o $(OPENGL_NAME) $(OPENGL_OBJ) -lX11 `sdl-config --cflags --libs` -lSDL -lGL -lGLU
 
 $(NAME)		:		$(OBJ)
 				g++ $(OBJ) -o $(NAME) $(CPPFLAGS) $(LDFLAGS)
