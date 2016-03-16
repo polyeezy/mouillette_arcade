@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:54:30 2016 Valerian Polizzi
-// Last update Tue Mar 15 14:54:59 2016 Valerian Polizzi
+// Last update Wed Mar 16 14:15:49 2016 Loïc Weinhard
 //
 
 #include <LibraryManager.hh>
@@ -23,6 +23,7 @@ LibraryManager::~LibraryManager()
 void		LibraryManager::open(const std::string &path)
 {
   _dlhandle = dlopen(path.c_str(), RTLD_LAZY);
+  std::cout << path << " | ta mère la grosse pute \n" << std::endl;
   if (!_dlhandle)
     {
       std::cout << "wrong lib" << std::endl;
