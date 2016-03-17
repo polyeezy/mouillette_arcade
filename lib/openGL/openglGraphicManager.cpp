@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 17 14:56:24 2016 Valerian Polizzi
+// Last update Thu Mar 17 15:10:56 2016 Valerian Polizzi
 //
 
 #include "openglGraphicManager.hh"
@@ -24,7 +24,7 @@ void		openglGraphicManager::createWindow(const std::string &name)
 {
   SDL_Surface	*window;
 
-  if ((window = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_OPENGL)))
+  if ((window = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_OPENGL)) < 0)
     exit(EXIT_FAILURE);
   SDL_WM_SetCaption(name.c_str(), NULL);
   _Window = window;
