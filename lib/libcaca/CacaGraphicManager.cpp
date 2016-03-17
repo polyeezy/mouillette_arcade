@@ -5,22 +5,22 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Wed Mar 16 13:47:16 2016 Valerian Polizzi
+// Last update Thu Mar 17 13:57:15 2016 Valerian Polizzi
 //
 
-#include <GraphicManager.hh>
+#include "CacaGraphicManager.hh"
+#include <IGraphicManager.hh>
 
-GraphicManager::GraphicManager()
-{
-  std::cout << "ok" << std::endl;
-}
-
-extern "C" GraphicManager::~GraphicManager()
+ CacaGraphicManager::CacaGraphicManager()
 {
 
 }
 
-void		GraphicManager::createWindow(const std::string &name)
+ CacaGraphicManager::~CacaGraphicManager()
+{
+}
+
+void		CacaGraphicManager::createWindow(const std::string &name)
 {
   //  caca_event_t  ev;
     (void)name;
@@ -31,12 +31,12 @@ void		GraphicManager::createWindow(const std::string &name)
     caca_set_color_ansi((caca_canvas_t*)_Content, CACA_WHITE, CACA_BLACK);
 }
 
-void		GraphicManager::refresh()
+void		CacaGraphicManager::refresh()
 {
   caca_refresh_display((caca_display_t*)_Window);
 }
 
- void		GraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
+void		CacaGraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
 {
   _surfaces[name] = caca_get_canvas((caca_display_t*)_Window);
   caca_set_canvas_size((caca_canvas_t*)_surfaces[name], h, w);
@@ -44,7 +44,7 @@ void		GraphicManager::refresh()
   (void)y;
 }
 
-extern "C" void		GraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
+void		CacaGraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
  {
    //caca_free_canvas((caca_canvas_t*)_surfaces[surface]);
    // this->createSurface(x, y, x, x, surface);
@@ -60,12 +60,12 @@ extern "C" void		GraphicManager::addTextToSurface(const std::string &surface, co
    //   this->refresh();
 }
 
-void		*GraphicManager::getWindow()
+void		*CacaGraphicManager::getWindow()
 {
   return (_Window);
 }
 
-int		GraphicManager::getKey() const
+int		CacaGraphicManager::getKey() const
 {
   caca_event_t	ev;
   int		c;
@@ -96,7 +96,7 @@ int		GraphicManager::getKey() const
   return (c);
 }
 
-extern "C" GraphicManager * createGraphicManager()
+extern "C" IGraphicManager * createGraphicManager()
 {
-  return (new GraphicManager);
+  return (new CacaGraphicManager);
 }

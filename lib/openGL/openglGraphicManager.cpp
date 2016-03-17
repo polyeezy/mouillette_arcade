@@ -1,41 +1,41 @@
 //
-// GraphicManager.cpp for Arcade in /home/polyeezy/rendu/CPP/mouillette_arcade/src
+// openglGraphicManager.cpp for Arcade in /home/polyeezy/rendu/CPP/mouillette_arcade/src
 //
 // Made by Valerian Polizzi
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Wed Mar 16 13:35:23 2016 Loïc Weinhard
+// Last update Thu Mar 17 14:56:24 2016 Valerian Polizzi
 //
 
-#include <GraphicManager.hh>
+#include "openglGraphicManager.hh"
 
-GraphicManager::GraphicManager()
+openglGraphicManager::openglGraphicManager()
 {
-  std::cout << "ok" << std::endl;
+  std::cout << "ok opengl" << std::endl;
 }
 
-extern "C" GraphicManager::~GraphicManager()
+openglGraphicManager::~openglGraphicManager()
 {
 
 }
 
-void		GraphicManager::createWindow(const std::string &name)
+void		openglGraphicManager::createWindow(const std::string &name)
 {
   SDL_Surface	*window;
 
-  if ((window = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_OPENGL)) < 0)
+  if ((window = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_OPENGL)))
     exit(EXIT_FAILURE);
   SDL_WM_SetCaption(name.c_str(), NULL);
   _Window = window;
 }
 
-void		GraphicManager::refresh()
+void		openglGraphicManager::refresh()
 {
-
+  return;
 }
 
-void	GraphicManager::print(const Map &map)
+void	openglGraphicManager::print(const Map &map)
 {
   float		trans_x;
   float		trans_y;
@@ -83,7 +83,7 @@ void	GraphicManager::print(const Map &map)
   SDL_GL_SwapBuffers();
 }
 
-void		GraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
+void		openglGraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
 {
   (void)h;
   (void)w;
@@ -103,7 +103,7 @@ void		GraphicManager::createSurface(const int x, const int y, const int h, const
   SDL_GL_SwapBuffers();
 }
 
-extern "C" void		GraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
+void		openglGraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
 {
   (void)surface;
   (void)x;
@@ -111,12 +111,12 @@ extern "C" void		GraphicManager::addTextToSurface(const std::string &surface, co
   (void)text;
 }
 
-void		*GraphicManager::getWindow()
+void		*openglGraphicManager::getWindow()
 {
   return (_Window);
 }
 
-int		GraphicManager::getKey() const
+int		openglGraphicManager::getKey() const
 {
   SDL_Event	events;
 
@@ -154,7 +154,7 @@ int		GraphicManager::getKey() const
   return (0);
 }
 
-extern "C" GraphicManager * createGraphicManager()
+extern "C" IGraphicManager * createGraphicManager()
 {
-  return (new GraphicManager);
+  return (new openglGraphicManager);
 }

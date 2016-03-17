@@ -5,13 +5,13 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:18:53 2016 Valerian Polizzi
-// Last update Tue Mar 15 19:27:16 2016 Loïc Weinhard
+// Last update Thu Mar 17 14:18:31 2016 Valerian Polizzi
 //
 
 #ifndef _GRAPHICMANAGER_HH_
 # define _GRAPHICMANAGER_HH_
 
-# include <caca.h>
+#include <IGraphicManager.hh>
 
 # include <iostream>
 # include <dlfcn.h>
@@ -19,12 +19,8 @@
 # include <map>
 # include <stdint.h>
 # include <Protocol.hpp>
-# include <SDL/SDL.h>
-# include <GL/gl.h>
-# include <GL/glu.h>
 # include "map.hh"
 
-# define WIDTH			1920
 # define HEIGHT			1080
 # define GL_RATIO		0.10
 # define GL_SURFACE_WRATIO	0.50
@@ -34,7 +30,7 @@
 
 # include <ControllerManager.hh>
 
-class GraphicManager
+class GraphicManager : public IGraphicManager
 {
 private:
   void		*_Window;
@@ -55,7 +51,7 @@ public:
   void		moveCursorUp();
  int getKey() const;
   void		*getWindow();
-  GraphicManager *createGraphicManager();
+  IGraphicManager *createGraphicManager();
 };
 
 #endif

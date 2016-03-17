@@ -5,10 +5,11 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:54:30 2016 Valerian Polizzi
-// Last update Tue Mar 15 14:54:59 2016 Valerian Polizzi
+// Last update Thu Mar 17 13:57:32 2016 Valerian Polizzi
 //
 
 #include <LibraryManager.hh>
+#include <IGraphicManager.hh>
 
 LibraryManager::LibraryManager() : _dlhandle(NULL)
 {
@@ -22,12 +23,13 @@ LibraryManager::~LibraryManager()
 
 void		LibraryManager::open(const std::string &path)
 {
-  _dlhandle = dlopen(path.c_str(), RTLD_LAZY);
+  _dlhandle = dlopen(path.c_str(), RTLD_LAZY | RTLD_NOW);
   if (!_dlhandle)
     {
-      std::cout << "wrong lib" << std::endl;
+      std::cout << dlerror() << std::endl;
       exit(0);
     }
+
 }
 
 void		*LibraryManager::getHandle()
@@ -35,16 +37,16 @@ void		*LibraryManager::getHandle()
   return (_dlhandle);
 }
 
-GraphicManager	*LibraryManager::createGM()
+IGraphicManager	*LibraryManager::createGM()
 {
-  GraphicManager     *(*GMcreator)();
-  GMcreator = reinterpret_cast<GraphicManager*(*)()>(dlsym(_dlhandle, "createGraphicManager"));
+  IGraphicManager     *(*GMcreator)();
+  GMcreator = reinterpret_cast<IGraphicManager*(*)()>(dlsym(_dlhandle, "createGraphicManager"));
   if (GMcreator == NULL)
     {
       std::cout << "error on creating create GM" << std::endl;
       exit(0);
     }
-  GraphicManager *rtn = GMcreator();
+  IGraphicManager *rtn = GMcreator();
   return (rtn);
 }
 
