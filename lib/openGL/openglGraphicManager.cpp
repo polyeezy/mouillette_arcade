@@ -5,11 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-<<<<<<< HEAD:lib/openGL/openglGraphicManager.cpp
-// Last update Thu Mar 17 15:10:56 2016 Valerian Polizzi
-=======
-// Last update Wed Mar 16 15:23:23 2016 Loïc Weinhard
->>>>>>> 3e8c6bd7400d76bb94b1c6b2fcadb99f05836159:lib/openGL/GraphicManager.cpp
+// Last update Thu Mar 17 15:33:15 2016 Valerian Polizzi
 //
 
 #include "openglGraphicManager.hh"
