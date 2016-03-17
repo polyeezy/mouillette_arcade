@@ -5,7 +5,11 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
+<<<<<<< HEAD:lib/openGL/openglGraphicManager.cpp
 // Last update Thu Mar 17 15:10:56 2016 Valerian Polizzi
+=======
+// Last update Wed Mar 16 15:23:23 2016 Loïc Weinhard
+>>>>>>> 3e8c6bd7400d76bb94b1c6b2fcadb99f05836159:lib/openGL/GraphicManager.cpp
 //
 
 #include "openglGraphicManager.hh"
@@ -27,6 +31,8 @@ void		openglGraphicManager::createWindow(const std::string &name)
   if ((window = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_OPENGL)) < 0)
     exit(EXIT_FAILURE);
   SDL_WM_SetCaption(name.c_str(), NULL);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f );
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   _Window = window;
 }
 
