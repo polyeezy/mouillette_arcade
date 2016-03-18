@@ -5,13 +5,13 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 17 13:57:15 2016 Valerian Polizzi
+// Last update Thu Mar 17 17:34:48 2016 Valerian Polizzi
 //
 
 #include "CacaGraphicManager.hh"
 #include <IGraphicManager.hh>
 
- CacaGraphicManager::CacaGraphicManager()
+CacaGraphicManager::CacaGraphicManager()
 {
 
 }
