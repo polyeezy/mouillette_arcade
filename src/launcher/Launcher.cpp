@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Tue Mar 15 19:23:51 2016 Loïc Weinhard
+// Last update Fri Mar 18 16:29:06 2016 Loïc Weinhard
 //
 
 #include <Launcher.hh>
@@ -36,13 +36,13 @@ void		Launcher::run()
 
   _gm->createWindow("Arcade");
 
-  _gm->createSurface(20, 20, 20, 200, "Games");
+  _gm->createSurface(0, 0, 20, 200, "Games");
   _gm->addTextToSurface("Games", 30, 5, _menu.getCurrentGame()->getValue());
 
-  _gm->createSurface(40, 40, 20, 200, "Libs");
+  _gm->createSurface(20, 20, 20, 200, "Libs");
   _gm->addTextToSurface("Libs", 30, 10, _menu.getCurrentLib()->getValue());
 
-  _gm->createSurface(60, 60, 20, 200, "Name");
+  _gm->createSurface(40, 40, 20, 200, "Name");
   _gm->addTextToSurface("Name", 30, 15, "Type your name:");
 
   this->getKeys();

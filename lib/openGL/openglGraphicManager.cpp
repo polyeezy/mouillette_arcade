@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 17 15:33:15 2016 Valerian Polizzi
+// Last update Fri Mar 18 16:27:31 2016 Loïc Weinhard
 //
 
 #include "openglGraphicManager.hh"
@@ -91,8 +91,9 @@ void		openglGraphicManager::createSurface(const int x, const int y, const int h,
   (void)w;
   (void)name;
   (void)x;
+  (void)y;
   glPushMatrix();
-  glTranslated(0, GL_SURFACE_HRATIO * (y / -10) * 2, 0);
+  glTranslated(0, GL_SURFACE_HRATIO * (y / 5), 0);
   glBegin(GL_QUADS);
   glColor3ub(255, 255, 255);
   glVertex2d(-GL_SURFACE_WRATIO,-GL_SURFACE_HRATIO);
