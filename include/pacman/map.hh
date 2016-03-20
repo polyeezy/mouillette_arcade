@@ -1,11 +1,11 @@
 //
 // map.hh for  in /home/weinha_l/Semestre_4/mouillette_arcade/include/pacman
-// 
+//
 // Made by Loïc Weinhard
 // Login   <weinha_l@epitech.net>
-// 
+//
 // Started on  Tue Mar  8 11:35:18 2016 Loïc Weinhard
-// Last update Tue Mar 15 16:12:20 2016 Loïc Weinhard
+// Last update Sun Mar 20 02:17:31 2016 Alexis Miele
 //
 
 #ifndef MAP_HH_
@@ -38,6 +38,7 @@ public:
   bool				hasGums();
   t_pos				getPacmanSpawn();
   t_pos				getNextGhostSpawn();
+  size_t		getSize() const;
   void				print();
 };
 

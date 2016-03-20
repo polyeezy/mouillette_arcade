@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Thu Mar 17 14:55:32 2016 Valerian Polizzi
+## Last update Sun Mar 20 02:01:35 2016 Alexis Miele
 ##
 
 CXX		=		clang++
@@ -32,6 +32,12 @@ LCACA_SRC	=		lib/libcaca/CacaGraphicManager.cpp	\
 
 LCACA_OBJ	=		$(LCACA_SRC:.cpp=.o)
 
+SFML_NAME	=		./lib/lib_arcade_sfml.so
+
+SFML_SRC	=		lib/SFML/sfmlGraphicManager.cpp	\
+
+SFML_OBJ	=		$(SFML_SRC:.cpp=.o)
+
 OPENGL_NAME	=		./lib/lib_arcade_opengl.so
 
 OPENGL_SRC	=		./lib/openGL/openglGraphicManager.cpp		\
@@ -49,13 +55,16 @@ CXXFLAGS	+=		-Wall -Wextra -Werror
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		$(OPENGL_NAME) $(LCACA_NAME) $(NAME)
+all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(NAME)
 
 $(LCACA_NAME)	:		$(LCACA_OBJ)
 				$(CXX) -shared -o $(LCACA_NAME) $(LCACA_OBJ) -lcaca1 -L./lib/libcaca
 
 $(OPENGL_NAME)	:		$(OPENGL_OBJ)
 				$(CXX) -shared -o $(OPENGL_NAME) $(OPENGL_OBJ) -lX11 `sdl-config --cflags --libs` -lSDL -lGL -lGLU
+
+$(SFML_NAME)	:		$(SFML_OBJ)
+						$(CXX) -shared -o $(SFML_NAME) $(SFML_OBJ) -lsfml-graphics -lsfml-window -lsfml-system -L./lib/SFML
 
 $(NAME)		:		$(OBJ)
 				g++ $(OBJ) -o $(NAME) $(CPPFLAGS) $(LDFLAGS) $(GLIBS)
@@ -64,11 +73,13 @@ clean		:
 				$(MR_CLEAN)
 				rm -f $(OBJ)
 				rm -f $(LCACA_OBJ)
+				rm -f $(SFML_OBJ)
 				rm -f $(OPENGL_OBJ)
 
 fclean		:		clean
 				rm -f $(NAME)
 				rm -f $(LCACA_NAME)
+				rm -f $(SFML_NAME)
 				rm -f $(OPENGL_NAME)
 
 re		:		clean all

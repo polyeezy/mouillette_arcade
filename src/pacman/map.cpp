@@ -1,11 +1,11 @@
 //
 // map.cpp for  in /home/weinha_l/Semestre_4/mouillette_arcade/src/pacman
-// 
+//
 // Made by Loïc Weinhard
 // Login   <weinha_l@epitech.net>
-// 
+//
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Tue Mar 15 16:13:55 2016 Loïc Weinhard
+// Last update Sun Mar 20 02:17:23 2016 Alexis Miele
 //
 
 #include <unistd.h>
@@ -108,6 +108,11 @@ t_pos	Map::getNextGhostSpawn()
     }
   _last_gspawn.x = _map[_last_gspawn.y].find("G");
   return (_last_gspawn);
+}
+
+size_t	Map::getSize() const
+{
+    return (_map.size());
 }
 
 void		Map::print()
