@@ -5,11 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-<<<<<<< HEAD
-// Last update Mon Mar 21 16:38:46 2016 Valerian Polizzi
-=======
-// Last update Mon Mar 21 16:33:31 2016 Miele Alexis
->>>>>>> d137a1aca79d9ed7dfab1be76c33815129e8bd11
+// Last update Mon Mar 21 16:41:19 2016 Valerian Polizzi
 //
 
 
