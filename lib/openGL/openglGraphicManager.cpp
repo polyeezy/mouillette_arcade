@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Fri Mar 18 16:27:31 2016 Loïc Weinhard
+// Last update Mon Mar 21 18:12:09 2016 Loïc Weinhard
 //
 
 #include "openglGraphicManager.hh"
@@ -149,6 +149,10 @@ int		openglGraphicManager::getKey() const
 	  break;
 	case SDLK_ESCAPE:
 	  return (ControllerManager::ESCAPE);
+	  break;
+	case SDLK_SPACE:
+	  return (ControllerManager::ACTION);
+	  break;
 	default:
 	  return (events.key.keysym.sym);
 	  break;
