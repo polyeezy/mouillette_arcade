@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Wed Mar 16 14:11:15 2016 Loïc Weinhard
+// Last update Sun Mar 20 15:31:37 2016 Alexis Miele
 //
 
 #include "map.hh"

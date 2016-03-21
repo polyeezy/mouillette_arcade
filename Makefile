@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Sun Mar 20 02:01:35 2016 Alexis Miele
+## Last update Mon Mar 21 15:25:28 2016 Alexis Miele
 ##
 
 CXX		=		clang++
@@ -44,7 +44,7 @@ OPENGL_SRC	=		./lib/openGL/openglGraphicManager.cpp		\
 
 OPENGL_OBJ	=		$(OPENGL_SRC:.cpp=.o)
 
-LDFLAGS		+=		-ldl -L./lib -L./lib/libcaca -lcaca1
+LDFLAGS		+=		-ldl -L./lib -L./lib/libcaca -lcaca1 -L/usr/local/lib
 
 GLIBS		+=		-l_arcade_caca -l_arcade_opengl
 
@@ -64,7 +64,7 @@ $(OPENGL_NAME)	:		$(OPENGL_OBJ)
 				$(CXX) -shared -o $(OPENGL_NAME) $(OPENGL_OBJ) -lX11 `sdl-config --cflags --libs` -lSDL -lGL -lGLU
 
 $(SFML_NAME)	:		$(SFML_OBJ)
-						$(CXX) -shared -o $(SFML_NAME) $(SFML_OBJ) -lsfml-graphics -lsfml-window -lsfml-system -L./lib/SFML
+						$(CXX) -shared -o $(SFML_NAME) $(SFML_OBJ) -L./lib/SFML -lsfml-graphics -lsfml-window -lsfml-system
 
 $(NAME)		:		$(OBJ)
 				g++ $(OBJ) -o $(NAME) $(CPPFLAGS) $(LDFLAGS) $(GLIBS)

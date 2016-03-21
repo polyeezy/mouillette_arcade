@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:54:30 2016 Valerian Polizzi
-// Last update Thu Mar 17 15:33:55 2016 Valerian Polizzi
+// Last update Mon Mar 21 15:28:31 2016 Alexis Miele
 //
 
 #include <LibraryManager.hh>
@@ -29,7 +29,6 @@ void		LibraryManager::open(const std::string &path)
       std::cout << dlerror() << std::endl;
       exit(0);
     }
-
 }
 
 void		*LibraryManager::getHandle()
