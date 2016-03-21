@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Mon Mar 21 18:19:06 2016 Loïc Weinhard
+## Last update Mon Mar 21 18:33:03 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
@@ -57,7 +57,7 @@ GLIBS		+=		-l_arcade_caca -l_arcade_opengl
 
 CXXFLAGS	+=		-fPIC -I./include -I./include/launcher -I./include/snake -I./include/pacman -std=c++11
 CXXFLAGS	+=		-I./include/General -I./include/Manager -I./include/Menu -I./include/Libs -I./lib/openGL
-CXXFLAGS	+=		-Wall -Wextra -Werror
+CXXFLAGS	+=		-Wall -Wextra -Werror -g3
 
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete

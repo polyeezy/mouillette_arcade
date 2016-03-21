@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Mon Mar 21 17:02:38 2016 Valerian Polizzi
+// Last update Mon Mar 21 18:55:12 2016 Valerian Polizzi
 //
 
 #include "Protocol.hpp"
@@ -14,6 +14,7 @@
 
 PGame::PGame()
 {
+  std::cout << "PACMAN CONSTRUCTOR" << std::endl;
 }
 
 PGame::PGame(const std::string &file)
@@ -46,4 +47,9 @@ Map&	PGame::getMap() const
 
 void	PGame::play()
 {
+}
+
+extern "C" IGame *createIGame()
+{
+  return (new PGame);
 }

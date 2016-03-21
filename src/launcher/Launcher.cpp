@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Mon Mar 21 17:34:37 2016 Valerian Polizzi
+// Last update Mon Mar 21 18:56:22 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
@@ -19,6 +19,7 @@ void		Launcher::openLibrary(const std::string &lib)
 {
   _lm.open(lib);
   this->_currentGM = _lm.createGM();
+  //_lm.close();
 }
 
 void		Launcher::init()
@@ -29,10 +30,8 @@ void		Launcher::init()
 void		Launcher::run()
 {
 
-  _menu.addGame("Snake");
-  _menu.addGame("Pacman");
-
   this->feedFromRepo("lib");
+  this->feedFromRepo("games");
 
   _currentGM->createWindow("Arcade");
 
@@ -64,9 +63,9 @@ void		Launcher::feedFromRepo(const std::string &repo)
 	{
 	  std::string	file(ent->d_name);
 
-	  if (file.substr(file.find_last_of(".") + 1) == "arcade")
+	  if (repo.compare("games") == 0 && file.substr(file.find_last_of(".") + 1) == "so")
 	    _menu.addGame(file);
-	  else if (file.substr(file.find_last_of(".") + 1) == "so")
+	    else if (repo.compare("lib") == 0 && file.substr(file.find_last_of(".") + 1) == "so")
 	    _menu.addLib(file);
 	}
       closedir(dir);
@@ -88,21 +87,32 @@ int		Launcher::getKeys()
 	{
 	case ControllerManager::RIGHT:
 	  this->nextGame();
+	  std::cout << "[RIGHT]" << std::endl;
 	  break;
 	case ControllerManager::UP:
+	  std::cout << "[UP]" << std::endl;
 	  this->nextLib();
 	  break;
 	case ControllerManager::LEFT:
+	  std::cout << "[LEFT]" << std::endl;
 	  this->nextGame();
 	  break;
 	case ControllerManager::DOWN:
+	  std::cout << "[DOWN]" << std::endl;
 	  this->nextLib();
 	  break;
 	case ControllerManager::ACTION:
+	  std::cout << "[ACTION]" << std::endl;
+	  std::cout << "[USING " << _menu.getCurrentLib()->getValue()  << " AS LIB ]"   << std::endl;
+	  std::cout << "[USING " << _menu.getCurrentGame()->getValue()  << " AS GAME ]"   << std::endl;
+	  _lm.close();
 	  _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
 	  _currentGM = _lm.createGM();
+	  std::cout << "Graphic Manager created " << std::endl;
 	  _lm.close();
-	  // _gamem.play(_menu.getCurrentGame()->getValue());
+	  _lm.open(std::string("./games/").append(_menu.getCurrentGame()->getValue()));
+	  _currentGame = _lm.createGame();
+	  std::cout << "Game created " << std::endl;
 	    break;
 	case 8:
 	  _name = _name.substr(0, _name.size() -1);
@@ -111,11 +121,12 @@ int		Launcher::getKeys()
 	default:
 	  {
 	    _name += c;
+	    _currentGM->refresh();
 	  }
 	  _currentGM->addTextToSurface("Name", 33, 15, _name);
 	}
       //std::cout << c << std::endl;
-      _currentGM->refresh();
+
     }
   return (0);
 }
@@ -124,12 +135,14 @@ void		Launcher::nextGame()
 {
     _menu.nextGame();
    _currentGM->addTextToSurface("Games", 33, 5, _menu.getCurrentGame()->getValue());
+   std::cout << "[current game : " << _menu.getCurrentGame()->getValue() << "]"  << std::endl;
 }
 
 void		Launcher::nextLib()
 {
    _menu.nextLib();
   _currentGM->addTextToSurface("Libs", 33, 10, _menu.getCurrentLib()->getValue());
+  std::cout << "[current lib : " << _menu.getCurrentLib()->getValue() << "]"  << std::endl;
 }
 
 void		Launcher::print()
