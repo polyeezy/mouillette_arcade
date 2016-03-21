@@ -5,11 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-<<<<<<< HEAD
-// Last update Sun Mar 20 15:31:37 2016 Alexis Miele
-=======
-// Last update Mon Mar 21 10:39:34 2016 Loïc Weinhard
->>>>>>> b1b5b6752bab8b9dedb2a885c98c2fa38d4504e1
+// Last update Mon Mar 21 16:38:46 2016 Valerian Polizzi
 //
 
 
@@ -25,7 +21,7 @@ void	Play()
 
   while (game.getMap().hasGums())
     {
-      
+
     }
 }
 
