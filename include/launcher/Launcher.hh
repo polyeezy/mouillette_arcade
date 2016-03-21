@@ -5,13 +5,13 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:04:44 2016 Valerian Polizzi
-// Last update Wed Mar 16 16:44:38 2016 Valerian Polizzi
+// Last update Mon Mar 21 17:28:55 2016 Valerian Polizzi
 //
 
 #ifndef _LAUNCHER_HH_
 # define _LAUNCHER_HH_
 
-# include <GameManager.hh>
+//# include <GameManager.hh>
 # include <IGraphicManager.hh>
 # include <ControllerManager.hh>
 # include <LibraryManager.hh>
@@ -24,12 +24,13 @@
 class Launcher : public AEntity
 {
 private:
+  std::string		_name;
   Menu			_menu;
   ControllerManager	_cm;
-  IGraphicManager	*_gm;
-  std::string		_name;
   LibraryManager	_lm;
-  GameManager		_gamem;
+  IGame			*_currentGame;
+  IGraphicManager	*_currentGM;
+  //  GameManager		_gamem;
 public:
   Launcher();
   ~Launcher();

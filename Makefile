@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Mon Mar 21 15:25:28 2016 Alexis Miele
+## Last update Mon Mar 21 17:26:08 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
@@ -18,7 +18,6 @@ SRC		=		src/main.cpp				\
 				src/Menu/Menu.cpp			\
 				src/launcher/Launcher.cpp		\
 				src/Manager/ScoreManager.cpp		\
-				src/Manager/GameManager.cpp		\
 				src/Manager/ControllerManager.cpp	\
 				src/Manager/LibraryManager.cpp		\
 				src/snake/Snake.cpp			\

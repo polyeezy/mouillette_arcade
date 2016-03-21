@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:54:30 2016 Valerian Polizzi
-// Last update Mon Mar 21 15:28:31 2016 Alexis Miele
+// Last update Mon Mar 21 17:26:43 2016 Valerian Polizzi
 //
 
 #include <LibraryManager.hh>
@@ -39,6 +39,7 @@ void		*LibraryManager::getHandle()
 IGraphicManager	*LibraryManager::createGM()
 {
   IGraphicManager     *(*GMcreator)();
+
   GMcreator = reinterpret_cast<IGraphicManager*(*)()>(dlsym(_dlhandle, "createGraphicManager"));
   if (GMcreator == NULL)
     {
@@ -47,6 +48,19 @@ IGraphicManager	*LibraryManager::createGM()
     }
   IGraphicManager *rtn = GMcreator();
   return (rtn);
+}
+
+IGame		*LibraryManager::createGame()
+{
+  IGame     *(*gameCreator)();
+
+  gameCreator = reinterpret_cast<IGame*(*)()>(dlsym(_dlhandle, "createIGame"));
+  if (gameCreator == NULL)
+    {
+      std::cout << "error on creating create IGame" << std::endl;
+      exit(0);
+    }
+  return (gameCreator());
 }
 
 void		LibraryManager::close()

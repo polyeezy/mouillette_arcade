@@ -1,16 +1,20 @@
 //
 // PGame.cpp for  in /home/weinha_l/Semestre_4/mouillette_arcade/src/pacman
-// 
+//
 // Made by Loïc Weinhard
 // Login   <weinha_l@epitech.net>
-// 
+//
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Mon Mar 21 10:53:09 2016 Loïc Weinhard
+// Last update Mon Mar 21 17:02:38 2016 Valerian Polizzi
 //
 
 #include "Protocol.hpp"
 #include "PGame.hh"
 #include "Position.hh"
+
+PGame::PGame()
+{
+}
 
 PGame::PGame(const std::string &file)
 {
@@ -38,4 +42,8 @@ void	PGame::move(const ControllerManager::e_control dir)
 Map&	PGame::getMap() const
 {
   return (*_map);
+}
+
+void	PGame::play()
+{
 }

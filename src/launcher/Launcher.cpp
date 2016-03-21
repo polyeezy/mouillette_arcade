@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Sun Mar 20 15:35:08 2016 Alexis Miele
+// Last update Mon Mar 21 17:34:37 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
@@ -18,7 +18,7 @@ Launcher::Launcher()
 void		Launcher::openLibrary(const std::string &lib)
 {
   _lm.open(lib);
-  this->_gm = _lm.createGM();
+  this->_currentGM = _lm.createGM();
 }
 
 void		Launcher::init()
@@ -34,16 +34,16 @@ void		Launcher::run()
 
   this->feedFromRepo("lib");
 
-  _gm->createWindow("Arcade");
+  _currentGM->createWindow("Arcade");
 
-  _gm->createSurface(0, 0, 20, 200, "Games");
-  _gm->addTextToSurface("Games", 30, 5, _menu.getCurrentGame()->getValue());
+  _currentGM->createSurface(0, 0, 20, 200, "Games");
+  _currentGM->addTextToSurface("Games", 30, 5, _menu.getCurrentGame()->getValue());
 
-  _gm->createSurface(20, 20, 20, 200, "Libs");
-  _gm->addTextToSurface("Libs", 30, 10, _menu.getCurrentLib()->getValue());
+  _currentGM->createSurface(20, 20, 20, 200, "Libs");
+  _currentGM->addTextToSurface("Libs", 30, 10, _menu.getCurrentLib()->getValue());
 
-  _gm->createSurface(40, 40, 20, 200, "Name");
-  _gm->addTextToSurface("Name", 30, 15, "Type your name:");
+  _currentGM->createSurface(40, 40, 20, 200, "Name");
+  _currentGM->addTextToSurface("Name", 30, 15, "Type your name:");
 
   this->getKeys();
 
@@ -80,10 +80,10 @@ int		Launcher::getKeys()
 
   int		c = 0;
 
-  _gm->refresh();
+ _currentGM->refresh();
   while (c != ControllerManager::ESCAPE)
     {
-      c = _gm->getKey();
+      c = _currentGM->getKey();
       switch(c)
 	{
 	case ControllerManager::RIGHT:
@@ -99,22 +99,23 @@ int		Launcher::getKeys()
 	  this->nextLib();
 	  break;
 	case ControllerManager::ACTION:
+	  _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
+	  _currentGM = _lm.createGM();
 	  _lm.close();
-	  // _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
-	  _gamem.play(_menu.getCurrentGame()->getValue());
+	  // _gamem.play(_menu.getCurrentGame()->getValue());
 	    break;
 	case 8:
 	  _name = _name.substr(0, _name.size() -1);
-	  _gm->addTextToSurface("Name", 33, 15, _name);
+	  _currentGM->addTextToSurface("Name", 33, 15, _name);
 	  break;
 	default:
 	  {
 	    _name += c;
 	  }
-	  _gm->addTextToSurface("Name", 33, 15, _name);
+	  _currentGM->addTextToSurface("Name", 33, 15, _name);
 	}
       //std::cout << c << std::endl;
-      _gm->refresh();
+      _currentGM->refresh();
     }
   return (0);
 }
@@ -122,13 +123,13 @@ int		Launcher::getKeys()
 void		Launcher::nextGame()
 {
     _menu.nextGame();
-   _gm->addTextToSurface("Games", 33, 5, _menu.getCurrentGame()->getValue());
+   _currentGM->addTextToSurface("Games", 33, 5, _menu.getCurrentGame()->getValue());
 }
 
 void		Launcher::nextLib()
 {
    _menu.nextLib();
-  _gm->addTextToSurface("Libs", 33, 10, _menu.getCurrentLib()->getValue());
+  _currentGM->addTextToSurface("Libs", 33, 10, _menu.getCurrentLib()->getValue());
 }
 
 void		Launcher::print()

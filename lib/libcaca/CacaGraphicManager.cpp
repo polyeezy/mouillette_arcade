@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 17 17:34:48 2016 Valerian Polizzi
+// Last update Mon Mar 21 16:55:41 2016 Valerian Polizzi
 //
 
 #include "CacaGraphicManager.hh"
@@ -88,6 +88,9 @@ int		CacaGraphicManager::getKey() const
       break;
     case CACA_KEY_ESCAPE:
       return (ControllerManager::ESCAPE);
+      break;
+    case CACA_KEY_RETURN:
+      return (ControllerManager::ACTION);
       break;
     default:
       return (c);

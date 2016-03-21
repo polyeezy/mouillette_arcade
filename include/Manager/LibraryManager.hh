@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:52:29 2016 Valerian Polizzi
-// Last update Wed Mar 16 16:43:08 2016 Valerian Polizzi
+// Last update Mon Mar 21 17:21:55 2016 Valerian Polizzi
 //
 
 #ifndef _LIBRARYMANAGER_HH_
@@ -16,6 +16,7 @@
 # include <dlfcn.h>
 # include <ControllerManager.hh>
 # include <IGraphicManager.hh>
+# include <IGame.hpp>
 
 class LibraryManager
 {
@@ -24,8 +25,8 @@ private:
 public:
   LibraryManager();
   ~LibraryManager();
-  IGraphicManager *createGM();
-
+  IGraphicManager	*createGM();
+  IGame			*createGame();
   void		*getHandle();
   void		open(const std::string &);
   void		close();
