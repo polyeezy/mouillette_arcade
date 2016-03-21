@@ -5,13 +5,14 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Wed Mar  9 13:56:17 2016 Loïc Weinhard
-// Last update Sat Mar 12 15:28:35 2016 Loïc Weinhard
+// Last update Mon Mar 21 10:46:10 2016 Loïc Weinhard
 //
 
 #ifndef PGAME_HH_
 # define PGAME_HH_
 
 # include <vector>
+# include "ControllerManager.hh"
 # include "PEntity.hh"
 # include "map.hh"
 
@@ -30,7 +31,7 @@ private:
 public:
   PGame(const std::string &);
   ~PGame() {};
-  void		move(const e_dir dir);
+  void		move(const ControllerManager::e_control);
   Map&		getMap() const;
 };
 

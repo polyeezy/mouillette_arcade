@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Sun Mar 20 02:01:35 2016 Alexis Miele
+## Last update Mon Mar 21 10:52:54 2016 Loïc Weinhard
 ##
 
 CXX		=		clang++
@@ -23,6 +23,8 @@ SRC		=		src/main.cpp				\
 				src/Manager/LibraryManager.cpp		\
 				src/snake/Snake.cpp			\
 				src/pacman/map.cpp			\
+				src/pacman/PGame.cpp			\
+				src/pacman/PEntity.cpp			\
 
 OBJ		=		$(SRC:.cpp=.o)
 
