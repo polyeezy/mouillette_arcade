@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Sat Mar 12 15:57:00 2016 Loïc Weinhard
+// Last update Mon Mar 21 10:54:56 2016 Loïc Weinhard
 //
 
 #include "PEntity.hh"
@@ -13,7 +13,7 @@
 PEntity::PEntity(const float w, const float h, const float x, const float y, const float s) : AEntity(w, h, x, y, s)
 {
   _god = false;
-  _dir = RIGHT;
+  _dir = ControllerManager::RIGHT;
 }
 
 PEntity::PEntity(const float w, const float h, const t_pos p, const float s) : AEntity(w, h, p.x, p.y, s)
@@ -40,22 +40,24 @@ void	PEntity::print()
 
 }
 
-void	PEntity::move(const Map *map, const e_dir new_dir)
+void	PEntity::move(const Map *map, const ControllerManager::e_control new_dir)
 {
   _dir = new_dir;
   switch (new_dir)
     {
-    case UP:
+    case ControllerManager::UP:
       this->checkVerticalMove(map, -1);
       break;
-    case DOWN:
+    case ControllerManager::DOWN:
       this->checkVerticalMove(map, 1);
       break;
-    case LEFT:
+    case ControllerManager::LEFT:
       this->checkHorizontalMove(map, -1);
       break;
-    case RIGHT:
+    case ControllerManager::RIGHT:
       this->checkHorizontalMove(map, 1);
+      break;
+    default:
       break;
     };
 }

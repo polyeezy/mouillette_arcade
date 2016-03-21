@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Sat Mar 12 15:28:57 2016 Loïc Weinhard
+// Last update Mon Mar 21 10:53:09 2016 Loïc Weinhard
 //
 
 #include "Protocol.hpp"
@@ -29,7 +29,7 @@ PGame::PGame(const std::string &file)
     }
 }
 
-void	PGame::move(const e_dir dir)
+void	PGame::move(const ControllerManager::e_control dir)
 {
   _pacman->move(_map, dir);
   _map->deleteObj(_pacman->getPos());

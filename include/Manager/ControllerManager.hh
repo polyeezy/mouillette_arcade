@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar  9 10:00:10 2016 Valerian Polizzi
-// Last update Tue Mar 15 17:42:24 2016 Valerian Polizzi
+// Last update Mon Mar 21 10:50:18 2016 Loïc Weinhard
 //
 
 #ifndef _CONTROLLERMANAGER_HH_
@@ -25,7 +25,7 @@ private:
   std::map<int, int>	_key_map;
   std::string		_path;
 public:
-  enum e_control
+  typedef enum e_control
     {
       UP = 1,
       DOWN = 2,

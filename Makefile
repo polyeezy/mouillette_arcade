@@ -23,6 +23,8 @@ SRC		=		src/main.cpp				\
 				src/Manager/LibraryManager.cpp		\
 				src/snake/Snake.cpp			\
 				src/pacman/map.cpp			\
+				src/pacman/PGame.cpp			\
+				src/pacman/PEntity.cpp			\
 
 OBJ		=		$(SRC:.cpp=.o)
 
