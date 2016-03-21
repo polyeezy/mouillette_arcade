@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Mon Mar 21 17:10:05 2016 Miele Alexis
+// Last update Mon Mar 21 18:21:09 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -95,8 +95,6 @@ void		sfmlGraphicManager::createSurface(const int x, const int y, const int h, c
 void		sfmlGraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
 {
     ((sf::String *)_surfaces[surface])->SetText(text);
-    ((sf::RenderWindow *)_Window)->Draw(*((sf::String *)_surfaces[surface]));
-    ((sf::RenderWindow *)_Window)->Display();
     (void)x;
     (void)y;
 }
@@ -144,7 +142,16 @@ int		sfmlGraphicManager::getKey() const
                         return (ControllerManager::DOWN);
                         break;
 
+                    case sf::Key::Return :
+                        return (ControllerManager::ACTION);
+                        break;
+
+                    case sf::Key::Back :
+                        return (8);
+                        break;
+
                     default :
+		      std::cout << event.Key.Code << std::endl;
                         return (event.Key.Code);
                         break;
                 }
