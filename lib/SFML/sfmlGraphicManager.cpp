@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Mon Mar 21 16:38:47 2016 Miele Alexis
+// Last update Mon Mar 21 17:10:05 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -23,17 +23,17 @@ sfmlGraphicManager::~sfmlGraphicManager()
 void		sfmlGraphicManager::createWindow(const std::string &name)
 {
     _Window = new sf::RenderWindow(sf::VideoMode(WIDTH, HEIGHT, 32), name.c_str());
+    ((sf::RenderWindow *)_Window)->Clear(sf::Color::Black);
     _blockSize = 0;
-    (void)name;
 }
 
 void		sfmlGraphicManager::refresh()
 {
-    ((sf::RenderWindow *)_Window)->Clear(sf::Color::Black);
-    /*std::map<const std::string, void *>::iterator p;
-    for(p = _surfaces.begin(); p != _surfaces.end(); p++)
-        ((sf::RenderWindow *)_Window)->Draw(*((sf::Drawable *)p->second));*/
-    ((sf::RenderWindow *)_Window)->Display();
+  ((sf::RenderWindow *)_Window)->Clear(sf::Color::Black);
+  std::map<const std::string, void *>::iterator p;
+  for(p = _surfaces.begin(); p != _surfaces.end(); p++)
+    ((sf::RenderWindow *)_Window)->Draw(*((sf::Drawable *)p->second));
+  ((sf::RenderWindow *)_Window)->Display();
 }
 
 void	sfmlGraphicManager::print(const Map &map)
@@ -86,32 +86,19 @@ void	sfmlGraphicManager::print(const Map &map)
 
 void		sfmlGraphicManager::createSurface(const int x, const int y, const int h, const int w, const std::string &name)
 {
-    /*sf::Font font;
-    if (!font.LoadFromFile("lib/SFML/arial.ttf"))
-        exit(EXIT_FAILURE);*/
-    //_surfaces[name] = new sf::String("lllleeeeeellll", font);
-    /*((sf::String *)_surfaces[name])->setFont(font);
-    ((sf::String *)_surfaces[name])->setString("LEEEEEL");
-    ((sf::String *)_surfaces[name])->setColor(sf::Color(255,255,255));
-    ((sf::String *)_surfaces[name])->setPosition(x, y);
-//    ((sf::Text *)_surfaces[name])->setScale(w, h);*/
-    //((sf::RenderWindow *)_Window)->draw(*((sf::Text *)_surfaces[name]));
-    /*_surfaces[name] = new sf::RectangleShape(sf::Vector2f(w, h));
-    ((sf::RectangleShape *)_surfaces[name])->setPosition(x, y);*/
-    (void)name;
+    _surfaces[name] = new sf::String;
+    ((sf::String *)_surfaces[name])->SetPosition(x, y);
     (void)h;
     (void)w;
-    (void)x;
-    (void)y;
 }
 
 void		sfmlGraphicManager::addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text)
 {
-    //((sf::Text *)_surfaces[surface])->setString(text);
+    ((sf::String *)_surfaces[surface])->SetText(text);
+    ((sf::RenderWindow *)_Window)->Draw(*((sf::String *)_surfaces[surface]));
+    ((sf::RenderWindow *)_Window)->Display();
     (void)x;
     (void)y;
-    (void)text;
-    (void)surface;
 }
 
 void		*sfmlGraphicManager::getWindow()
@@ -128,7 +115,7 @@ int		sfmlGraphicManager::getKey() const
         switch (event.Type)
         {
             case sf::Event::Closed :
-	      //((sf::RenderWindow *)_Window)->Close();
+	        ((sf::RenderWindow *)_Window)->Close();
                 return (ControllerManager::ESCAPE);
                 break;
 
@@ -137,7 +124,7 @@ int		sfmlGraphicManager::getKey() const
                 switch (event.Key.Code)
                 {
                     case sf::Key::Escape :
-		      //((sf::RenderWindow *)_Window)->Close();
+		        ((sf::RenderWindow *)_Window)->Close();
                         return (ControllerManager::ESCAPE);
                         break;
 
