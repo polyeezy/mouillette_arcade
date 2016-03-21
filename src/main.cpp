@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Mon Mar 21 17:39:37 2016 Valerian Polizzi
+// Last update Mon Mar 21 18:13:45 2016 Loïc Weinhard
 //
 
 
@@ -13,16 +13,6 @@
 #include <Launcher.hh>
 #include "map.hh"
 #include "PGame.hh"
-
-void	Play()
-{
-  PGame	game("level_1.pacman");
-
-  while (game.getMap().hasGums())
-    {
-
-    }
-}
 
 int		main(int ac, char **av)
 {
@@ -34,6 +24,5 @@ int		main(int ac, char **av)
   L.openLibrary(av[1]);
   L.init();
   L.run();
-  Play();
   return (0);
 }
