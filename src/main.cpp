@@ -5,13 +5,12 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Mon Mar 21 16:41:19 2016 Valerian Polizzi
+// Last update Mon Mar 21 17:39:37 2016 Valerian Polizzi
 //
 
 
 #include <caca.h>
 #include <Launcher.hh>
-#include <GameManager.hh>
 #include "map.hh"
 #include "PGame.hh"
 
