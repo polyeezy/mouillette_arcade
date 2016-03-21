@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Mon Mar 21 16:03:51 2016 Alexis Miele
+// Last update Mon Mar 21 16:38:47 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -22,22 +22,18 @@ sfmlGraphicManager::~sfmlGraphicManager()
 
 void		sfmlGraphicManager::createWindow(const std::string &name)
 {
-    std::cout << "lllleeeeeellll" << std::endl;
-    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT, 32), name.c_str());
-    _Window = &window;
-    //_Window = new sf::RenderWindow(sf::VideoMode(WIDTH, HEIGHT, 32), name.c_str());
-    std::cout << "lllleeeeeellll" << std::endl;
+    _Window = new sf::RenderWindow(sf::VideoMode(WIDTH, HEIGHT, 32), name.c_str());
     _blockSize = 0;
     (void)name;
 }
 
 void		sfmlGraphicManager::refresh()
 {
-    //((sf::RenderWindow *)_Window)->Clear(sf::Color::Black);
+    ((sf::RenderWindow *)_Window)->Clear(sf::Color::Black);
     /*std::map<const std::string, void *>::iterator p;
     for(p = _surfaces.begin(); p != _surfaces.end(); p++)
         ((sf::RenderWindow *)_Window)->Draw(*((sf::Drawable *)p->second));*/
-    //((sf::RenderWindow *)_Window)->Display();
+    ((sf::RenderWindow *)_Window)->Display();
 }
 
 void	sfmlGraphicManager::print(const Map &map)
@@ -132,7 +128,7 @@ int		sfmlGraphicManager::getKey() const
         switch (event.Type)
         {
             case sf::Event::Closed :
-                ((sf::RenderWindow *)_Window)->Close();
+	      //((sf::RenderWindow *)_Window)->Close();
                 return (ControllerManager::ESCAPE);
                 break;
 
@@ -141,7 +137,7 @@ int		sfmlGraphicManager::getKey() const
                 switch (event.Key.Code)
                 {
                     case sf::Key::Escape :
-                        ((sf::RenderWindow *)_Window)->Close();
+		      //((sf::RenderWindow *)_Window)->Close();
                         return (ControllerManager::ESCAPE);
                         break;
 
