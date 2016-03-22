@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Mon Mar 21 18:56:22 2016 Valerian Polizzi
+// Last update Mon Mar 21 20:35:58 2016 Loïc Weinhard
 //
 
 #include <Launcher.hh>
