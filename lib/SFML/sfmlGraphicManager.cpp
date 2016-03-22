@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Mon Mar 21 18:21:09 2016 Miele Alexis
+// Last update Tue Mar 22 11:33:44 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -17,7 +17,8 @@ sfmlGraphicManager::sfmlGraphicManager()
 
 sfmlGraphicManager::~sfmlGraphicManager()
 {
-
+  if (_Window != NULL)
+    ((sf::RenderWindow *)_Window)->Close();
 }
 
 void		sfmlGraphicManager::createWindow(const std::string &name)
@@ -113,7 +114,6 @@ int		sfmlGraphicManager::getKey() const
         switch (event.Type)
         {
             case sf::Event::Closed :
-	        ((sf::RenderWindow *)_Window)->Close();
                 return (ControllerManager::ESCAPE);
                 break;
 
@@ -122,7 +122,6 @@ int		sfmlGraphicManager::getKey() const
                 switch (event.Key.Code)
                 {
                     case sf::Key::Escape :
-		        ((sf::RenderWindow *)_Window)->Close();
                         return (ControllerManager::ESCAPE);
                         break;
 
@@ -142,13 +141,13 @@ int		sfmlGraphicManager::getKey() const
                         return (ControllerManager::DOWN);
                         break;
 
-                    case sf::Key::Return :
+                    case sf::Key::Space :
                         return (ControllerManager::ACTION);
                         break;
 
-                    case sf::Key::Back :
-                        return (8);
-                        break;
+                    // case sf::Key::Back :
+                    //     return (8);
+                    //     break;
 
                     default :
 		      std::cout << event.Key.Code << std::endl;
