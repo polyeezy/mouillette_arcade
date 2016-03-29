@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Mon Mar 21 20:35:58 2016 Loïc Weinhard
+// Last update Tue Mar 29 14:52:30 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
@@ -34,18 +34,14 @@ void		Launcher::run()
   this->feedFromRepo("games");
 
   _currentGM->createWindow("Arcade");
-
-  _currentGM->createSurface(0, 0, 20, 200, "Games");
-  _currentGM->addTextToSurface("Games", 30, 5, _menu.getCurrentGame()->getValue());
-
-  _currentGM->createSurface(20, 20, 20, 200, "Libs");
-  _currentGM->addTextToSurface("Libs", 30, 10, _menu.getCurrentLib()->getValue());
-
-  _currentGM->createSurface(40, 40, 20, 200, "Name");
-  _currentGM->addTextToSurface("Name", 30, 15, "Type your name:");
-
+  //_currentGM->printMenu(_menu.getCurrentGame()->getValue(), _menu.getCurrentLib()->getValue(), _name);
   this->getKeys();
+}
 
+void		Launcher::play()
+{
+  // _currentGM->getKey();
+  //_currentGM->print(_currentGame->getMap());
 }
 
 Launcher::~Launcher()
@@ -65,7 +61,7 @@ void		Launcher::feedFromRepo(const std::string &repo)
 
 	  if (repo.compare("games") == 0 && file.substr(file.find_last_of(".") + 1) == "so")
 	    _menu.addGame(file);
-	    else if (repo.compare("lib") == 0 && file.substr(file.find_last_of(".") + 1) == "so")
+	  else if (repo.compare("lib") == 0 && file.substr(file.find_last_of(".") + 1) == "so")
 	    _menu.addLib(file);
 	}
       closedir(dir);
@@ -86,8 +82,8 @@ int		Launcher::getKeys()
       switch(c)
 	{
 	case ControllerManager::RIGHT:
-	  this->nextGame();
 	  std::cout << "[RIGHT]" << std::endl;
+	  this->nextGame();
 	  break;
 	case ControllerManager::UP:
 	  std::cout << "[UP]" << std::endl;
@@ -103,29 +99,30 @@ int		Launcher::getKeys()
 	  break;
 	case ControllerManager::ACTION:
 	  std::cout << "[ACTION]" << std::endl;
+	  delete _currentGM;
 	  std::cout << "[USING " << _menu.getCurrentLib()->getValue()  << " AS LIB ]"   << std::endl;
 	  std::cout << "[USING " << _menu.getCurrentGame()->getValue()  << " AS GAME ]"   << std::endl;
 	  _lm.close();
 	  _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
 	  _currentGM = _lm.createGM();
+	  _currentGM->createWindow(_menu.getCurrentGame()->getValue());
 	  std::cout << "Graphic Manager created " << std::endl;
 	  _lm.close();
 	  _lm.open(std::string("./games/").append(_menu.getCurrentGame()->getValue()));
 	  _currentGame = _lm.createGame();
 	  std::cout << "Game created " << std::endl;
-	    break;
+	  this->play();
+	  break;
 	case 8:
 	  _name = _name.substr(0, _name.size() -1);
-	  _currentGM->addTextToSurface("Name", 33, 15, _name);
 	  break;
 	default:
 	  {
 	    _name += c;
-	    _currentGM->refresh();
+	    //	    _currentGM->printMenu(_menu.getCurrentGame()->getValue(), _menu.getCurrentLib()->getValue(), _name);
 	  }
-	  _currentGM->addTextToSurface("Name", 33, 15, _name);
 	}
-      //std::cout << c << std::endl;
+
 
     }
   return (0);
@@ -133,15 +130,15 @@ int		Launcher::getKeys()
 
 void		Launcher::nextGame()
 {
-    _menu.nextGame();
-   _currentGM->addTextToSurface("Games", 33, 5, _menu.getCurrentGame()->getValue());
-   std::cout << "[current game : " << _menu.getCurrentGame()->getValue() << "]"  << std::endl;
+  _menu.nextGame();
+  //  _currentGM->printMenu(_menu.getCurrentGame()->getValue(), _menu.getCurrentLib()->getValue(), _name);
+  std::cout << "[current game : " << _menu.getCurrentGame()->getValue() << "]"  << std::endl;
 }
 
 void		Launcher::nextLib()
 {
    _menu.nextLib();
-  _currentGM->addTextToSurface("Libs", 33, 10, _menu.getCurrentLib()->getValue());
+   // _currentGM->printMenu(_menu.getCurrentGame()->getValue(), _menu.getCurrentLib()->getValue(), _name);
   std::cout << "[current lib : " << _menu.getCurrentLib()->getValue() << "]"  << std::endl;
 }
 

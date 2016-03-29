@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Tue Mar 22 11:33:44 2016 Miele Alexis
+// Last update Tue Mar 29 13:29:27 2016 Valerian Polizzi
 //
 
 #include "sfmlGraphicManager.hh"
@@ -162,6 +162,11 @@ int		sfmlGraphicManager::getKey() const
         }
     }
     return (0);
+}
+
+void	sfmlGraphicManager::printMenu(const std::string &game, const std::string &lib, const std::string &name)
+{
+  std::cout << game << lib << name << std::endl;
 }
 
 extern "C" IGraphicManager * createGraphicManager()

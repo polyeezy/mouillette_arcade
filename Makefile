@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Tue Mar 29 23:56:39 2016 Miele Alexis
+## Last update Wed Mar 30 00:01:54 2016 Miele Alexis
 ##
 
 CXX		=		clang++
@@ -20,7 +20,7 @@ SRC		=		src/main.cpp				\
 				src/Manager/ScoreManager.cpp		\
 				src/Manager/ControllerManager.cpp	\
 				src/Manager/LibraryManager.cpp		\
-				src/pacman/map.cpp
+				src/pacman/map.cpp			\
 
 OBJ		=		$(SRC:.cpp=.o)
 
@@ -71,6 +71,12 @@ MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delet
 
 all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(PACMAN_NAME) $(SNAKE_NAME) $(NAME)
 
+core		:		$(NAME)
+
+games		:		$(PACMAN_NAME) $(SNAKE_NAME)
+
+libs		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME)
+
 $(LCACA_NAME)	:		$(LCACA_OBJ)
 				$(CXX) -shared -o $(LCACA_NAME) $(LCACA_OBJ) -lcaca1 -L./lib/libcaca
 
@@ -108,4 +114,4 @@ fclean		:		clean
 
 re		:		clean all
 
-.PHONY		:		all clean fclean re
+.PHONY		:		all clean fclean re core libs games
