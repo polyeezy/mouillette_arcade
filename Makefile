@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Thu Mar 24 12:19:47 2016 Valerian Polizzi
+## Last update Tue Mar 29 13:59:20 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
@@ -20,7 +20,6 @@ SRC		=		src/main.cpp				\
 				src/Manager/ScoreManager.cpp		\
 				src/Manager/ControllerManager.cpp	\
 				src/Manager/LibraryManager.cpp		\
-				src/snake/Snake.cpp			\
 				src/pacman/map.cpp			\
 
 OBJ		=		$(SRC:.cpp=.o)
@@ -62,7 +61,7 @@ CXXFLAGS	+=		-Wall -Wextra -Werror -g3
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		core games lib
+all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(NAME) $(PACMAN_NAME)
 
 core		:		$(NAME)
 

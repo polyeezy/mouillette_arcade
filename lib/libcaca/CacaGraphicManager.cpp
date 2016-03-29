@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 24 12:51:44 2016 Valerian Polizzi
+// Last update Tue Mar 29 13:41:55 2016 Valerian Polizzi
 //
 
 #include "CacaGraphicManager.hh"
@@ -29,8 +29,6 @@ void		CacaGraphicManager::printMenu(const std::string &game, const std::string &
   _surfaces["Games"] = caca_get_canvas((caca_display_t*)_Window);
   _surfaces["Libs"] = caca_get_canvas((caca_display_t*)_Window);
   _surfaces["Name"] = caca_get_canvas((caca_display_t*)_Window);
-
-  std::cout << "OOOOK" << game << lib << name << std::endl;
 
   caca_set_color_ansi((caca_canvas_t*)_surfaces["Games"], CACA_BLUE, CACA_BLACK);
 
