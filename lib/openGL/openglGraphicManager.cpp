@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Mon Mar 21 18:12:09 2016 Loïc Weinhard
+// Last update Thu Mar 24 12:21:35 2016 Valerian Polizzi
 //
 
 #include "openglGraphicManager.hh"
@@ -159,6 +159,11 @@ int		openglGraphicManager::getKey() const
 	}
     }
   return (0);
+}
+
+void		openglGraphicManager::printMenu(const std::string &game, const std::string &lib, const std::string &name)
+{
+  std::cout << game << lib << name << std::endl;
 }
 
 extern "C" IGraphicManager * createGraphicManager()

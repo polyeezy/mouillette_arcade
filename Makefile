@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Mon Mar 21 18:33:03 2016 Valerian Polizzi
+## Last update Thu Mar 24 12:19:47 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
@@ -62,7 +62,13 @@ CXXFLAGS	+=		-Wall -Wextra -Werror -g3
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(PACMAN_NAME) $(NAME)
+all		:		core games lib
+
+core		:		$(NAME)
+
+games		:		$(PACMAN_NAME)
+
+libs		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME)
 
 $(LCACA_NAME)	:		$(LCACA_OBJ)
 				$(CXX) -shared -o $(LCACA_NAME) $(LCACA_OBJ) -lcaca1 -L./lib/libcaca
@@ -96,4 +102,4 @@ fclean		:		clean
 
 re		:		clean all
 
-.PHONY		:		all clean fclean re
+.PHONY		:		all clean fclean re core libs games
