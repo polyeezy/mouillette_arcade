@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Mon Mar 21 18:33:03 2016 Valerian Polizzi
+## Last update Tue Mar 29 23:56:39 2016 Miele Alexis
 ##
 
 CXX		=		clang++
@@ -20,8 +20,7 @@ SRC		=		src/main.cpp				\
 				src/Manager/ScoreManager.cpp		\
 				src/Manager/ControllerManager.cpp	\
 				src/Manager/LibraryManager.cpp		\
-				src/snake/Snake.cpp			\
-				src/pacman/map.cpp			\
+				src/pacman/map.cpp
 
 OBJ		=		$(SRC:.cpp=.o)
 
@@ -51,6 +50,14 @@ PACMAN_SRC	=		./src/pacman/map.cpp		\
 
 PACMAN_OBJ	=		$(PACMAN_SRC:.cpp=.o)
 
+SNAKE_NAME	=		./games/snake.so
+
+SNAKE_SRC	=		./src/snake/SMap.cpp		\
+				./src/snake/SEntity.cpp	\
+				./src/snake/SGame.cpp		\
+
+SNAKE_OBJ	=		$(SNAKE_SRC:.cpp=.o)
+
 LDFLAGS		+=		-ldl -L./lib -L./lib/libcaca -lcaca1 -L/usr/local/lib
 
 GLIBS		+=		-l_arcade_caca -l_arcade_opengl
@@ -62,7 +69,7 @@ CXXFLAGS	+=		-Wall -Wextra -Werror -g3
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(PACMAN_NAME) $(NAME)
+all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(PACMAN_NAME) $(SNAKE_NAME) $(NAME)
 
 $(LCACA_NAME)	:		$(LCACA_OBJ)
 				$(CXX) -shared -o $(LCACA_NAME) $(LCACA_OBJ) -lcaca1 -L./lib/libcaca
@@ -76,6 +83,9 @@ $(SFML_NAME)	:		$(SFML_OBJ)
 $(PACMAN_NAME)	:		$(PACMAN_OBJ)
 				$(CXX) -shared -o $(PACMAN_NAME) $(PACMAN_OBJ)
 
+$(SNAKE_NAME)	:		$(SNAKE_OBJ)
+				$(CXX) -shared -o $(SNAKE_NAME) $(SNAKE_OBJ)
+
 $(NAME)		:		$(OBJ)
 				g++ $(OBJ) -o $(NAME) $(CPPFLAGS) $(LDFLAGS) $(GLIBS)
 
@@ -86,6 +96,7 @@ clean		:
 				rm -f $(SFML_OBJ)
 				rm -f $(OPENGL_OBJ)
 				rm -f $(PACMAN_OBJ)
+				rm -f $(SNAKE_OBJ)
 
 fclean		:		clean
 				rm -f $(NAME)
@@ -93,6 +104,7 @@ fclean		:		clean
 				rm -f $(SFML_NAME)
 				rm -f $(OPENGL_NAME)
 				rm -f $(PACMAN_NAME)
+				rm -f $(SNAKE_NAME)
 
 re		:		clean all
 
