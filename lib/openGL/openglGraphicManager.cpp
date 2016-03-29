@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 24 12:21:35 2016 Valerian Polizzi
+// Last update Tue Mar 29 13:29:04 2016 Valerian Polizzi
 //
 
 #include "openglGraphicManager.hh"
@@ -130,31 +130,33 @@ int		openglGraphicManager::getKey() const
 	case SDL_QUIT:
 	  return (ControllerManager::ESCAPE);
 	  break;
+	case SDL_KEYDOWN:
+	  switch (events.key.keysym.sym)
+	    {
+	    case SDLK_LEFT:
+	      return (ControllerManager::LEFT);
+	      break;
+	    case SDLK_RIGHT:
+	      return (ControllerManager::RIGHT);
+	      break;
+	    case SDLK_UP:
+	      return (ControllerManager::UP);
+	      break;
+	    case SDLK_DOWN:
+	      return (ControllerManager::DOWN);
+	      break;
+	    case SDLK_ESCAPE:
+	      return (ControllerManager::ESCAPE);
+	      break;
+	    case SDLK_SPACE:
+	      return (ControllerManager::ACTION);
+	      break;
+	    default:
+	      return (events.key.keysym.sym);
+	      break;
+	    }
+	  break;
 	default:
-	  break;
-	}
-      switch (events.key.keysym.sym)
-	{
-	case SDLK_LEFT:
-	  return (ControllerManager::LEFT);
-	  break;
-	case SDLK_RIGHT:
-	  return (ControllerManager::RIGHT);
-	  break;
-	case SDLK_UP:
-	  return (ControllerManager::UP);
-	  break;
-	case SDLK_DOWN:
-	  return (ControllerManager::DOWN);
-	  break;
-	case SDLK_ESCAPE:
-	  return (ControllerManager::ESCAPE);
-	  break;
-	case SDLK_SPACE:
-	  return (ControllerManager::ACTION);
-	  break;
-	default:
-	  return (events.key.keysym.sym);
 	  break;
 	}
     }
