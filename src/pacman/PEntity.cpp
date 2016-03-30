@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Wed Mar 30 14:43:22 2016 Miele Alexis
+// Last update Wed Mar 30 16:45:09 2016 Valerian Polizzi
 //
 
 #include "PEntity.hh"
@@ -40,7 +40,7 @@ void	PEntity::print()
 
 }
 
-void	PEntity::move(const PMap *map, const ControllerManager::e_control new_dir)
+void	PEntity::move(const PMap *map, const int new_dir)
 {
   _dir = new_dir;
   switch (new_dir)

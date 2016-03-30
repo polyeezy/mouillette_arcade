@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 17:50:32 2016 Miele Alexis
-// Last update Wed Mar 30 15:27:56 2016 Miele Alexis
+// Last update Wed Mar 30 16:45:39 2016 Valerian Polizzi
 //
 
 #include "Protocol.hpp"
@@ -41,7 +41,7 @@ IGraphicManager *SGame::getGM()
   return (_gm);
 }
 
-void	SGame::move(const ControllerManager::e_control dir)
+void	SGame::move(const int dir)
 {
   _snake->move(_map, dir);
 }

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:23:33 2016 Valerian Polizzi
-// Last update Tue Mar 15 18:26:29 2016 Loïc Weinhard
+// Last update Wed Mar 30 16:08:48 2016 Valerian Polizzi
 //
 
 #ifndef _MENU_HH_
@@ -16,7 +16,7 @@
 # include <AEntity.hh>
 # include <MenuItem.hh>
 
-class Menu : public AEntity
+class Menu
 {
 private:
   std::vector<MenuItem*>	_games;

@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Wed Mar 30 14:43:12 2016 Miele Alexis
+// Last update Wed Mar 30 16:23:12 2016 Valerian Polizzi
 //
 
 #include <unistd.h>
@@ -24,8 +24,14 @@ PMap::PMap(const std::string &file)
   size_t		i;
 
   i = 0;
+  std::cout << file << std::endl;
   path.append(file);
   fd.open(path.c_str());
+  if (!fd.is_open())
+    {
+      std::cout << path << std::endl;
+      return;
+    }
   while (std::getline(fd, line))
     {
       _map.push_back(line);

@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Wed Mar 30 15:11:36 2016 Miele Alexis
+// Last update Wed Mar 30 16:35:07 2016 Valerian Polizzi
 //
 
 #include "Protocol.hpp"
@@ -29,7 +29,7 @@ IGraphicManager	*PGame::getGM()
 
 void PGame::setMap(const std::string &map)
 {
-  _map = new PMap(map);
+    _map = new PMap(map);
 }
 
 PGame::PGame(const std::string &file)
@@ -49,7 +49,7 @@ PGame::PGame(const std::string &file)
     }
 }
 
-void	PGame::move(const ControllerManager::e_control dir)
+void	PGame::move(const int dir)
 {
   _pacman->move(_map, dir);
   _map->deleteObj(_pacman->getPos());
@@ -67,12 +67,14 @@ void	PGame::play()
 
   pos = _map->getPacmanSpawn();
   _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
+  std::cout << "PACMAN CREATED" << std::endl;
   i = 0;
   while (i < GHOSTS)
     {
       pos = _map->getNextGhostSpawn();
-         _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
+      _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
+      std::cout << "GHOST CREATED [" << i << "]" <<  std::endl;
     }
 }
 

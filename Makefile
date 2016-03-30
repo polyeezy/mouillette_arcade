@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Wed Mar 30 15:11:54 2016 Miele Alexis
+## Last update Wed Mar 30 16:11:22 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
@@ -46,6 +46,7 @@ PACMAN_NAME	=		./games/pacman.so
 PACMAN_SRC	=		./src/pacman/PGame.cpp		\
 				./src/pacman/PMap.cpp		\
 				./src/pacman/PEntity.cpp	\
+				./src/General/AEntity.cpp	\
 
 PACMAN_OBJ	=		$(PACMAN_SRC:.cpp=.o)
 
@@ -54,6 +55,7 @@ SNAKE_NAME	=		./games/snake.so
 SNAKE_SRC	=		./src/snake/SMap.cpp		\
 				./src/snake/SEntity.cpp	\
 				./src/snake/SGame.cpp		\
+				./src/General/AEntity.cpp	\
 
 SNAKE_OBJ	=		$(SNAKE_SRC:.cpp=.o)
 

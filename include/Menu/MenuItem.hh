@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:07:16 2016 Valerian Polizzi
-// Last update Mon Mar  7 17:13:02 2016 Valerian Polizzi
+// Last update Wed Mar 30 16:09:18 2016 Valerian Polizzi
 //
 
 #ifndef _MENUITEM_HH_
@@ -14,7 +14,7 @@
 # include <string>
 # include <AEntity.hh>
 
-class MenuItem : public AEntity
+class MenuItem
 {
 private:
   std::string		_name;

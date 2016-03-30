@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Thu Mar 17 14:15:36 2016 Valerian Polizzi
-// Last update Wed Mar 30 14:48:52 2016 Miele Alexis
+// Last update Wed Mar 30 16:42:41 2016 Valerian Polizzi
 //
 
 #ifndef _OPENGLGRAPHICMANAGER_HH_
