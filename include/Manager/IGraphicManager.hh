@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar 16 15:04:24 2016 Valerian Polizzi
-// Last update Tue Mar 29 14:51:03 2016 Valerian Polizzi
+// Last update Wed Mar 30 11:55:13 2016 Valerian Polizzi
 //
 
 #ifndef _IGRAPGHICMANAGER_HH_
@@ -25,6 +25,7 @@ public:
   virtual void	*getWindow() = 0;
   virtual void	printMenu(const std::string&, const std::string &, const std::string &) = 0;
   virtual void  print(const Map&) = 0;
+  virtual void close() = 0;
   virtual ~IGraphicManager(){}
 };
 

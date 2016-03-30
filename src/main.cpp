@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Mon Mar 21 18:13:45 2016 Loïc Weinhard
+// Last update Wed Mar 30 12:44:55 2016 Valerian Polizzi
 //
 
 
@@ -16,13 +16,36 @@
 
 int		main(int ac, char **av)
 {
-  Launcher	L;
+  //  Launcher	L;
 
 
   (void)ac;
   (void)av;
-  L.openLibrary(av[1]);
-  L.init();
-  L.run();
+  //  L.openLibrary(av[1]);
+  //L.init();
+  //L.run();
+
+  LibraryManager			lmgame;
+
+  lmgame.open("./games/pacman.so");
+  IGame	*Pacman = lmgame.createGame();
+
+  LibraryManager			lmgraphic;
+  lmgraphic.open("./lib/lib_arcade_opengl.so");
+  IGraphicManager	*graphic  = lmgraphic.createGM();
+
+
+  Pacman->setGM(graphic);
+  Pacman->getGM()->createWindow("Pacman");
+  Pacman->setMap("level_1.pacman");
+    Pacman->play();
+  //Pacman->getGM()->print(Pacman->getMap());
+   char c = 0;
+
+  while (c != ControllerManager::ESCAPE)
+    {
+      c = Pacman->getGM()->getKey();
+    }
+
   return (0);
 }

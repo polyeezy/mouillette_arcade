@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 10:23:35 2016 Alexis Miele
-// Last update Thu Mar 24 12:22:22 2016 Valerian Polizzi
+// Last update Tue Mar 29 15:17:41 2016 Valerian Polizzi
 //
 
 #ifndef     SFMLGRAPHICMANAGER_HH_
@@ -37,6 +37,7 @@ public:
     void	createSurface(const int, const int, const int, const int, const std::string &);
     void	addTextToSurface(const std::string &, const int, const int, const std::string&);
     int 	getKey() const;
+  void		close();
     void	*getWindow();
   void		printMenu(const std::string &, const std::string &, const std::string &);
 };

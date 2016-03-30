@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:04:44 2016 Valerian Polizzi
-// Last update Tue Mar 29 14:46:36 2016 Valerian Polizzi
+// Last update Tue Mar 29 15:06:24 2016 Valerian Polizzi
 //
 
 #ifndef _LAUNCHER_HH_
@@ -30,6 +30,7 @@ private:
   LibraryManager	_lm;
   IGame			*_currentGame;
   IGraphicManager	*_currentGM;
+  IGraphicManager	*_LGM;
   //  GameManager		_gamem;
 public:
   Launcher();

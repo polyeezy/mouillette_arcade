@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:54:30 2016 Valerian Polizzi
-// Last update Mon Mar 21 17:26:43 2016 Valerian Polizzi
+// Last update Wed Mar 30 12:08:03 2016 Valerian Polizzi
 //
 
 #include <LibraryManager.hh>
@@ -17,7 +17,7 @@ LibraryManager::LibraryManager() : _dlhandle(NULL)
 
 LibraryManager::~LibraryManager()
 {
-  if (_dlhandle)
+    if (_dlhandle)
     this->close();
 }
 
@@ -66,5 +66,5 @@ IGame		*LibraryManager::createGame()
 void		LibraryManager::close()
 {
   dlclose(_dlhandle);
-  _dlhandle = NULL;
+   _dlhandle = NULL;
 }

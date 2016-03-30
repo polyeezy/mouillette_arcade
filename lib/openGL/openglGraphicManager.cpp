@@ -5,19 +5,18 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar 29 14:23:34 2016 Valerian Polizzi
+// Last update Wed Mar 30 11:53:58 2016 Valerian Polizzi
 //
 
 #include "openglGraphicManager.hh"
 
-openglGraphicManager::openglGraphicManager()
+openglGraphicManager::openglGraphicManager() : IGraphicManager()
 {
   std::cout << "ok opengl" << std::endl;
 }
 
 openglGraphicManager::~openglGraphicManager()
 {
-  SDL_Quit();
 }
 
 void		openglGraphicManager::createWindow(const std::string &name)
@@ -30,6 +29,11 @@ void		openglGraphicManager::createWindow(const std::string &name)
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f );
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   _Window = window;
+}
+
+void		openglGraphicManager::close()
+{
+  SDL_Quit();
 }
 
 void		openglGraphicManager::refresh()

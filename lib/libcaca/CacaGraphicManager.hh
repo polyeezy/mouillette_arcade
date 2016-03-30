@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar 16 15:13:24 2016 Valerian Polizzi
-// Last update Thu Mar 24 11:47:25 2016 Valerian Polizzi
+// Last update Tue Mar 29 15:16:14 2016 Valerian Polizzi
 //
 
 #ifndef _CACAGRAPHICMANAGER_HH_
@@ -30,6 +30,7 @@ public:
   void          setHandle(void *);
   void          createWindow(const std::string &name);
   void          refresh();
+  void		close();
   void		printMenu(const std::string &lib, const std::string &game, const std::string &name);
   void          print(const Map &);
   void          openLib(const std::string&);

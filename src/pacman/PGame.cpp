@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Tue Mar 29 14:21:22 2016 Valerian Polizzi
+// Last update Wed Mar 30 13:03:11 2016 Valerian Polizzi
 //
 
 #include "Protocol.hpp"
@@ -17,6 +17,21 @@ PGame::PGame()
   std::cout << "PACMAN CONSTRUCTOR" << std::endl;
 }
 
+void		PGame::setGM(IGraphicManager *gm)
+{
+  _gm = gm;
+}
+
+IGraphicManager	*PGame::getGM()
+{
+  return (_gm);
+}
+
+void PGame::setMap(const std::string &map)
+{
+  _map = new Map(map);
+}
+
 PGame::PGame(const std::string &file)
 {
   int			i;
@@ -24,12 +39,12 @@ PGame::PGame(const std::string &file)
 
   _map = new Map(file);
   pos = _map->getPacmanSpawn();
-  _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
+  // _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
   i = 0;
   while (i < GHOSTS)
     {
       pos = _map->getNextGhostSpawn();
-      _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
+      //   _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
     }
 }
@@ -47,6 +62,18 @@ Map&	PGame::getMap() const
 
 void	PGame::play()
 {
+  int			i;
+  t_pos			pos;
+
+  pos = _map->getPacmanSpawn();
+  _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
+  i = 0;
+  while (i < GHOSTS)
+    {
+      pos = _map->getNextGhostSpawn();
+         _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
+      i += 1;
+    }
 }
 
 extern "C" IGame *createIGame()

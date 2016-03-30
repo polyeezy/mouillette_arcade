@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Tue Mar 29 13:41:55 2016 Valerian Polizzi
+// Last update Tue Mar 29 15:16:35 2016 Valerian Polizzi
 //
 
 #include "CacaGraphicManager.hh"
@@ -18,9 +18,13 @@ CacaGraphicManager::CacaGraphicManager()
 
  CacaGraphicManager::~CacaGraphicManager()
 {
-  caca_free_display((caca_display_t*)_Window);
+  //  caca_free_display((caca_display_t*)_Window);
 }
 
+void		CacaGraphicManager::close()
+{
+  caca_free_display((caca_display_t*)_Window);
+}
 
 void		CacaGraphicManager::printMenu(const std::string &game, const std::string &lib, const std::string &name)
 {

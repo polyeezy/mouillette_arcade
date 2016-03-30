@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Tue Mar 29 13:29:27 2016 Valerian Polizzi
+// Last update Tue Mar 29 15:17:21 2016 Valerian Polizzi
 //
 
 #include "sfmlGraphicManager.hh"
@@ -16,6 +16,12 @@ sfmlGraphicManager::sfmlGraphicManager()
 }
 
 sfmlGraphicManager::~sfmlGraphicManager()
+{
+  if (_Window != NULL)
+    ((sf::RenderWindow *)_Window)->Close();
+}
+
+void		sfmlGraphicManager::close()
 {
   if (_Window != NULL)
     ((sf::RenderWindow *)_Window)->Close();

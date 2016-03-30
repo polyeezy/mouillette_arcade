@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Thu Mar 17 14:15:36 2016 Valerian Polizzi
-// Last update Thu Mar 24 12:20:36 2016 Valerian Polizzi
+// Last update Wed Mar 30 11:54:05 2016 Valerian Polizzi
 //
 
 #ifndef _OPENGLGRAPHICMANAGER_HH_
@@ -45,6 +45,7 @@ void          openLib(const std::string&);
 void          createSurface(const int x, const int y, const int h, const int w, const std::string &name);
 void          addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text);
 void          moveCursorUp();
+  void		close();
 int	      getKey() const;
 void          *getWindow();
   void		printMenu(const std::string&, const std::string &, const std::string&);

@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Tue Mar 29 13:59:20 2016 Valerian Polizzi
+## Last update Wed Mar 30 12:47:35 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
@@ -44,9 +44,9 @@ OPENGL_OBJ	=		$(OPENGL_SRC:.cpp=.o)
 
 PACMAN_NAME	=		./games/pacman.so
 
-PACMAN_SRC	=		./src/pacman/map.cpp		\
+PACMAN_SRC	=		./src/pacman/PGame.cpp		\
+				./src/pacman/map.cpp		\
 				./src/pacman/PEntity.cpp	\
-				./src/pacman/PGame.cpp		\
 
 PACMAN_OBJ	=		$(PACMAN_SRC:.cpp=.o)
 

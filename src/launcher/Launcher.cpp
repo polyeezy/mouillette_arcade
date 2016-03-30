@@ -5,21 +5,19 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Tue Mar 29 14:52:30 2016 Valerian Polizzi
+// Last update Wed Mar 30 12:15:50 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
 
 Launcher::Launcher()
 {
-
 }
 
 void		Launcher::openLibrary(const std::string &lib)
 {
   _lm.open(lib);
-  this->_currentGM = _lm.createGM();
-  //_lm.close();
+  this->_LGM = _lm.createGM();
 }
 
 void		Launcher::init()
@@ -32,14 +30,15 @@ void		Launcher::run()
 
   this->feedFromRepo("lib");
   this->feedFromRepo("games");
-
-  _currentGM->createWindow("Arcade");
+  _LGM->createWindow("Arcade");
   //_currentGM->printMenu(_menu.getCurrentGame()->getValue(), _menu.getCurrentLib()->getValue(), _name);
   this->getKeys();
 }
 
 void		Launcher::play()
 {
+
+
   // _currentGM->getKey();
   //_currentGM->print(_currentGame->getMap());
 }
@@ -75,10 +74,10 @@ int		Launcher::getKeys()
 
   int		c = 0;
 
- _currentGM->refresh();
-  while (c != ControllerManager::ESCAPE)
+ _LGM->refresh();
+ while (c != ControllerManager::ESCAPE)
     {
-      c = _currentGM->getKey();
+      c = _LGM->getKey();
       switch(c)
 	{
 	case ControllerManager::RIGHT:
@@ -99,19 +98,27 @@ int		Launcher::getKeys()
 	  break;
 	case ControllerManager::ACTION:
 	  std::cout << "[ACTION]" << std::endl;
-	  delete _currentGM;
 	  std::cout << "[USING " << _menu.getCurrentLib()->getValue()  << " AS LIB ]"   << std::endl;
 	  std::cout << "[USING " << _menu.getCurrentGame()->getValue()  << " AS GAME ]"   << std::endl;
-	  _lm.close();
-	  _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
-	  _currentGM = _lm.createGM();
-	  _currentGM->createWindow(_menu.getCurrentGame()->getValue());
-	  std::cout << "Graphic Manager created " << std::endl;
-	  _lm.close();
+
 	  _lm.open(std::string("./games/").append(_menu.getCurrentGame()->getValue()));
 	  _currentGame = _lm.createGame();
 	  std::cout << "Game created " << std::endl;
-	  this->play();
+
+
+	  _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
+	  std::cout << "CREATING GM" << std::endl;
+	  // _currentGame->setGM(_lm.createGM());
+	  std::cout << "Graphic Manager created " << std::endl;
+
+	  //_lm.close();
+
+
+
+	  //_LGM->close();
+	   _currentGame->getGM()->createWindow(_menu.getCurrentGame()->getValue());
+	  _currentGame->play();
+	  return (0);
 	  break;
 	case 8:
 	  _name = _name.substr(0, _name.size() -1);
