@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 16:18:20 2016 Miele Alexis
-// Last update Wed Mar 30 14:41:47 2016 Miele Alexis
+// Last update Wed Mar 30 16:55:52 2016 Miele Alexis
 //
 
 #include "SEntity.hh"
@@ -27,7 +27,7 @@ void	SEntity::print()
 
 }
 
-void	SEntity::move(const SMap *map, const ControllerManager::e_control new_dir)
+void	SEntity::move(const SMap *map, const int new_dir)
 {
   _dir = new_dir;
   switch (new_dir)
