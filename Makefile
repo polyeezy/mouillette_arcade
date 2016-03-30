@@ -5,11 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-<<<<<<< HEAD
-## Last update Wed Mar 30 12:47:35 2016 Valerian Polizzi
-=======
-## Last update Wed Mar 30 00:01:54 2016 Miele Alexis
->>>>>>> cc1b1c664cc592ea150ee758cb495f611dd0a044
+## Last update Wed Mar 30 14:06:17 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
