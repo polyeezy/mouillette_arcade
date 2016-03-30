@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Wed Mar 30 16:11:22 2016 Valerian Polizzi
+## Last update Wed Mar 30 16:55:58 2016 Loïc Weinhard
 ##
 
 CXX		=		clang++
@@ -70,7 +70,7 @@ CXXFLAGS	+=		-Wall -Wextra -Werror -g3
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(NAME) $(PACMAN_NAME) $(SNAKE_NAME)
+all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(NAME) $(PACMAN_NAME)
 
 core		:		$(NAME)
 

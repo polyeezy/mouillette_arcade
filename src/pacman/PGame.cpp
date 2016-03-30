@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Wed Mar 30 16:35:07 2016 Valerian Polizzi
+// Last update Wed Mar 30 19:09:36 2016 Loïc Weinhard
 //
 
 #include "Protocol.hpp"
@@ -76,6 +76,11 @@ void	PGame::play()
       i += 1;
       std::cout << "GHOST CREATED [" << i << "]" <<  std::endl;
     }
+}
+
+PEntity&	PGame::getPacman() const
+{
+  return (*_pacman);
 }
 
 extern "C" IGame *createIGame()
