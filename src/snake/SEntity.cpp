@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 16:18:20 2016 Miele Alexis
-// Last update Tue Mar 29 18:41:57 2016 Miele Alexis
+// Last update Wed Mar 30 14:41:47 2016 Miele Alexis
 //
 
 #include "SEntity.hh"

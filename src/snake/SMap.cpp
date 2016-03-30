@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 15:48:57 2016 Miele Alexis
-// Last update Tue Mar 29 18:39:44 2016 Miele Alexis
+// Last update Wed Mar 30 14:42:36 2016 Miele Alexis
 //
 
 #include <unistd.h>
@@ -16,15 +16,29 @@
 #include <fstream>
 #include "SMap.hh"
 
-SMap::SMap(const size_t &size)
+SMap::SMap(const std::string &file)
 {
-  size_t		i;
-  std::string		str;
+  //std::string		str;
+  std::ifstream         fd;
+  std::string           path(MAPS_PATH);
+  std::string           line;
+  size_t                i;
 
   i = 0;
-  str.insert(str.begin(), size, 'x');
-  while (++i <= size)
-    _map.push_back(str);
+  path.append(file);
+  fd.open(path.c_str());
+  while (std::getline(fd, line))
+    {
+      _map.push_back(line);
+      while (_map[i].find(" ") != std::string::npos)
+        _map[i].erase(_map[i].find(" "), 1);
+      i += 1;
+    }
+  fd.close();
+  // i = 0;
+  // str.insert(str.begin(), size, 'x');
+  // while (++i <= size)
+  //   _map.push_back(str);
 }
 
 char	SMap::getPos(const t_pos new_pos) const

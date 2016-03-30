@@ -5,13 +5,13 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Wed Mar 30 12:44:55 2016 Valerian Polizzi
+// Last update Wed Mar 30 14:51:16 2016 Miele Alexis
 //
 
 
 #include <caca.h>
 #include <Launcher.hh>
-#include "map.hh"
+#include "IMap.hh"
 #include "PGame.hh"
 
 int		main(int ac, char **av)

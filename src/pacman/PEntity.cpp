@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Mon Mar 21 10:54:56 2016 Loïc Weinhard
+// Last update Wed Mar 30 14:43:22 2016 Miele Alexis
 //
 
 #include "PEntity.hh"
@@ -40,7 +40,7 @@ void	PEntity::print()
 
 }
 
-void	PEntity::move(const Map *map, const ControllerManager::e_control new_dir)
+void	PEntity::move(const PMap *map, const ControllerManager::e_control new_dir)
 {
   _dir = new_dir;
   switch (new_dir)
@@ -62,7 +62,7 @@ void	PEntity::move(const Map *map, const ControllerManager::e_control new_dir)
     };
 }
 
-void	PEntity::checkVerticalMove(const Map *map, const int asc_desc)
+void	PEntity::checkVerticalMove(const PMap *map, const int asc_desc)
 {
   float	speed;
   t_pos	new_pos;
@@ -79,7 +79,7 @@ void	PEntity::checkVerticalMove(const Map *map, const int asc_desc)
     }
 }
 
-void	PEntity::checkHorizontalMove(const Map *map, const int left_right)
+void	PEntity::checkHorizontalMove(const PMap *map, const int left_right)
 {
   float	speed;
   t_pos	new_pos;

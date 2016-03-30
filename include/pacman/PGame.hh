@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 13:56:17 2016 Loïc Weinhard
-// Last update Wed Mar 30 12:32:52 2016 Valerian Polizzi
+// Last update Wed Mar 30 15:11:18 2016 Miele Alexis
 //
 
 #ifndef PGAME_HH_
@@ -16,7 +16,7 @@
 # include <ControllerManager.hh>
 # include <IGraphicManager.hh>
 # include <PEntity.hh>
-# include <map.hh>
+# include <PMap.hh>
 
 # define GHOSTS		6
 # define PENTITY_SPEED	0.5
@@ -26,7 +26,7 @@
 class PGame : public IGame
 {
 private:
-  Map				*_map;
+  PMap				*_map;
   PEntity			*_pacman;
   std::vector<PEntity *>	_ghosts;
   IGraphicManager		*_gm;
@@ -36,10 +36,10 @@ public:
   ~PGame() {};
   void		setMap(const std::string&);
   void		setGM(IGraphicManager *);
- IGraphicManager *getGM();
+  IGraphicManager *getGM();
   void		move(const ControllerManager::e_control);
-  Map&		getMap() const;
-void		play();
+  PMap&		getMap() const;
+  void		play();
 };
 
 #endif

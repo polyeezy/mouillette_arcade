@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Tue Mar 29 15:17:21 2016 Valerian Polizzi
+// Last update Wed Mar 30 14:50:27 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -43,7 +43,7 @@ void		sfmlGraphicManager::refresh()
   ((sf::RenderWindow *)_Window)->Display();
 }
 
-void	sfmlGraphicManager::print(const Map &map)
+void	sfmlGraphicManager::print(const IMap &map)
 {
     int     transX;
     int     transY;

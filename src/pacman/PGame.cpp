@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Wed Mar 30 13:03:11 2016 Valerian Polizzi
+// Last update Wed Mar 30 15:11:36 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -29,7 +29,7 @@ IGraphicManager	*PGame::getGM()
 
 void PGame::setMap(const std::string &map)
 {
-  _map = new Map(map);
+  _map = new PMap(map);
 }
 
 PGame::PGame(const std::string &file)
@@ -37,7 +37,7 @@ PGame::PGame(const std::string &file)
   int			i;
   t_pos			pos;
 
-  _map = new Map(file);
+  _map = new PMap(file);
   pos = _map->getPacmanSpawn();
   // _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
   i = 0;
@@ -55,7 +55,7 @@ void	PGame::move(const ControllerManager::e_control dir)
   _map->deleteObj(_pacman->getPos());
 }
 
-Map&	PGame::getMap() const
+PMap&	PGame::getMap() const
 {
   return (*_map);
 }

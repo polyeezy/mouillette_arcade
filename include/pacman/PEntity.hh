@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:54:19 2016 Loïc Weinhard
-// Last update Mon Mar 21 10:37:49 2016 Loïc Weinhard
+// Last update Wed Mar 30 14:38:58 2016 Miele Alexis
 //
 
 #ifndef PENTITY_HH_
@@ -13,7 +13,7 @@
 
 # include <Protocol.hpp>
 # include "ControllerManager.hh"
-# include "map.hh"
+# include "PMap.hh"
 # include "AEntity.hh"
 # include "Position.hh"
 
@@ -29,9 +29,9 @@ public:
   virtual ~PEntity();
   bool			getGod() const;
   void			setGod(const bool);
-  void			move(const Map *, const ControllerManager::e_control);
-  void			checkVerticalMove(const Map *, const int);
-  void			checkHorizontalMove(const Map *, const int);
+  void			move(const PMap *, const ControllerManager::e_control);
+  void			checkVerticalMove(const PMap *, const int);
+  void			checkHorizontalMove(const PMap *, const int);
   virtual void		print();
 };
 
