@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:54:19 2016 Loïc Weinhard
-// Last update Wed Mar 30 14:38:58 2016 Miele Alexis
+// Last update Wed Mar 30 16:44:54 2016 Valerian Polizzi
 //
 
 #ifndef PENTITY_HH_
@@ -21,7 +21,7 @@ class	PEntity : public AEntity
 {
 private:
   bool				_god;
-  ControllerManager::e_control	_dir;
+  int	_dir;
 
 public:
   PEntity(const float, const float, const float, const float, const float);
@@ -29,7 +29,7 @@ public:
   virtual ~PEntity();
   bool			getGod() const;
   void			setGod(const bool);
-  void			move(const PMap *, const ControllerManager::e_control);
+  void			move(const PMap *, const int);
   void			checkVerticalMove(const PMap *, const int);
   void			checkHorizontalMove(const PMap *, const int);
   virtual void		print();

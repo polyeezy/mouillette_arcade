@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Wed Mar 30 14:51:16 2016 Miele Alexis
+// Last update Wed Mar 30 16:44:17 2016 Valerian Polizzi
 //
 
 
@@ -36,15 +36,21 @@ int		main(int ac, char **av)
 
 
   Pacman->setGM(graphic);
+  std::cout << "GRAPHIC SET" << std::endl;
   Pacman->getGM()->createWindow("Pacman");
+  std::cout << "WINDOW SET" << std::endl;
   Pacman->setMap("level_1.pacman");
-    Pacman->play();
-  //Pacman->getGM()->print(Pacman->getMap());
-   char c = 0;
+  std::cout << "LEVEL SET" << std::endl;
+  Pacman->play();
+
+  int c;
 
   while (c != ControllerManager::ESCAPE)
     {
+      
       c = Pacman->getGM()->getKey();
+      Pacman->move(c);
+      Pacman->getGM()->print(Pacman->getMap());
     }
 
   return (0);
