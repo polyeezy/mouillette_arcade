@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Wed Mar 30 14:27:30 2016 Valerian Polizzi
+## Last update Wed Mar 30 15:55:29 2016 Valerian Polizzi
 ##
 
 CXX		=		clang++
@@ -44,7 +44,7 @@ OPENGL_OBJ	=		$(OPENGL_SRC:.cpp=.o)
 PACMAN_NAME	=		./games/pacman.so
 
 PACMAN_SRC	=		./src/pacman/PGame.cpp		\
-				./src/pacman/map.cpp		\
+				./src/pacman/PMap.cpp		\
 				./src/pacman/PEntity.cpp	\
 
 PACMAN_OBJ	=		$(PACMAN_SRC:.cpp=.o)
@@ -68,7 +68,7 @@ CXXFLAGS	+=		-Wall -Wextra -Werror -g3
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(PACMAN_NAME) $(NAME)
+all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(NAME) $(PACMAN_NAME) $(SNAKE_NAME)
 
 core		:		$(NAME)
 

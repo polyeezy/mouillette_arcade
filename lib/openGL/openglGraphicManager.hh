@@ -5,18 +5,17 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Thu Mar 17 14:15:36 2016 Valerian Polizzi
-// Last update Wed Mar 30 11:54:05 2016 Valerian Polizzi
+// Last update Wed Mar 30 14:48:52 2016 Miele Alexis
 //
 
 #ifndef _OPENGLGRAPHICMANAGER_HH_
 # define _OPENGLGRAPHICMANAGER_HH_
 
 # include <IGraphicManager.hh>
-# include <map>
 # include <SDL/SDL.h>
 # include <GL/gl.h>
 # include <GL/glu.h>
-# include <map.hh>
+# include <IMap.hh>
 # include <ControllerManager.hh>
 
 # define WIDTH			640
@@ -40,7 +39,7 @@ openglGraphicManager();
 void          setHandle(void *);
 void          createWindow(const std::string &name);
 void          refresh();
-void          print(const Map &);
+void          print(const IMap &);
 void          openLib(const std::string&);
 void          createSurface(const int x, const int y, const int h, const int w, const std::string &name);
 void          addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text);

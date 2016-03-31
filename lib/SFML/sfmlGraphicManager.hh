@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 10:23:35 2016 Alexis Miele
-// Last update Tue Mar 29 15:17:41 2016 Valerian Polizzi
+// Last update Wed Mar 30 14:49:47 2016 Miele Alexis
 //
 
 #ifndef     SFMLGRAPHICMANAGER_HH_
@@ -16,7 +16,7 @@
 # include <SFML/Window.hpp>
 # include <IGraphicManager.hh>
 # include <map>
-# include <map.hh>
+# include <IMap.hh>
 # include <ControllerManager.hh>
 
 # define WIDTH			1280
@@ -33,7 +33,7 @@ public:
     ~sfmlGraphicManager();
     void	createWindow(const std::string &);
     void	refresh();
-    void    print(const Map &);
+    void    print(const IMap &);
     void	createSurface(const int, const int, const int, const int, const std::string &);
     void	addTextToSurface(const std::string &, const int, const int, const std::string&);
     int 	getKey() const;

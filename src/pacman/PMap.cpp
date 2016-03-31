@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Sun Mar 20 02:17:23 2016 Alexis Miele
+// Last update Wed Mar 30 14:43:12 2016 Miele Alexis
 //
 
 #include <unistd.h>
@@ -14,9 +14,9 @@
 #include <GL/glu.h>
 #include <algorithm>
 #include <fstream>
-#include "map.hh"
+#include "PMap.hh"
 
-Map::Map(const std::string &file)
+PMap::PMap(const std::string &file)
 {
   std::ifstream		fd;
   std::string		path(MAPS_PATH);
@@ -50,7 +50,7 @@ Map::Map(const std::string &file)
   _last_gspawn.y = 0;
 }
 
-char	Map::getPos(const t_pos new_pos) const
+char	PMap::getPos(const t_pos new_pos) const
 {
   if (new_pos.y >= _map.size())
     return (-1);
@@ -59,31 +59,31 @@ char	Map::getPos(const t_pos new_pos) const
   return (_map[new_pos.y][new_pos.x]);
 }
 
-void	Map::deleteObj(const t_pos pos)
+void	PMap::deleteObj(const t_pos pos)
 {
   if (_map[pos.y][pos.x] == '0')
     _gums -= 1;
   _map[pos.y][pos.x] = 'x';
 }
 
-void	Map::openCage()
+void	PMap::openCage()
 {
   _map[_door.y][_door.x] = 'x';
 }
 
-void	Map::closeCage()
+void	PMap::closeCage()
 {
   _map[_door.y][_door.x] = 'P';
 }
 
-bool	Map::hasGums()
+bool	PMap::hasGums()
 {
   if (_gums <= 0)
     return (false);
   return (true);
 }
 
-t_pos	Map::getPacmanSpawn()
+t_pos	PMap::getPacmanSpawn()
 {
   t_pos	pos;
 
@@ -92,7 +92,7 @@ t_pos	Map::getPacmanSpawn()
   return (pos);
 }
 
-t_pos	Map::getNextGhostSpawn()
+t_pos	PMap::getNextGhostSpawn()
 {
   if (_map[_last_gspawn.y].find("G", _last_gspawn.x + 1) != std::string::npos)
     {
@@ -110,11 +110,11 @@ t_pos	Map::getNextGhostSpawn()
   return (_last_gspawn);
 }
 
-size_t	Map::getSize() const
+size_t	PMap::getSize() const
 {
     return (_map.size());
 }
 
-void		Map::print()
+void		PMap::print()
 {
 }

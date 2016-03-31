@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar 15 14:29:37 2016 Valerian Polizzi
-// Last update Tue Mar 29 23:49:38 2016 Miele Alexis
+// Last update Wed Mar 30 15:27:36 2016 Miele Alexis
 //
 
 #ifndef _SGAME_HH_
@@ -14,6 +14,7 @@
 # include <IGame.hpp>
 # include <iostream>
 # include <string>
+# include <IMap.hh>
 # include "ControllerManager.hh"
 # include "SMap.hh"
 # include "SEntity.hh"
@@ -27,13 +28,17 @@ class SGame : public IGame
 private:
   SMap		*_map;
   SEntity	*_snake;
+  IGraphicManager *_gm;
 public:
   SGame();
-  SGame(const size_t &);
+  SGame(const std::string &);
   ~SGame();
-  void move(const ControllerManager::e_control);
-  SMap& getMap() const;
-  void play();
+  void		move(const ControllerManager::e_control);
+  SMap&		getMap() const;
+  void		play();
+  void          setMap(const std::string&);
+  void          setGM(IGraphicManager *);
+  IGraphicManager *getGM();
 };
 
 #endif
