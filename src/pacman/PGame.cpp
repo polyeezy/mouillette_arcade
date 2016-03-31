@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Thu Mar 31 12:20:47 2016 Valerian Polizzi
+// Last update Thu Mar 31 16:44:29 2016 Loïc Weinhard
 //
 
 #include "Protocol.hpp"
@@ -65,6 +65,7 @@ void	PGame::play()
 {
   int			i;
   t_pos			pos;
+  int			control;
 
   pos = _map->getPacmanSpawn();
   _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
@@ -76,6 +77,16 @@ void	PGame::play()
       _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
       std::cout << "GHOST CREATED [" << i << "]" <<  std::endl;
+    }
+  _map->setElem(_pacman->getPos(), '#');
+  control = -1;
+  while (control != ControllerManager::ESCAPE && this->getMap().hasGums())
+    {
+      control = this->getGM()->getKey();
+      _map->setElem(_pacman->getPos(), 'x');
+      this->move(control);
+      _map->setElem(_pacman->getPos(), '#');
+      this->getGM()->print(this->getMap());
     }
 }
 

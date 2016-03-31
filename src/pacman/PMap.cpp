@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Thu Mar 31 15:47:21 2016 Loïc Weinhard
+// Last update Thu Mar 31 16:37:11 2016 Loïc Weinhard
 //
 
 #include <unistd.h>
@@ -45,6 +45,7 @@ PMap::PMap(const std::string &file)
   while (i < _map.size())
     {
       _gums += std::count(_map[i].begin(), _map[i].end(), '0');
+      _gums += std::count(_map[i].begin(), _map[i].end(), '2');
       if (_map[i].find("P") != std::string::npos)
 	{
 	  _door.y = (float)i;
@@ -52,6 +53,7 @@ PMap::PMap(const std::string &file)
 	}
       i += 1;
     }
+  _gums -= 1;
   _last_gspawn.x = 0;
   _last_gspawn.y = 0;
 }
@@ -86,6 +88,7 @@ bool	PMap::hasGums()
 {
   if (_gums <= 0)
     return (false);
+  std::cout << "GUMS LEFT : " << _gums << std::endl;
   return (true);
 }
 
@@ -119,6 +122,11 @@ t_pos	PMap::getNextGhostSpawn()
 size_t	PMap::getSize() const
 {
     return (_map.size());
+}
+
+void	PMap::setElem(const t_pos pos, const char c)
+{
+  _map[pos.y][pos.x] = c;
 }
 
 void		PMap::print()

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 31 12:57:02 2016 Valerian Polizzi
+// Last update Thu Mar 31 16:27:17 2016 Loïc Weinhard
 //
 
 #include "openglGraphicManager.hh"
@@ -65,6 +65,8 @@ void	openglGraphicManager::print(const IMap &map)
 	  switch (map.getPos(pos))
 	    {
 	    case '0':
+	      glColor3ub(255, 165, 0);
+	      break;
 	    case 'G':
 	    case 'x':
 	      glColor3ub(255,255,255);
@@ -75,6 +77,9 @@ void	openglGraphicManager::print(const IMap &map)
 	      break;
 	    case '2':
 	      glColor3ub(255,0,0);
+	      break;
+	    case '#':
+	      glColor3ub(255, 255, 0);
 	      break;
 	    }
 	  glEnd();
