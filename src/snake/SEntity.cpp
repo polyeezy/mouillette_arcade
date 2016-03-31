@@ -5,13 +5,14 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 16:18:20 2016 Miele Alexis
-// Last update Wed Mar 30 16:55:52 2016 Miele Alexis
+// Last update Thu Mar 31 15:31:11 2016 Miele Alexis
 //
 
 #include "SEntity.hh"
 
 SEntity::SEntity(const float w, const float h, const float x, const float y, const float s) : AEntity(w, h, x, y, s)
 {
+  _dir = ControllerManager::RIGHT;
 }
 
 SEntity::SEntity(const float w, const float h, const t_pos p, const float s) : AEntity(w, h, p.x, p.y, s)
