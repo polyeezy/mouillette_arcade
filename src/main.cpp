@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Wed Mar 30 18:13:07 2016 Miele Alexis
+// Last update Thu Mar 31 15:21:35 2016 Miele Alexis
 //
 
 
@@ -31,7 +31,7 @@ int		main(int ac, char **av)
   IGame	*Pacman = lmgame.createGame();
 
   LibraryManager			lmgraphic;
-  lmgraphic.open("./lib/lib_arcade_sfml.so");
+  lmgraphic.open("./lib/lib_arcade_opengl.so");
   IGraphicManager	*graphic  = lmgraphic.createGM();
 
 
@@ -47,11 +47,9 @@ int		main(int ac, char **av)
 
   while (c != ControllerManager::ESCAPE)
     {
-      
       c = Pacman->getGM()->getKey();
       Pacman->move(c);
       Pacman->getGM()->print(Pacman->getMap());
     }
-
   return (0);
 }

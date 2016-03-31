@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar 16 15:04:24 2016 Valerian Polizzi
-// Last update Wed Mar 30 16:43:28 2016 Valerian Polizzi
+// Last update Wed Mar 30 18:51:51 2016 Loïc Weinhard
 //
 
 #ifndef _IGRAPGHICMANAGER_HH_

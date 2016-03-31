@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Wed Mar 30 16:42:09 2016 Valerian Polizzi
+// Last update Wed Mar 30 19:23:27 2016 Loïc Weinhard
 //
 
 #include "openglGraphicManager.hh"

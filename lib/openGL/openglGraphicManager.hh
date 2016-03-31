@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Thu Mar 17 14:15:36 2016 Valerian Polizzi
-// Last update Wed Mar 30 16:42:41 2016 Valerian Polizzi
+// Last update Wed Mar 30 18:51:08 2016 Loïc Weinhard
 //
 
 #ifndef _OPENGLGRAPHICMANAGER_HH_
@@ -18,9 +18,9 @@
 # include <IMap.hh>
 # include <ControllerManager.hh>
 
-# define WIDTH			640
-# define HEIGHT                 480
-# define GL_RATIO               0.10
+# define WIDTH			1920
+# define HEIGHT                 1080
+# define GL_RATIO               0.05
 # define GL_SURFACE_WRATIO      0.50
 # define GL_SURFACE_HRATIO      0.05
 # define GL_TRANS_X             -0.75

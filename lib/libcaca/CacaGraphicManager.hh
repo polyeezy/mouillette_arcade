@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar 16 15:13:24 2016 Valerian Polizzi
-// Last update Wed Mar 30 15:01:44 2016 Miele Alexis
+// Last update Wed Mar 30 18:50:59 2016 Loïc Weinhard
 //
 
 #ifndef _CACAGRAPHICMANAGER_HH_
