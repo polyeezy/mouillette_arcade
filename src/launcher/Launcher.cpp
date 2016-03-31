@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Wed Mar 30 12:15:50 2016 Valerian Polizzi
+// Last update Thu Mar 31 12:50:34 2016 Valerian Polizzi
 //
 
 #include <Launcher.hh>
@@ -35,12 +35,21 @@ void		Launcher::run()
   this->getKeys();
 }
 
-void		Launcher::play()
+void		Launcher::play(const std::string &game, const std::string &lib)
 {
+  LibraryManager gameLM;
 
+  gameLM.open(game);
+  _currentGame = gameLM.createGame();
+  std::cout << "Game created " << std::endl;
 
-  // _currentGM->getKey();
-  //_currentGM->print(_currentGame->getMap());
+  LibraryManager libLM;
+  libLM.open(lib);
+  std::cout << "CREATING GM" << std::endl;
+  _currentGame->setGM(libLM.createGM());
+  std::cout << "Graphic Manager created " << std::endl;
+  _currentGame->getGM()->createWindow(_menu.getCurrentGame()->getValue());
+  _currentGame->play();
 }
 
 Launcher::~Launcher()
@@ -101,23 +110,7 @@ int		Launcher::getKeys()
 	  std::cout << "[USING " << _menu.getCurrentLib()->getValue()  << " AS LIB ]"   << std::endl;
 	  std::cout << "[USING " << _menu.getCurrentGame()->getValue()  << " AS GAME ]"   << std::endl;
 
-	  _lm.open(std::string("./games/").append(_menu.getCurrentGame()->getValue()));
-	  _currentGame = _lm.createGame();
-	  std::cout << "Game created " << std::endl;
-
-
-	  _lm.open(std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
-	  std::cout << "CREATING GM" << std::endl;
-	  // _currentGame->setGM(_lm.createGM());
-	  std::cout << "Graphic Manager created " << std::endl;
-
-	  //_lm.close();
-
-
-
-	  //_LGM->close();
-	   _currentGame->getGM()->createWindow(_menu.getCurrentGame()->getValue());
-	  _currentGame->play();
+	  this->play(std::string("./games/").append(_menu.getCurrentGame()->getValue()), std::string("./lib/").append(_menu.getCurrentLib()->getValue()));
 	  return (0);
 	  break;
 	case 8:
@@ -129,8 +122,6 @@ int		Launcher::getKeys()
 	    //	    _currentGM->printMenu(_menu.getCurrentGame()->getValue(), _menu.getCurrentLib()->getValue(), _name);
 	  }
 	}
-
-
     }
   return (0);
 }

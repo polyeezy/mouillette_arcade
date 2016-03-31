@@ -5,26 +5,27 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:54:52 2016 Valerian Polizzi
-// Last update Wed Mar 30 14:51:16 2016 Miele Alexis
+// Last update Thu Mar 31 12:16:42 2016 Valerian Polizzi
 //
 
 
 #include <caca.h>
 #include <Launcher.hh>
-#include "IMap.hh"
+//#include <IMap.hh>
 #include "PGame.hh"
 
 int		main(int ac, char **av)
 {
-  //  Launcher	L;
+    Launcher	L;
 
 
   (void)ac;
   (void)av;
-  //  L.openLibrary(av[1]);
-  //L.init();
-  //L.run();
+    L.openLibrary(av[1]);
+  L.init();
+  L.run();
 
+  /*
   LibraryManager			lmgame;
 
   lmgame.open("./games/pacman.so");
@@ -47,5 +48,6 @@ int		main(int ac, char **av)
       c = Pacman->getGM()->getKey();
     }
 
+  */
   return (0);
 }

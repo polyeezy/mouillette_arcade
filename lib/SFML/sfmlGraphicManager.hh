@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 10:23:35 2016 Alexis Miele
-// Last update Wed Mar 30 14:49:47 2016 Miele Alexis
+// Last update Wed Mar 30 18:51:32 2016 Loïc Weinhard
 //
 
 #ifndef     SFMLGRAPHICMANAGER_HH_

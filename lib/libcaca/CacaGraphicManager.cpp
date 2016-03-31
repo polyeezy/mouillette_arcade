@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Wed Mar 30 15:08:57 2016 Miele Alexis
+// Last update Wed Mar 30 18:49:38 2016 Loïc Weinhard
 //
 
 #include "CacaGraphicManager.hh"
@@ -25,7 +25,6 @@ void		CacaGraphicManager::print(const IMap &map)
 {
   (void)map;
 }
-
 void		CacaGraphicManager::close()
 {
   caca_free_display((caca_display_t*)_Window);

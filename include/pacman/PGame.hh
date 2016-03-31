@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 13:56:17 2016 Loïc Weinhard
-// Last update Wed Mar 30 15:11:18 2016 Miele Alexis
+// Last update Wed Mar 30 18:14:03 2016 Loïc Weinhard
 //
 
 #ifndef PGAME_HH_
@@ -37,9 +37,10 @@ public:
   void		setMap(const std::string&);
   void		setGM(IGraphicManager *);
   IGraphicManager *getGM();
-  void		move(const ControllerManager::e_control);
+  void		move(const int);
   PMap&		getMap() const;
   void		play();
+  PEntity&	getPacman() const;
 };
 
 #endif

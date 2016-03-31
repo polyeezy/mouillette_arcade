@@ -5,12 +5,13 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar 16 15:04:24 2016 Valerian Polizzi
-// Last update Wed Mar 30 14:44:18 2016 Miele Alexis
+// Last update Wed Mar 30 18:51:51 2016 Loïc Weinhard
 //
 
 #ifndef _IGRAPGHICMANAGER_HH_
 # define _IGRAPGHICMANAGER_HH_
 
+#include <ControllerManager.hh>
 #include <IMap.hh>
 #include <string>
 

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 14:04:44 2016 Valerian Polizzi
-// Last update Tue Mar 29 15:06:24 2016 Valerian Polizzi
+// Last update Thu Mar 31 12:48:48 2016 Valerian Polizzi
 //
 
 #ifndef _LAUNCHER_HH_
@@ -42,7 +42,7 @@ public:
   void		nextGame();
   void		nextLib();
   void		createWindow(const std::string &,const int, const int);
-  void		play();
+  void		play(const std::string &, const std::string &);
   void		openLibrary(const std::string &);
   void		run();
 };

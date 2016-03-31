@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar 15 14:29:37 2016 Valerian Polizzi
-// Last update Wed Mar 30 15:27:36 2016 Miele Alexis
+// Last update Wed Mar 30 16:53:08 2016 Miele Alexis
 //
 
 #ifndef _SGAME_HH_
@@ -33,7 +33,7 @@ public:
   SGame();
   SGame(const std::string &);
   ~SGame();
-  void		move(const ControllerManager::e_control);
+  void		move(const int);
   SMap&		getMap() const;
   void		play();
   void          setMap(const std::string&);

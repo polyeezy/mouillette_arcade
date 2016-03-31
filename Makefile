@@ -5,10 +5,10 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Wed Mar 30 15:55:29 2016 Valerian Polizzi
+## Last update Thu Mar 31 12:54:59 2016 Valerian Polizzi
 ##
 
-CXX		=		clang++
+CXX		=		g++
 
 NAME		=		arcade
 
@@ -46,6 +46,7 @@ PACMAN_NAME	=		./games/pacman.so
 PACMAN_SRC	=		./src/pacman/PGame.cpp		\
 				./src/pacman/PMap.cpp		\
 				./src/pacman/PEntity.cpp	\
+				./src/General/AEntity.cpp	\
 
 PACMAN_OBJ	=		$(PACMAN_SRC:.cpp=.o)
 
@@ -54,6 +55,7 @@ SNAKE_NAME	=		./games/snake.so
 SNAKE_SRC	=		./src/snake/SMap.cpp		\
 				./src/snake/SEntity.cpp	\
 				./src/snake/SGame.cpp		\
+				./src/General/AEntity.cpp	\
 
 SNAKE_OBJ	=		$(SNAKE_SRC:.cpp=.o)
 
@@ -68,7 +70,7 @@ CXXFLAGS	+=		-Wall -Wextra -Werror -g3
 
 MR_CLEAN        =               find ./ \( -name "*~" -o -name "\#*\#" \) -delete
 
-all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(NAME) $(PACMAN_NAME) $(SNAKE_NAME)
+all		:		$(OPENGL_NAME) $(LCACA_NAME) $(SFML_NAME) $(NAME) $(PACMAN_NAME)
 
 core		:		$(NAME)
 
