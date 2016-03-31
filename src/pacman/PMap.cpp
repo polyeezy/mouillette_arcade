@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Wed Mar 30 19:05:16 2016 Loïc Weinhard
+// Last update Thu Mar 31 15:47:21 2016 Loïc Weinhard
 //
 
 #include <unistd.h>
@@ -60,14 +60,14 @@ char	PMap::getPos(const t_pos new_pos) const
 {
   if (new_pos.y >= _map.size())
     return (-1);
-  else if (new_pos.x >= _map[new_pos.y].size())
+  else if (new_pos.x > _map[new_pos.y].size())
     return (-2);
   return (_map[new_pos.y][new_pos.x]);
 }
 
 void	PMap::deleteObj(const t_pos pos)
 {
-  if (_map[pos.y][pos.x] == '0')
+  if (_map[pos.y][pos.x] == '0' || _map[pos.y][pos.x] == '2')
     _gums -= 1;
   _map[pos.y][pos.x] = 'x';
 }
