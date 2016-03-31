@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 17:50:32 2016 Miele Alexis
-// Last update Wed Mar 30 16:45:39 2016 Valerian Polizzi
+// Last update Thu Mar 31 15:31:35 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -53,6 +53,12 @@ SMap&	SGame::getMap() const
 
 void	SGame::play()
 {
+  t_pos	pos;
+
+  pos = _map->getSpawn();
+  _snake = new SEntity(SENTITY_WIDTH, SENTITY_HEIGHT, pos, SENTITY_SPEED);
+  std::cout << "SNAKE CREATED" << std::endl;
+
 }
 
 extern "C" IGame *createIGame()
