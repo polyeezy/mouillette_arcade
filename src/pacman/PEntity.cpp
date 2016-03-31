@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 // 
 // Started on  Tue Mar  8 16:59:42 2016 Loïc Weinhard
-// Last update Wed Mar 30 16:45:09 2016 Valerian Polizzi
+// Last update Thu Mar 31 16:58:02 2016 Loïc Weinhard
 //
 
 #include "PEntity.hh"
@@ -42,8 +42,9 @@ void	PEntity::print()
 
 void	PEntity::move(const PMap *map, const int new_dir)
 {
-  _dir = new_dir;
-  switch (new_dir)
+  if (new_dir != 0)
+    _dir = new_dir;
+  switch (_dir)
     {
     case ControllerManager::UP:
       this->checkVerticalMove(map, -1);
