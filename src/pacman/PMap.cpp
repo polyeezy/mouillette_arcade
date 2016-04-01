@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Thu Mar 31 16:37:11 2016 Loïc Weinhard
+// Last update Fri Apr  1 12:41:19 2016 Miele Alexis
 //
 
 #include <unistd.h>
@@ -60,9 +60,9 @@ PMap::PMap(const std::string &file)
 
 char	PMap::getPos(const t_pos new_pos) const
 {
-  if (new_pos.y >= _map.size())
+  if (new_pos.y >= _map.size() || new_pos.y < 0)
     return (-1);
-  else if (new_pos.x > _map[new_pos.y].size())
+  else if (new_pos.x < 0 || new_pos.x > _map[new_pos.y].size())
     return (-2);
   return (_map[new_pos.y][new_pos.x]);
 }

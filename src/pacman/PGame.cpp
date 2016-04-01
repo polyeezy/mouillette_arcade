@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Thu Mar 31 16:52:32 2016 Loïc Weinhard
+// Last update Fri Apr  1 14:35:00 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -45,7 +45,7 @@ PGame::PGame(const std::string &file)
   while (i < GHOSTS)
     {
       pos = _map->getNextGhostSpawn();
-      //   _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
+      //_ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
     }
 }

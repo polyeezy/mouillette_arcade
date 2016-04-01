@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Fri Apr  1 10:13:36 2016 Miele Alexis
+// Last update Fri Apr  1 14:09:01 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -49,6 +49,7 @@ void	sfmlGraphicManager::print(const IMap &map)
     int     transY;
     t_pos	pos;
 
+    ((sf::RenderWindow *)_Window)->Clear(sf::Color::Black);
     if (_blockSize == 0)
     {
         if (WIDTH > HEIGHT)
@@ -70,24 +71,41 @@ void	sfmlGraphicManager::print(const IMap &map)
             {
             case '0':
               rectangle.SetColor(sf::Color(255,165,0));
-              break;
+              ((sf::RenderWindow *)_Window)->Draw(rectangle);
+	      break;
             case 'G':
             case 'x':
-              rectangle.SetColor(sf::Color(255,255,255));
-              break;
+              rectangle.SetColor(sf::Color(0,0,0));
+              ((sf::RenderWindow *)_Window)->Draw(rectangle);
+	      break;
             case '1':
             case 'P':
               rectangle.SetColor(sf::Color(0,0,255));
-              break;
+              ((sf::RenderWindow *)_Window)->Draw(rectangle);
+	      break;
             case '2':
               rectangle.SetColor(sf::Color(255,0,0));
-              break;
+              ((sf::RenderWindow *)_Window)->Draw(rectangle);
+	      break;
 	    case '#':
-              rectangle.SetColor(sf::Color(255,255,0));
-              break;
+              rectangle.SetColor(sf::Color(0,0,0));
+	      sf::Image image;
+	      sf::Sprite sprite;
+	      ((sf::RenderWindow *)_Window)->Draw(rectangle);
+              if (!image.LoadFromFile("./src/pacman/pacman.png"))
+		{
+		  std::cout << "Erreur durant le chargement de l'image" << std::endl;
+		}
+              else
+		{
+		  sprite.SetImage(image);
+		  sprite.SetPosition(sf::Vector2f((WIDTH / 2) - (transX * _blockSize), (HEIGHT / 2) - (transY * _blockSize)));
+		  sprite.Resize(sf::Vector2f(_blockSize, _blockSize));
+		  ((sf::RenderWindow *)_Window)->Draw(sprite);
+		}
+	      break;
             }
-            ((sf::RenderWindow *)_Window)->Draw(rectangle);
-            pos.x += 1;
+	    pos.x += 1;
             transX -= 1;
         }
       pos.y += 1;
