@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Tue Mar  8 11:35:18 2016 Loïc Weinhard
-// Last update Wed Mar 30 16:49:44 2016 Miele Alexis
+// Last update Thu Mar 31 16:18:22 2016 Loïc Weinhard
 //
 
 #ifndef PMAP_HH_
@@ -34,6 +34,7 @@ public:
 public:
   char			getPos(const t_pos) const;
   void			deleteObj(const t_pos);
+  void			setElem(const t_pos, const char);
   void			openCage();
   void			closeCage();
   bool			hasGums();

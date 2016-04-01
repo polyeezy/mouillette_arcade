@@ -5,11 +5,12 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:54:30 2016 Valerian Polizzi
-// Last update Wed Mar 30 12:08:03 2016 Valerian Polizzi
+// Last update Fri Apr  1 10:54:30 2016 Valerian Polizzi
 //
 
 #include <LibraryManager.hh>
 #include <IGraphicManager.hh>
+#include <ArcadeException.hh>
 
 LibraryManager::LibraryManager() : _dlhandle(NULL)
 {
@@ -26,8 +27,7 @@ void		LibraryManager::open(const std::string &path)
   _dlhandle = dlopen(path.c_str(), RTLD_LAZY | RTLD_NOW);
   if (!_dlhandle)
     {
-      std::cout << dlerror() << std::endl;
-      exit(0);
+      throw arcade::Exception(dlerror());
     }
 }
 
