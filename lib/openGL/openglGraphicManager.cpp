@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Thu Mar 31 12:57:02 2016 Valerian Polizzi
+// Last update Thu Mar 31 16:40:14 2016 Valerian Polizzi
 //
 
 #include "openglGraphicManager.hh"
@@ -127,8 +127,8 @@ int		openglGraphicManager::getKey() const
 {
   SDL_Event	events;
 
-  while (SDL_PollEvent(&events))
-    {
+  SDL_PollEvent(&events);
+
       switch (events.type)
 	{
 	case SDL_QUIT:
@@ -163,7 +163,7 @@ int		openglGraphicManager::getKey() const
 	default:
 	  break;
 	}
-    }
+
   return (0);
 }
 
