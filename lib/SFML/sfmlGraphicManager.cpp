@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Wed Mar 30 18:51:37 2016 Loïc Weinhard
+// Last update Fri Apr  1 10:13:36 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -69,6 +69,8 @@ void	sfmlGraphicManager::print(const IMap &map)
             switch (map.getPos(pos))
             {
             case '0':
+              rectangle.SetColor(sf::Color(255,165,0));
+              break;
             case 'G':
             case 'x':
               rectangle.SetColor(sf::Color(255,255,255));
@@ -79,6 +81,9 @@ void	sfmlGraphicManager::print(const IMap &map)
               break;
             case '2':
               rectangle.SetColor(sf::Color(255,0,0));
+              break;
+	    case '#':
+              rectangle.SetColor(sf::Color(255,255,0));
               break;
             }
             ((sf::RenderWindow *)_Window)->Draw(rectangle);

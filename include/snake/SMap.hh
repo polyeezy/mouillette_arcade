@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 15:57:16 2016 Miele Alexis
-// Last update Wed Mar 30 15:28:51 2016 Miele Alexis
+// Last update Fri Apr  1 10:41:02 2016 Miele Alexis
 //
 
 #ifndef SMAP_HH_
@@ -18,7 +18,7 @@
 # include "Position.hh"
 # include "SEntity.hh"
 
-# define MAPS_PATH      "../../games/maps/"
+# define MAPS_PATH      "./games/maps/"
 
 class SEntity;
 
@@ -38,6 +38,7 @@ public:
   void			print();
   t_pos                 getSpawn();
   void			setGum(const SEntity *);
+  void			setElem(const t_pos, const char);
 };
 
 #endif

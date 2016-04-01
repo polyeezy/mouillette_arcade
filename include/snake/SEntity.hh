@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 16:13:32 2016 Miele Alexis
-// Last update Wed Mar 30 16:55:26 2016 Miele Alexis
+// Last update Fri Apr  1 10:27:38 2016 Miele Alexis
 //
 
 #ifndef SENTITY_HH_
@@ -29,6 +29,7 @@ class	SEntity : public AEntity
 private:
   std::vector<t_snakebody *>	_body;
   int	_dir;
+  bool	_alive;
 
 public:
   SEntity(const float, const float, const float, const float, const float);
@@ -40,6 +41,7 @@ public:
   void			newBody();
   const std::vector<t_snakebody *>	&getBody() const;
   virtual void		print();
+  const bool		&getAlive() const;
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 15:48:57 2016 Miele Alexis
-// Last update Wed Mar 30 14:42:36 2016 Miele Alexis
+// Last update Fri Apr  1 10:50:20 2016 Miele Alexis
 //
 
 #include <unistd.h>
@@ -27,14 +27,19 @@ SMap::SMap(const std::string &file)
   i = 0;
   path.append(file);
   fd.open(path.c_str());
-  while (std::getline(fd, line))
+  if (fd.is_open())
     {
-      _map.push_back(line);
-      while (_map[i].find(" ") != std::string::npos)
-        _map[i].erase(_map[i].find(" "), 1);
-      i += 1;
+      while (std::getline(fd, line))
+	{
+	  _map.push_back(line);
+	  while (_map[i].find(" ") != std::string::npos)
+	    _map[i].erase(_map[i].find(" "), 1);
+	  i += 1;
+	}
+      fd.close();
     }
-  fd.close();
+  else
+    std::cerr << "FAILED TO LOAD MAP" << std::endl;
   // i = 0;
   // str.insert(str.begin(), size, 'x');
   // while (++i <= size)
@@ -43,9 +48,9 @@ SMap::SMap(const std::string &file)
 
 char	SMap::getPos(const t_pos new_pos) const
 {
-  if (new_pos.y >= _map.size())
+  if (new_pos.y >= _map.size() || new_pos.y < 0)
     return (-1);
-  else if (new_pos.x >= _map[new_pos.y].size())
+  else if (new_pos.x < 0 || new_pos.x >= _map[new_pos.y].size())
     return (-2);
   return (_map[new_pos.y][new_pos.x]);
 }
@@ -89,4 +94,9 @@ void	SMap::setGum(const SEntity *snake)
 	this->setGum(snake);
     }
   _map[pos.y][pos.x] = '0';
+}
+
+void    SMap::setElem(const t_pos pos, const char c)
+{
+  _map[pos.y][pos.x] = c;
 }

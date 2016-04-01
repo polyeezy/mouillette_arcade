@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 17:50:32 2016 Miele Alexis
-// Last update Thu Mar 31 15:31:35 2016 Miele Alexis
+// Last update Fri Apr  1 10:35:35 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -15,6 +15,7 @@
 SGame::SGame()
 {
   std::cout << "PACMAN CONSTRUCTOR" << std::endl;
+  this->setMap("level_1.snake");
 }
 
 SGame::SGame(const std::string &map)
@@ -54,10 +55,20 @@ SMap&	SGame::getMap() const
 void	SGame::play()
 {
   t_pos	pos;
+  int	control;
 
   pos = _map->getSpawn();
   _snake = new SEntity(SENTITY_WIDTH, SENTITY_HEIGHT, pos, SENTITY_SPEED);
   std::cout << "SNAKE CREATED" << std::endl;
+  control = -1;
+  while (control != ControllerManager::ESCAPE && _snake->getAlive())
+    {
+      control = this->getGM()->getKey();
+      _map->setElem(_snake->getPos(), 'x');
+      this->move(control);
+      _map->setElem(_snake->getPos(), '#');
+      this->getGM()->print(this->getMap());
+    }
 
 }
 
