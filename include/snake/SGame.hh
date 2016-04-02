@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar 15 14:29:37 2016 Valerian Polizzi
-// Last update Wed Mar 30 16:53:08 2016 Miele Alexis
+// Last update Sat Apr  2 13:45:45 2016 Miele Alexis
 //
 
 #ifndef _SGAME_HH_
@@ -22,6 +22,7 @@
 # define SENTITY_SPEED  0.5
 # define SENTITY_WIDTH  20
 # define SENTITY_HEIGHT 20
+# define SNAKE_PATH ("./src/snake/")
 
 class SGame : public IGame
 {

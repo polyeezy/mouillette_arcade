@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 17:50:32 2016 Miele Alexis
-// Last update Fri Apr  1 10:35:35 2016 Miele Alexis
+// Last update Sat Apr  2 13:45:09 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -35,6 +35,7 @@ void	SGame::setMap(const std::string &map)
 void            SGame::setGM(IGraphicManager *gm)
 {
   _gm = gm;
+  _gm->setTexture('x', std::string(SNAKE_PATH).append("grass.jpg"));
 }
 
 IGraphicManager *SGame::getGM()

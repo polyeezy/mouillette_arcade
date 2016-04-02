@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Fri Apr  1 14:35:00 2016 Miele Alexis
+// Last update Fri Apr  1 17:47:38 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -21,6 +21,7 @@ PGame::PGame()
 void		PGame::setGM(IGraphicManager *gm)
 {
   _gm = gm;
+  _gm->setTexture('#', std::string(PACMAN_PATH).append("pacman.png"));
 }
 
 IGraphicManager	*PGame::getGM()

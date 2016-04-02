@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Fri Apr  1 14:09:01 2016 Miele Alexis
+// Last update Sat Apr  2 15:16:46 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -48,6 +48,7 @@ void	sfmlGraphicManager::print(const IMap &map)
     int     transX;
     int     transY;
     t_pos	pos;
+    char	c;
 
     ((sf::RenderWindow *)_Window)->Clear(sf::Color::Black);
     if (_blockSize == 0)
@@ -65,9 +66,10 @@ void	sfmlGraphicManager::print(const IMap &map)
       transX = map.getSize() / 2;
       while (map.getPos(pos) != -2)
         {
-            sf::Shape rectangle = sf::Shape::Rectangle(sf::Vector2f((WIDTH / 2) - (transX * _blockSize), (HEIGHT / 2) - (transY * _blockSize)), sf::Vector2f((WIDTH / 2) - (transX * _blockSize) + _blockSize, (HEIGHT / 2) - (transY * _blockSize) + _blockSize), sf::Color(255,255,255));
+	  c = map.getPos(pos);
+	  sf::Shape rectangle = sf::Shape::Rectangle(sf::Vector2f((WIDTH / 2) - (transX * _blockSize), (HEIGHT / 2) - (transY * _blockSize)), sf::Vector2f((WIDTH / 2) - (transX * _blockSize) + _blockSize, (HEIGHT / 2) - (transY * _blockSize) + _blockSize), sf::Color(255,255,255));
             //rectangle.setPosition((WIDTH / 2) - (transX * _blockSize), (HEIGHT / 2) - (transY * _blockSize));
-            switch (map.getPos(pos))
+	  switch (c)
             {
             case '0':
               rectangle.SetColor(sf::Color(255,165,0));
@@ -81,32 +83,26 @@ void	sfmlGraphicManager::print(const IMap &map)
             case '1':
             case 'P':
               rectangle.SetColor(sf::Color(0,0,255));
-              ((sf::RenderWindow *)_Window)->Draw(rectangle);
 	      break;
-            case '2':
-              rectangle.SetColor(sf::Color(255,0,0));
-              ((sf::RenderWindow *)_Window)->Draw(rectangle);
+	    case '2':
+	      rectangle.SetColor(sf::Color(255,0,0));
 	      break;
 	    case '#':
               rectangle.SetColor(sf::Color(0,0,0));
-	      sf::Image image;
-	      sf::Sprite sprite;
-	      ((sf::RenderWindow *)_Window)->Draw(rectangle);
-              if (!image.LoadFromFile("./src/pacman/pacman.png"))
-		{
-		  std::cout << "Erreur durant le chargement de l'image" << std::endl;
-		}
-              else
-		{
-		  sprite.SetImage(image);
-		  sprite.SetPosition(sf::Vector2f((WIDTH / 2) - (transX * _blockSize), (HEIGHT / 2) - (transY * _blockSize)));
-		  sprite.Resize(sf::Vector2f(_blockSize, _blockSize));
-		  ((sf::RenderWindow *)_Window)->Draw(sprite);
-		}
 	      break;
             }
-	    pos.x += 1;
-            transX -= 1;
+	  ((sf::RenderWindow *)_Window)->Draw(rectangle);
+	  for (std::vector<std::pair<const char, sf::Image *>>::iterator itr = _texture.begin(); itr != _texture.end(); ++itr)
+	    if (c == (*itr).first)
+	      {
+	  	sf::Sprite sprite;
+		sprite.SetImage((*(*itr).second));
+		sprite.SetPosition(sf::Vector2f((WIDTH / 2) - (transX * _blockSize), (HEIGHT / 2) - (transY * _blockSize)));
+		sprite.Resize(sf::Vector2f(_blockSize, _blockSize));
+		((sf::RenderWindow *)_Window)->Draw(sprite);
+	      }
+	  pos.x += 1;
+	  transX -= 1;
         }
       pos.y += 1;
       transY -= 1;
@@ -196,6 +192,17 @@ int		sfmlGraphicManager::getKey() const
 void	sfmlGraphicManager::printMenu(const std::string &game, const std::string &lib, const std::string &name)
 {
   std::cout << game << lib << name << std::endl;
+}
+
+void	sfmlGraphicManager::setTexture(const char &c, const std::string &path)
+{
+  sf::Image *image = new sf::Image;
+  if (!image->LoadFromFile(path))
+    {
+      std::cout << "Erreur durant le chargement de l'image" << std::endl;
+    }
+  else
+    _texture.push_back(std::make_pair(c, image));
 }
 
 extern "C" IGraphicManager * createGraphicManager()

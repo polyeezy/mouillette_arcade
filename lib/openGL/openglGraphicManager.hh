@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Thu Mar 17 14:15:36 2016 Valerian Polizzi
-// Last update Thu Mar 31 16:45:54 2016 Loïc Weinhard
+// Last update Fri Apr  1 17:37:04 2016 Miele Alexis
 //
 
 #ifndef _OPENGLGRAPHICMANAGER_HH_
@@ -45,10 +45,11 @@ void          createSurface(const int x, const int y, const int h, const int w, 
 void          addTextToSurface(const std::string &surface, const int x, const int y, const std::string &text);
 void          moveCursorUp();
   void		close();
-int	      getKey() const;
-void          *getWindow();
+  int	      getKey() const;
+  void          *getWindow();
   void		printMenu(const std::string&, const std::string &, const std::string&);
-IGraphicManager *createGraphicManager();
+  IGraphicManager *createGraphicManager();
+  void	setTexture(const char &, const std::string &);
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar 16 15:13:24 2016 Valerian Polizzi
-// Last update Wed Mar 30 18:50:59 2016 Loïc Weinhard
+// Last update Fri Apr  1 17:44:43 2016 Miele Alexis
 //
 
 #ifndef _CACAGRAPHICMANAGER_HH_
@@ -40,6 +40,7 @@ public:
   int getKey() const;
   void          *getWindow();
   IGraphicManager *createGraphicManager();
+  void	setTexture(const char &, const std::string &);
 };
 
 #endif

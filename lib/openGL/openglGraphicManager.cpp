@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Fri Apr  1 10:13:35 2016 Valerian Polizzi
+// Last update Fri Apr  1 17:46:04 2016 Miele Alexis
 //
 
 #include "openglGraphicManager.hh"
@@ -175,6 +175,12 @@ int		openglGraphicManager::getKey() const
 void		openglGraphicManager::printMenu(const std::string &game, const std::string &lib, const std::string &name)
 {
   std::cout << game << lib << name << std::endl;
+}
+
+void	openglGraphicManager::setTexture(const char &c, const std::string &path)
+{
+  (void)c;
+  (void)path;
 }
 
 extern "C" IGraphicManager * createGraphicManager()

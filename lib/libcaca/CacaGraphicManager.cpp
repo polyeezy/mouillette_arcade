@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Wed Mar 30 18:49:38 2016 Loïc Weinhard
+// Last update Fri Apr  1 17:45:28 2016 Miele Alexis
 //
 
 #include "CacaGraphicManager.hh"
@@ -121,6 +121,12 @@ int		CacaGraphicManager::getKey() const
       break;
     }
   return (c);
+}
+
+void	CacaGraphicManager::setTexture(const char &c, const std::string &path)
+{
+  (void)c;
+  (void)path;
 }
 
 extern "C" IGraphicManager * createGraphicManager()
