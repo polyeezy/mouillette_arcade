@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.eu>
 //
 // Started on  Fri Mar 18 17:12:45 2016 Alexis Miele
-// Last update Sat Apr  2 15:16:46 2016 Miele Alexis
+// Last update Sat Apr  2 16:45:19 2016 Miele Alexis
 //
 
 #include "sfmlGraphicManager.hh"
@@ -71,24 +71,16 @@ void	sfmlGraphicManager::print(const IMap &map)
             //rectangle.setPosition((WIDTH / 2) - (transX * _blockSize), (HEIGHT / 2) - (transY * _blockSize));
 	  switch (c)
             {
+            case 'P':
             case '0':
-              rectangle.SetColor(sf::Color(255,165,0));
-              ((sf::RenderWindow *)_Window)->Draw(rectangle);
-	      break;
             case 'G':
-            case 'x':
-              rectangle.SetColor(sf::Color(0,0,0));
-              ((sf::RenderWindow *)_Window)->Draw(rectangle);
+            case 'x': 
+	    case '2':
+	    case '#':
+	      rectangle.SetColor(sf::Color(0,0,0));
 	      break;
             case '1':
-            case 'P':
               rectangle.SetColor(sf::Color(0,0,255));
-	      break;
-	    case '2':
-	      rectangle.SetColor(sf::Color(255,0,0));
-	      break;
-	    case '#':
-              rectangle.SetColor(sf::Color(0,0,0));
 	      break;
             }
 	  ((sf::RenderWindow *)_Window)->Draw(rectangle);

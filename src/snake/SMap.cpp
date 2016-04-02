@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 15:48:57 2016 Miele Alexis
-// Last update Fri Apr  1 10:50:20 2016 Miele Alexis
+// Last update Sat Apr  2 20:35:21 2016 Miele Alexis
 //
 
 #include <unistd.h>
@@ -64,8 +64,8 @@ t_pos	SMap::getSpawn()
 {
   t_pos	pos;
 
-  pos.x = rand() % _map.size();
-  pos.y = rand() % _map.size();
+  pos.x = _map.size() / 2;
+  pos.y = _map.size() / 2;
   return (pos);
 }
 
@@ -91,7 +91,10 @@ void	SMap::setGum(const SEntity *snake)
   for (size_t i = 0; i < body.size(); i++)
     {
       if (body[i]->pos.x == pos.x && body[i]->pos.y == pos.y)
-	this->setGum(snake);
+	{
+	  this->setGum(snake);
+	  return;
+	}
     }
   _map[pos.y][pos.x] = '0';
 }
