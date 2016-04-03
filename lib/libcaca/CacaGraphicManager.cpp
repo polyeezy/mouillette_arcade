@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Sun Apr  3 13:51:59 2016 Valerian Polizzi
+// Last update Sun Apr  3 13:55:16 2016 Valerian Polizzi
 //
 
 #include "CacaGraphicManager.hh"
@@ -126,7 +126,7 @@ int		CacaGraphicManager::getKey() const
   caca_event_t	ev;
   int		c;
 
-  caca_get_event((caca_display_t*)_Window, CACA_EVENT_KEY_PRESS, &ev, 1);
+  caca_get_event((caca_display_t*)_Window, CACA_EVENT_KEY_PRESS, &ev, 0);
   c = caca_get_event_key_ch(&ev);
   switch (c)
     {

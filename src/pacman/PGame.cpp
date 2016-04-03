@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Sun Apr  3 11:52:42 2016 Valerian Polizzi
+// Last update Sun Apr  3 13:57:07 2016 Valerian Polizzi
 // Last update Sat Apr  2 16:45:45 2016 Miele Alexis
 //
 
@@ -75,14 +75,12 @@ void	PGame::play()
 
   pos = _map->getPacmanSpawn();
   _pacman = new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED);
-  std::cout << "PACMAN CREATED" << std::endl;
   i = 0;
   while (i < GHOSTS)
     {
       pos = _map->getNextGhostSpawn();
       _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
-      std::cout << "GHOST CREATED [" << i << "]" <<  std::endl;
     }
   _map->setElem(_pacman->getPos(), '#');
   control = -1;

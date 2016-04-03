@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Tue Mar  8 12:18:21 2016 Loïc Weinhard
-// Last update Fri Apr  1 12:41:19 2016 Miele Alexis
+// Last update Sun Apr  3 13:57:38 2016 Valerian Polizzi
 //
 
 #include <unistd.h>
@@ -88,7 +88,6 @@ bool	PMap::hasGums()
 {
   if (_gums <= 0)
     return (false);
-  std::cout << "GUMS LEFT : " << _gums << std::endl;
   return (true);
 }
 
