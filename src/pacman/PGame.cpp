@@ -5,12 +5,13 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Thu Mar 31 16:52:32 2016 Loïc Weinhard
+// Last update Fri Apr  1 16:40:53 2016 Valerian Polizzi
 //
 
 #include "Protocol.hpp"
 #include "PGame.hh"
 #include "Position.hh"
+#include <unistd.h>
 
 PGame::PGame()
 {
@@ -98,4 +99,11 @@ PEntity&	PGame::getPacman() const
 extern "C" IGame *createIGame()
 {
   return (new PGame);
+}
+
+extern "C" void		Play()
+{
+  IGame		*pacman = createIGame();
+
+  IOManager	IO(pacman);
 }

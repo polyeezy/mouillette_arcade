@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:52:29 2016 Valerian Polizzi
-// Last update Mon Mar 21 17:21:55 2016 Valerian Polizzi
+// Last update Fri Apr  1 15:14:58 2016 Valerian Polizzi
 //
 
 #ifndef _LIBRARYMANAGER_HH_
@@ -17,6 +17,7 @@
 # include <ControllerManager.hh>
 # include <IGraphicManager.hh>
 # include <IGame.hpp>
+# include <ArcadeException.hh>
 
 class LibraryManager
 {

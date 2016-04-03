@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar 15 14:18:29 2016 Valerian Polizzi
-// Last update Thu Mar 31 12:48:23 2016 Valerian Polizzi
+// Last update Fri Apr  1 16:26:51 2016 Valerian Polizzi
 //
 
 #ifndef _IGAME_HPP
@@ -14,6 +14,7 @@
 # include <IGraphicManager.hh>
 # include <ControllerManager.hh>
 # include <string>
+# include <IOManager.hh>
 
 class IGame
 {

@@ -5,7 +5,7 @@
 ## Login   <polyeezy@epitech.net>
 ##
 ## Started on  Mon Mar  7 14:22:01 2016 Valerian Polizzi
-## Last update Fri Apr  1 10:49:37 2016 Valerian Polizzi
+## Last update Fri Apr  1 15:16:02 2016 Valerian Polizzi
 ##
 
 CXX		=		g++
@@ -21,6 +21,7 @@ SRC		=		src/main.cpp				\
 				src/Manager/ControllerManager.cpp	\
 				src/Manager/LibraryManager.cpp		\
 				src/General/ArcadeException.cpp		\
+				src/Manager/IOManager.cpp		\
 
 OBJ		=		$(SRC:.cpp=.o)
 
@@ -48,6 +49,8 @@ PACMAN_SRC	=		./src/pacman/PGame.cpp		\
 				./src/pacman/PMap.cpp		\
 				./src/pacman/PEntity.cpp	\
 				./src/General/AEntity.cpp	\
+				./src/Manager/IOManager.cpp	\
+				./src/General/ArcadeException.cpp\
 
 PACMAN_OBJ	=		$(PACMAN_SRC:.cpp=.o)
 

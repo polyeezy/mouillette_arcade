@@ -5,12 +5,11 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar 14 13:54:30 2016 Valerian Polizzi
-// Last update Fri Apr  1 10:54:30 2016 Valerian Polizzi
+// Last update Fri Apr  1 15:11:31 2016 Valerian Polizzi
 //
 
 #include <LibraryManager.hh>
 #include <IGraphicManager.hh>
-#include <ArcadeException.hh>
 
 LibraryManager::LibraryManager() : _dlhandle(NULL)
 {

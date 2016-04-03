@@ -5,9 +5,10 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Thu Mar 31 12:50:34 2016 Valerian Polizzi
+// Last update Fri Apr  1 16:24:56 2016 Valerian Polizzi
 //
 
+#include <IOManager.hh>
 #include <Launcher.hh>
 
 Launcher::Launcher()
@@ -80,11 +81,10 @@ void		Launcher::feedFromRepo(const std::string &repo)
 
 int		Launcher::getKeys()
 {
-
   int		c = 0;
 
- _LGM->refresh();
- while (c != ControllerManager::ESCAPE)
+  _LGM->refresh();
+  while (c != ControllerManager::ESCAPE)
     {
       c = _LGM->getKey();
       switch(c)
