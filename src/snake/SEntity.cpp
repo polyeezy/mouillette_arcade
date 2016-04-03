@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 16:18:20 2016 Miele Alexis
-// Last update Sun Apr  3 14:38:36 2016 Miele Alexis
+// Last update Sun Apr  3 15:03:59 2016 Miele Alexis
 //
 
 #include "SEntity.hh"
@@ -135,8 +135,6 @@ void	SEntity::newBody()
   int x = 0;
   int y = 0;
   
-  for (std::vector<t_snakebody *>::iterator itr = _body.begin(); itr != _body.end(); itr++)
-    std::cout << "x : " << (*itr)->pos.x << "; y : " << (*itr)->pos.y << std::endl;    
   switch (_dir)
     {
     case ControllerManager::UP:
@@ -155,10 +153,8 @@ void	SEntity::newBody()
       x = (_body.size() + 1) * -1;
       break;
     };
-  std::cout << "Body size : " << _body.size() << std::endl;
   newBody->pos.x = pos.x + x;
   newBody->pos.y = pos.y + y;
-  std::cout << "x : " << newBody->pos.x << "; y : " << newBody->pos.y << std::endl;
   _body.push_back(newBody);
 }
 
