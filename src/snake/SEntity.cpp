@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 16:18:20 2016 Miele Alexis
-// Last update Sat Apr  2 23:36:28 2016 Miele Alexis
+// Last update Sun Apr  3 14:38:36 2016 Miele Alexis
 //
 
 #include "SEntity.hh"
@@ -58,11 +58,14 @@ void	SEntity::checkVerticalMove(const SMap *map, const int asc_desc)
 {
   float	speed;
   t_pos	new_pos;
+  t_pos old_pos;
+  t_pos tmp_pos;
 
   new_pos = this->getPos();
   speed = this->getSpeed();
   while (speed > 0)
     {
+      old_pos = new_pos;
       new_pos.y = new_pos.y + (asc_desc * 0.05);
       if (new_pos.y > map->getSize() || new_pos.y < 0)
 	{
@@ -73,12 +76,14 @@ void	SEntity::checkVerticalMove(const SMap *map, const int asc_desc)
       	{
       	  for (size_t i = 0; i < _body.size(); i++)
       	    {
+	      tmp_pos = _body[i]->pos;
       	      if (new_pos.y == _body[i]->pos.y && new_pos.x == _body[i]->pos.x)
       		{
       		  _alive = false;
       		  return;
       		}
-      	      _body[i]->pos.y = _body[i]->pos.y + (asc_desc * 0.10);
+	      _body[i]->pos = old_pos;
+	      old_pos = tmp_pos;
       	    }
       	}
       this->setY(new_pos.y);
@@ -90,11 +95,14 @@ void	SEntity::checkHorizontalMove(const SMap *map, const int left_right)
 {
   float	speed;
   t_pos	new_pos;
+  t_pos old_pos;
+  t_pos tmp_pos;
 
   new_pos = this->getPos();
   speed = this->getSpeed();
   while (speed > 0)
     {
+      old_pos = new_pos;
       new_pos.x = new_pos.x + (left_right * 0.05);
       if (new_pos.x > map->getSize() || new_pos.x < 0)
 	{
@@ -105,12 +113,14 @@ void	SEntity::checkHorizontalMove(const SMap *map, const int left_right)
       	{
       	  for (size_t i = 0; i < _body.size(); i++)
       	    {
+	      tmp_pos = _body[i]->pos;
       	      if (new_pos.y == _body[i]->pos.y && new_pos.x == _body[i]->pos.x)
       		{
       		  _alive = false;
       		  return;
       		}
-      	      _body[i]->pos.x = _body[i]->pos.x + (left_right * 0.10);
+	      _body[i]->pos = old_pos;
+	      old_pos = tmp_pos;
       	    }
       	}
       this->setX(new_pos.x);
@@ -125,23 +135,27 @@ void	SEntity::newBody()
   int x = 0;
   int y = 0;
   
+  for (std::vector<t_snakebody *>::iterator itr = _body.begin(); itr != _body.end(); itr++)
+    std::cout << "x : " << (*itr)->pos.x << "; y : " << (*itr)->pos.y << std::endl;    
   switch (_dir)
     {
     case ControllerManager::UP:
-      y = _body.size();
+      y = _body.size() + 1;
       break;
     case ControllerManager::DOWN:
-      y = _body.size() * -1;
+      y = (_body.size() + 1) * -1;
       break;
     case ControllerManager::LEFT:
-      x = _body.size();
+      x = _body.size() + 1;
       break;
     case ControllerManager::RIGHT:
-      x = _body.size() * -1;
+      x = (_body.size() + 1) * -1;
       break;
     default:
+      x = (_body.size() + 1) * -1;
       break;
     };
+  std::cout << "Body size : " << _body.size() << std::endl;
   newBody->pos.x = pos.x + x;
   newBody->pos.y = pos.y + y;
   std::cout << "x : " << newBody->pos.x << "; y : " << newBody->pos.y << std::endl;
