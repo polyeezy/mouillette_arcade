@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 13:56:17 2016 Loïc Weinhard
-// Last update Fri Apr  1 14:40:31 2016 Miele Alexis
+// Last update Sun Apr  3 11:53:10 2016 Valerian Polizzi
 //
 
 #ifndef PGAME_HH_
@@ -43,5 +43,7 @@ public:
   void		play();
   PEntity&	getPacman() const;
 };
+
+
 
 #endif

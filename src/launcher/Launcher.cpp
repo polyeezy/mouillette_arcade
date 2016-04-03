@@ -5,9 +5,10 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Thu Mar 31 12:50:34 2016 Valerian Polizzi
+// Last update Sun Apr  3 12:03:39 2016 Valerian Polizzi
 //
 
+#include <IOManager.hh>
 #include <Launcher.hh>
 
 Launcher::Launcher()
@@ -48,7 +49,7 @@ void		Launcher::play(const std::string &game, const std::string &lib)
   std::cout << "CREATING GM" << std::endl;
   _currentGame->setGM(libLM.createGM());
   std::cout << "Graphic Manager created " << std::endl;
-  _currentGame->getGM()->createWindow(_menu.getCurrentGame()->getValue());
+  _currentGame->getGM()->createWindow("arcade");
   _currentGame->play();
 }
 
@@ -80,11 +81,10 @@ void		Launcher::feedFromRepo(const std::string &repo)
 
 int		Launcher::getKeys()
 {
-
   int		c = 0;
 
- _LGM->refresh();
- while (c != ControllerManager::ESCAPE)
+  _LGM->refresh();
+  while (c != ControllerManager::ESCAPE)
     {
       c = _LGM->getKey();
       switch(c)

@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Tue Mar  8 11:25:41 2016 Valerian Polizzi
-// Last update Fri Apr  1 17:45:28 2016 Miele Alexis
+// Last update Sun Apr  3 13:55:16 2016 Valerian Polizzi
 //
 
 #include "CacaGraphicManager.hh"
@@ -23,7 +23,45 @@ CacaGraphicManager::CacaGraphicManager()
 
 void		CacaGraphicManager::print(const IMap &map)
 {
-  (void)map;
+  t_pos		pos;
+
+  _surfaces["Arcade"] = caca_get_canvas((caca_display_t*)_Window);
+  pos.y = 0;
+  while (map.getPos(pos) != -1)
+    {
+      pos.x = 0;
+      while (map.getPos(pos) != -2)
+	{
+	  switch (map.getPos(pos))
+	    {
+	    case '0':
+	      caca_set_color_ansi((caca_canvas_t*)_surfaces["Arcade"], CACA_GREEN, CACA_BLACK);
+	      this->addTextToSurface("Arcade", pos.x, pos.y, "*");
+	      break;
+	    case 'G':
+	    case 'x':
+	      caca_set_color_ansi((caca_canvas_t*)_surfaces["Arcade"], CACA_BLACK, CACA_BLACK);
+	      this->addTextToSurface("Arcade", pos.x, pos.y, "*");
+	      break;
+	    case '1':
+	    case 'P':
+	      caca_set_color_ansi((caca_canvas_t*)_surfaces["Arcade"], CACA_BLUE, CACA_BLACK);
+	      this->addTextToSurface("Arcade", pos.x, pos.y, "X");
+	      break;
+	    case '2':
+	      caca_set_color_ansi((caca_canvas_t*)_surfaces["Arcade"], CACA_RED, CACA_BLACK);
+	      this->addTextToSurface("Arcade", pos.x, pos.y, "!");
+	      break;
+	    case '#':
+	      caca_set_color_ansi((caca_canvas_t*)_surfaces["Arcade"], CACA_YELLOW, CACA_BLACK);
+	      this->addTextToSurface("Arcade", pos.x, pos.y, "P");
+	      break;
+	    }
+	  this->refresh();
+	  pos.x++;
+	}
+      pos.y++;
+    }
 }
 void		CacaGraphicManager::close()
 {
@@ -72,14 +110,8 @@ void		CacaGraphicManager::addTextToSurface(const std::string &surface, const int
  {
    //caca_free_canvas((caca_canvas_t*)_surfaces[surface]);
    // this->createSurface(x, y, x, x, surface);
-   caca_set_color_ansi((caca_canvas_t*)_surfaces[surface], CACA_BLUE, CACA_BLACK);
-   caca_put_str((caca_canvas_t*)_surfaces[surface], x, y, "/***********************\\");
-   caca_put_str((caca_canvas_t*)_surfaces[surface], x, y + 1,"|");
-   caca_put_str((caca_canvas_t*)_surfaces[surface], x + 24, y + 1,"|");
-   caca_put_str((caca_canvas_t*)_surfaces[surface], x, y + 2, "\\***********************/");
-   caca_put_str((caca_canvas_t*)_surfaces[surface], x, y + 1, "*************************");
-   caca_set_color_ansi((caca_canvas_t*)_surfaces[surface], CACA_WHITE, CACA_BLACK);
-   caca_put_str((caca_canvas_t*)_surfaces[surface], x + (text.size() / 2), y + 1, text.c_str());
+   //   caca_set_color_ansi((caca_canvas_t*)_surfaces[surface], CACA_BLUE, CACA_BLACK);
+   caca_put_str((caca_canvas_t*)_surfaces[surface], x +  20 + (text.size() / 2), y + 1, text.c_str());
    //std::cout << text.size() << std::endl;
    //   this->refresh();
 }
@@ -94,7 +126,7 @@ int		CacaGraphicManager::getKey() const
   caca_event_t	ev;
   int		c;
 
-  caca_get_event((caca_display_t*)_Window, CACA_EVENT_KEY_PRESS, &ev, -1);
+  caca_get_event((caca_display_t*)_Window, CACA_EVENT_KEY_PRESS, &ev, 0);
   c = caca_get_event_key_ch(&ev);
   switch (c)
     {
@@ -117,7 +149,7 @@ int		CacaGraphicManager::getKey() const
       return (ControllerManager::ACTION);
       break;
     default:
-      return (c);
+      return (0);
       break;
     }
   return (c);
