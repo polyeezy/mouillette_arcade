@@ -5,7 +5,8 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 14:03:53 2016 Loïc Weinhard
-// Last update Fri Apr  1 16:40:53 2016 Valerian Polizzi
+// Last update Sun Apr  3 11:52:42 2016 Valerian Polizzi
+// Last update Sat Apr  2 16:45:45 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -22,6 +23,10 @@ PGame::PGame()
 void		PGame::setGM(IGraphicManager *gm)
 {
   _gm = gm;
+  _gm->setTexture('#', std::string(PACMAN_PATH).append("pacman.png"));
+  _gm->setTexture('0', std::string(PACMAN_PATH).append("pacgum.png"));
+  _gm->setTexture('2', std::string(PACMAN_PATH).append("superpacgum.png"));
+  _gm->setTexture('P', std::string(PACMAN_PATH).append("door.png"));
 }
 
 IGraphicManager	*PGame::getGM()
@@ -46,7 +51,7 @@ PGame::PGame(const std::string &file)
   while (i < GHOSTS)
     {
       pos = _map->getNextGhostSpawn();
-      //   _ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
+      //_ghosts.push_back(new PEntity(PENTITY_WIDTH, PENTITY_HEIGHT, pos, PENTITY_SPEED));
       i += 1;
     }
 }

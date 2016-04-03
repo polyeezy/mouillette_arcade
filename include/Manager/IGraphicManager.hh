@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Wed Mar 16 15:04:24 2016 Valerian Polizzi
-// Last update Wed Mar 30 18:51:51 2016 Loïc Weinhard
+// Last update Fri Apr  1 17:18:56 2016 Miele Alexis
 //
 
 #ifndef _IGRAPGHICMANAGER_HH_
@@ -27,6 +27,7 @@ public:
   virtual void	printMenu(const std::string&, const std::string &, const std::string &) = 0;
   virtual void  print(const IMap&) = 0;
   virtual void close() = 0;
+  virtual void setTexture(const char &, const std::string &) = 0;
   virtual ~IGraphicManager(){}
 };
 

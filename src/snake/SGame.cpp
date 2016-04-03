@@ -5,7 +5,7 @@
 // Login   <miele_a@epitech.net>
 // 
 // Started on  Tue Mar 29 17:50:32 2016 Miele Alexis
-// Last update Fri Apr  1 10:35:35 2016 Miele Alexis
+// Last update Sat Apr  2 23:38:03 2016 Miele Alexis
 //
 
 #include "Protocol.hpp"
@@ -35,6 +35,7 @@ void	SGame::setMap(const std::string &map)
 void            SGame::setGM(IGraphicManager *gm)
 {
   _gm = gm;
+  _gm->setTexture('x', std::string(SNAKE_PATH).append("grass.jpg"));
 }
 
 IGraphicManager *SGame::getGM()
@@ -56,16 +57,30 @@ void	SGame::play()
 {
   t_pos	pos;
   int	control;
+  std::vector<t_snakebody *> body;
 
   pos = _map->getSpawn();
   _snake = new SEntity(SENTITY_WIDTH, SENTITY_HEIGHT, pos, SENTITY_SPEED);
   std::cout << "SNAKE CREATED" << std::endl;
   control = -1;
+  // _snake->newBody();
+  // _snake->newBody();
+  // _snake->newBody();
+  _map->setGum(_snake);
   while (control != ControllerManager::ESCAPE && _snake->getAlive())
     {
       control = this->getGM()->getKey();
       _map->setElem(_snake->getPos(), 'x');
       this->move(control);
+      body = _snake->getBody();
+      if (!body.empty())
+	for(std::vector<t_snakebody *>::iterator itr = body.begin(); itr != body.end(); itr++)
+	  _map->setElem((*itr)->pos, '*');
+      if (_map->getPos(_snake->getPos()) == '0')
+	{
+	  // _snake->newBody();
+	  _map->setGum(_snake);
+	}
       _map->setElem(_snake->getPos(), '#');
       this->getGM()->print(this->getMap());
     }

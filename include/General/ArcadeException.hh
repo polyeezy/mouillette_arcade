@@ -5,11 +5,11 @@
 // Login   <polizz_v@epitech.net>
 // 
 // Started on  Fri Apr  1 10:36:52 2016 Valerian Polizzi
-// Last update Fri Apr  1 10:48:33 2016 Valerian Polizzi
+// Last update Fri Apr  1 17:33:48 2016 Miele Alexis
 //
 
 #ifndef _ARCADEEXCEPTION_HH_
-# define _ARCADEEXCEPTION_HH
+# define _ARCADEEXCEPTION_HH_
 
 # include <exception>
 # include <string>

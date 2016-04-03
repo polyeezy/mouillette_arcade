@@ -5,7 +5,7 @@
 // Login   <weinha_l@epitech.net>
 //
 // Started on  Wed Mar  9 13:56:17 2016 Loïc Weinhard
-// Last update Fri Apr  1 15:40:51 2016 Valerian Polizzi
+// Last update Sun Apr  3 11:53:10 2016 Valerian Polizzi
 //
 
 #ifndef PGAME_HH_
@@ -22,6 +22,7 @@
 # define PENTITY_SPEED	0.5
 # define PENTITY_WIDTH	30
 # define PENTITY_HEIGHT	20
+# define PACMAN_PATH ("./src/pacman/")
 
 class PGame : public IGame
 {

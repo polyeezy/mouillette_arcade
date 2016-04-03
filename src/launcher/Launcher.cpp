@@ -5,7 +5,7 @@
 // Login   <polyeezy@epitech.net>
 //
 // Started on  Mon Mar  7 15:41:57 2016 Valerian Polizzi
-// Last update Fri Apr  1 16:24:56 2016 Valerian Polizzi
+// Last update Sun Apr  3 12:03:39 2016 Valerian Polizzi
 //
 
 #include <IOManager.hh>
@@ -49,7 +49,7 @@ void		Launcher::play(const std::string &game, const std::string &lib)
   std::cout << "CREATING GM" << std::endl;
   _currentGame->setGM(libLM.createGM());
   std::cout << "Graphic Manager created " << std::endl;
-  _currentGame->getGM()->createWindow(_menu.getCurrentGame()->getValue());
+  _currentGame->getGM()->createWindow("arcade");
   _currentGame->play();
 }
 
